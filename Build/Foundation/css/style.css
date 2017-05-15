@@ -1,0 +1,220 @@
+#full{
+	visibility: visible !important;
+	position: relative;
+	min-height: 100%;
+}
+#nav, #nav>li{
+	float: left;
+}
+#nav{
+	width: 100%
+}
+#nav li{
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+#nav a {
+	display: block;
+	height: 2em;
+	line-height: 2em;
+	padding: 0 1.0em;
+	text-decoration: none;
+	background-color: white;
+}
+/*
+#nav ul{
+	position: absolute;
+	z-index: 999;
+	list-style:none;
+	padding-left:0;
+	margin-left: 0;
+	visibility: hidden;
+}
+#nav ul ul{
+	z-index: 998;
+}
+#nav ul ul a{
+	color: #4CB7E1 !important;
+}
+*/
+#nav > :first-child > a{
+	padding-left: 0px !important;
+}
+#socialNav{
+	float: right !important;
+}
+li#socialNav a{
+	padding: 5px;
+	padding-top: 0px;
+}
+.index>a, .index>ul>div>li>a{
+	padding-left: 0px !important;
+}
+.Facebook a{
+	padding-right: 0px !important;
+}
+
+#footer{
+	width: 100%;
+	height: 25px;
+	bottom: 0;
+	left: 0;
+}
+#footerTop{
+	padding-bottom: 25px;
+}
+
+p, h3{
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	text-align: left;
+	color: black;
+	font-size: 16px;
+}
+a, a:visited{
+	cursor: pointer;
+	color: inherit;
+}
+a:hover{
+	color: #4CB7FF;
+}
+a:hover.popBlue{
+	color: #FF9B00 !important;	
+}
+button{
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: top;
+}
+input{
+	width: 100%;
+}
+li, ul{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+.center{text-align: center;}
+.bold{font-weight: bold;}
+.italic{font-style: italic;}
+.nowrap{white-space: nowrap;}
+.pointer{cursor: pointer;}
+.popBlue{color: #4CB7FF !important;}
+.backBlue{background-color: #4CB7FF !important;} 
+.floatRight{float: right;}
+.fullUnderline{border-bottom: solid 1px #000000;}
+.inlineBlock{display: inline-block; *display: inline; zoom: 1;}
+.zeroMargin{margin: 0;}
+.zeroPadding{padding: 0px;}
+.zeroLeftPadding{padding-left: 0px;}
+
+.fontSixteen{font-size: 16px;}
+.fontWhite{color: white;}
+.fontRed{color: red;}
+
+#contactButton{
+	width: 60px;
+	height: 60px;
+}
+#contactButton p{
+	margin-top: 15px;
+	margin-left: 10px;
+}
+#shopButton{
+	width: 40px;
+	height: 40px;
+}
+#shopButton p{
+	font-size: 10px;
+	margin-top: 10px;
+	margin-left: 8px;
+}
+img#search, img#bigSearch{
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+	float: right;
+}
+#searchCover{
+	overflow: hidden;
+	padding-right: .5em;
+}
+
+@media only screen and (max-width: 624px) {
+	p.text{ 
+		font-size: 3.2vw;
+	}
+}
+@media only screen and (min-width: 625px) and (max-width: 1000px) {
+	p.text{ 
+		font-size: 16px;
+	}
+	p#Reach{
+		font-size: 20px;
+	}
+}
+@media only screen and (min-width: 1001px) {
+	p.text{ 
+		font-size: 16px;
+	}
+}
+
+
+@media only screen and (min-width: 0px) {
+	#nav li{
+		font-size: 13px;
+	}
+	#nav a{
+		padding: 0 1px;
+	}
+	#nav ul ul{
+		margin-top: -24px;
+		padding-left: 75px;
+		width: 150px;
+	}
+}
+@media only screen and (min-width: 330px) {
+	#nav li{
+		font-size: 13px;
+	}
+	#nav a{
+		padding: 0 3px;
+	}
+	#nav ul ul{
+		margin-top: -28px;
+		padding-left: 90px;
+		width: 200px;
+	}
+}
+@media only screen and (min-width: 720px) {
+	#nav li{
+		font-size: 25px;
+	}
+	#nav a{
+		padding: 0 8px;
+	}
+	#nav ul ul{
+		margin-top: -42px;
+		padding-left: 130px;
+		width: 300px;
+	}
+	#socialNav{
+		margin-top: 4px !important;
+	}
+}
+@media only screen and (min-width: 970px) {
+	#nav li{
+		font-size: 23px;
+	}
+	#nav a{
+		padding: 0 18px;
+	}
+	#nav ul ul{
+		margin-top: -47px;
+		padding-left: 150px;
+		width: 350px;
+	}
+	#socialNav{
+		margin-top: 6px !important;
+	}
+}
