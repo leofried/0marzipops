@@ -1,6 +1,9 @@
 package main.interfaces;
 
 public abstract class Page {
+
+	final String[] navList = {"Shop", "Custom", "About", "Details", "Contact"};
+	final String[] media = {"Facebook", "Twitter", "Instagram", "Pinterest"};
 	
 	public enum Type{PRODUCT, CATEGORY, SPECIAL};
 	
@@ -14,9 +17,8 @@ public abstract class Page {
 	
 	public Page(String rawName, String location, Type pageType){
 		this.rawName = rawName;
-		this.adjName = rawName.replaceAll("-", "&dash;")
-							.replaceAll("'", "&#39;");
-
+		this.adjName = nameConvert(rawName);
+		
 		this.location = location;
 		
 		this.pageType = pageType;
@@ -68,16 +70,16 @@ public abstract class Page {
 
 		//Navagation bar
 		write += "<div class='row'><div class='small-12 columns'><ul id='nav'>";
-		for(int i=Constants.SPECIALS.length-1; i>=0; i--){
-			write = write + "<li><a href='" + getReverseLocation() + Constants.SPECIALS[i] + ".html#'>" + Constants.SPECIALS[i].toLowerCase() + "</a></li>";
-			if(i != Constants.SPECIALS.length-1){
+		for(int i=0; i<navList.length; i++){
+			write = write + "<li><a href='" + getReverseLocation() + navList[i] + ".html#'>" + navList[i].toLowerCase() + "</a></li>";
+			if(i != navList.length-1){
 				write = write + "<li class='popBlue'>|</li>";
 			}
 		}
 
-		//Social Media pop-ups
-		for(int i=0; i<Constants.MEDIA.length; i++){
-			write = write + "<li class='show-for-medium-up socialNav' id='" + Constants.MEDIA[i] + "'><a href='http://www." + Constants.MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.MEDIA[i] + ".jpg'></img></a></li>";
+		//Social Meida pop-ups
+		for(int i=0; i<media.length; i++){
+			write = write + "<li class='show-for-medium-up " + media[i] + "' id='socialNav'><a href='http://www." + media[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + media[i] + ".jpg'></img></a></li>";
 		}
 		write += "</ul></div></div>";
 
@@ -91,26 +93,28 @@ public abstract class Page {
 	public abstract String buildContent();
 	
 	public String buildFooter(){
-		String write = "";	
+		String write = "";
+		String[] media = {"Pinterest", "Instagram", "Twitter", "Facebook"};
+		
 		
 		//Bottom social media links
 		write += "</div><div id='footer'><div class='row show-for-small-only'><div class='small-6 small-centered columns'><div class='row'>";
-		for(int i=0; i<Constants.MEDIA.length; i++){
-			write += "<div class='small-3 columns'><a href='http://www." + Constants.MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.MEDIA[i] + ".jpg'></img></a></div>";
+		for(int i=0; i<media.length; i++){
+			write += "<div class='small-3 columns'><a href='http://www." + media[i] + ".com/marzipops' target='_blank'><img src='" + getAdd() + "Images/Social Media/Orange " + media[i] + ".jpg'></img></a></div>";
 		}
 		write += "</div></div></div></div></div>" ;
 
 
 		//Pintrist
-		if(pageType == Type.PRODUCT){
+		if(getType() == Type.PRODUCT){
 			write += "<script async defer src='http://assets.pinterest.com/js/pinit.js'></script>";
 		}
 
 		
 		//Foundation
-		write += "</div><script src='" + getReverseLocation() + "Foundation/js/vendor/jquery.js'></script>" +
-				"<script src='" + getReverseLocation() + "Foundation/js/vendor/fastclick.js'></script>" +
-				"<script src='" + getReverseLocation() + "Foundation/js/foundation.min.js'></script>" +
+		write += "</div><script src='" + getAdd() + "Foundation/js/vendor/jquery.js'></script>" +
+				"<script src='" + getAdd() + "Foundation/js/vendor/fastclick.js'></script>" +
+				"<script src='" + getAdd() + "Foundation/js/foundation.min.js'></script>" +
 				"<script>jQuery.noConflict();$(document).foundation();</script>";
 
 		
@@ -129,26 +133,4 @@ public abstract class Page {
 		return write;
 	}
 	
-	public String getRawName(){
-		return rawName;
-	}
-	
-	public String getAdjNam(){
-		return adjName;
-	}
-	
-	public String getLocation(){
-		return location;
-	}
-	
-	public String getReverseLocation(){
-		int numberOfFolders = location.length() - location.replace(".", "").length();
-		
-		String str = "";
-		for(int i=0; i<numberOfFolders; i++){
-			str += "../";
-		}
-		
-		return str;
-	}
 }

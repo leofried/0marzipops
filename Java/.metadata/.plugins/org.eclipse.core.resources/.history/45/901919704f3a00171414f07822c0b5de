@@ -68,9 +68,9 @@ public abstract class Page {
 
 		//Navagation bar
 		write += "<div class='row'><div class='small-12 columns'><ul id='nav'>";
-		for(int i=Constants.SPECIALS.length-1; i>=0; i--){
-			write = write + "<li><a href='" + getReverseLocation() + Constants.SPECIALS[i] + ".html#'>" + Constants.SPECIALS[i].toLowerCase() + "</a></li>";
-			if(i != Constants.SPECIALS.length-1){
+		for(int i=navList.length-1; i>=0; i--){
+			write = write + "<li><a href='" + getReverseLocation() + navList[i] + ".html#'>" + navList[i].toLowerCase() + "</a></li>";
+			if(i != navList.length-1){
 				write = write + "<li class='popBlue'>|</li>";
 			}
 		}
