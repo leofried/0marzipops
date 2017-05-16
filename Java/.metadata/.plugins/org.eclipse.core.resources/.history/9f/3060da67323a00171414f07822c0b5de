@@ -1,0 +1,15 @@
+package main.interfaces;
+
+public abstract class Page {
+
+	public enum Type{PRODUCT, CATEGORY, SPECIAL};
+	
+	private String rawName;
+	private String adjName;
+	
+	private String location;
+	private String reverseLoc;
+	
+	private Type pageType;
+	
+}
