@@ -8,7 +8,7 @@ import main.helpers.Constants;
  * <br>
  *  
  * <br><b>Type:</b> Abstract
- * <br><b>Abstract Methods:</b> String buildContent(), String getHTMLName()
+ * <br><b>Abstract Methods:</b> String buildContent(), String getAdjName()
  * <br><b>Constructors:</b> Page(String, String, Type)
  * <br><b>Enums:</b> Type
  */
@@ -96,7 +96,7 @@ public abstract class Page {
 	 */
 	private String buildHead(){
 		String pageTitle;
-		if(rawName.equals("index")){pageTitle = "marzipops";}else{pageTitle = "marzipops: " + getHTMLName();}
+		if(rawName.equals("index")){pageTitle = "marzipops";}else{pageTitle = "marzipops: " + getAdjName();}
 		
 		String write = "<!doctype html><html>" +
 				"<head>" +
@@ -215,9 +215,9 @@ public abstract class Page {
 
 	/**
 	 * <b>ABSTRACT</b>
-	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
+	 * @return The adjusted name of the page, as it would appear in HTML text or in the title of a webpage.
 	 */
-	public abstract String getHTMLName();
+	public abstract String getAdjName();
 	
 	/**
 	 * @return The location of the file of the page. This does not include the name of the file.

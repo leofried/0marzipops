@@ -1,0 +1,13 @@
+package main.interfaces;
+
+public interface Item {
+
+	
+	public String getRawName();
+	
+	public String getAdjName();
+	
+	public String getImageName();
+	
+	
+}
