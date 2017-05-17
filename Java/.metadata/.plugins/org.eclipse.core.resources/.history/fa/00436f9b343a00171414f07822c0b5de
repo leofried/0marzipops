@@ -1,0 +1,97 @@
+package main.interfaces;
+
+public abstract class Page {
+
+	final String[] navList = {"Shop", "Custom", "About", "Details", "Contact"};
+	final String[] media = {"Facebook", "Twitter", "Instagram", "Pinterest"};
+	
+	public enum Type{PRODUCT, CATEGORY, SPECIAL};
+	
+	private String rawName;
+	private String adjName;
+	
+	private String location;
+	
+	private Type pageType;
+	
+	
+	public Page(String rawName, String location, Type pageType){
+		this.rawName = rawName;
+		this.adjName = nameConvert(rawName);
+		
+		this.location = location;
+		
+		this.pageType = pageType;
+	}
+	
+	public Page(String rawName, String adjName, String location, Type pageType){
+		this.rawName = rawName;
+		this.adjName = adjName;
+		
+		this.location = location;
+		
+		this.pageType = pageType;
+	}
+	
+	
+	public String getHTML(){
+		return buildHead() + buildTop() + buildContent() + buildFooter();
+	}
+	
+	private String buildHead(){
+		String pageTitle;
+		if(rawName.equals("index")){pageTitle = "marzipops";}else{pageTitle = "marzipops: " + adjName;}
+		
+		String write = "<!doctype html><html>" +
+				"<head>" +
+				"<title>" + pageTitle + "</title>" +
+				"<meta name='p:domain_verify' content='b556a9473bc0ff0cfd08b0608c15ffa3'/>" +
+				"<link rel='stylesheet' type='text/css' href='" + reverseLocation(location) + "Foundation/css/foundation.css'></link>" +
+				"<link rel='stylesheet' type='text/css' href='" + reverseLocation(location) + "Foundation/css/style.css'></link>" +
+				"<script src='" + reverseLocation(location) + "Javascript/Javascript.js'></script>" +
+				"<script src='" + reverseLocation(location) + "Javascript/Lists.js'></script>" +
+				"<script src='" + reverseLocation(location) + "Javascript/Search.js'></script>" +
+				"</head>" +
+				"<body onload='javascript(\"" + rawName + "\", \"" + reverseLocation(location) + "\", " + (pageType == Type.PRODUCT) + ")'>";
+		
+		//Website Wrapper
+		write += "<div id='full' style='visibility: hidden;'>";	
+
+		return write;
+	}
+	
+	public String buildTop(){
+		String write = "";
+
+		
+		//Logo and search box
+		write += "<div id='header'>" + Constants.BLANK + "<div class='row id='logo'>";
+			write += "<div class='show-for-medium-up medium-3 columns'>&nbsp</div>";
+			write += "<div class='small-12 medium-6 columns'><a href=" + getAdd() + "index.html><img id='logo' src='" + getAdd() + "Images/Logo.jpg'></imgs></a></div>";
+			write += "<div class='small-12 medium-3 columns' id='searchWrapper'>&nbsp;</div>";
+		write += "</div><br>";
+
+		//Navagation bar
+		write += "<div class='row'><div class='small-12 columns'><ul id='nav'>";
+		for(int i=0; i<navList.length; i++){
+			String linkName = navList[i];
+			write = write + "<li><a href='" + getAdd() + linkName + ".html#'>" + navList[i].toLowerCase() + "</a></li>";
+			if(i != navList.length-1){
+				write = write + "<li class='popBlue'>|</li>";
+			}
+		}
+
+		//Social Meida pop-ups
+		for(int i=0; i<media.length; i++){
+			write = write + "<li class='show-for-medium-up " + media[i] + "' id='socialNav'><a href='http://www." + media[i] + ".com/marzipops' target='_blank'><img src='" + getAdd() + "Images/Social Media/Orange " + media[i] + ".jpg'></img></a></li>";
+		}
+		write += "</ul></div></div>";
+
+		write += Constants.BLANK + "</div>";
+		
+		write += "<div id='content'>";
+
+		return write;
+	}
+	
+}
