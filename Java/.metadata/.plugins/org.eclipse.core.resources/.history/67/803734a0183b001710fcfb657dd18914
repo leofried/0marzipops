@@ -86,7 +86,7 @@ public abstract class Page {
 	/**
 	 * @return The text of the HTML file of this page.
 	 */
-	public String buildHTML(){
+	public String getHTML(){
 		return buildHead() + buildTop() + buildContent() + buildFooter();
 	}
 	

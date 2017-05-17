@@ -1,7 +1,5 @@
 package main.interfaces;
 
-import main.pages.Category;
-
 /**
  * <b>Type:</b> Interface
  * <br>

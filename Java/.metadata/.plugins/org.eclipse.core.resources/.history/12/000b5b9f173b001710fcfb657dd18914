@@ -8,7 +8,7 @@ import main.helpers.Constants;
  * <br>
  *  
  * <br><b>Type:</b> Abstract
- * <br><b>Abstract Methods:</b> String buildContent(), String getHTMLName()
+ * <br><b>Abstract Methods:</b> String buildContent(), String getHTMLName(), String getLocation()
  * <br><b>Constructors:</b> Page(String, String, Type)
  * <br><b>Enums:</b> Type
  */
@@ -86,7 +86,7 @@ public abstract class Page {
 	/**
 	 * @return The text of the HTML file of this page.
 	 */
-	public String buildHTML(){
+	public String getHTML(){
 		return buildHead() + buildTop() + buildContent() + buildFooter();
 	}
 	
