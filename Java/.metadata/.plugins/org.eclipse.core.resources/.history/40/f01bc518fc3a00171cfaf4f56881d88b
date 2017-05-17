@@ -1,0 +1,29 @@
+package main.interfaces;
+
+/**
+ * <b>Type:</b> Interface
+ * <br>
+ * An object that implements the Item interface allows that object to be an item in a Category.
+ */
+public interface Item {
+
+	/**
+	 * @return The raw name of the page, as it would appear on the name of the file.
+	 */
+	public String getRawName();
+	
+	/**
+	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
+	 */
+	public String getHTMLName();
+	
+	public String getImageName();
+	
+	public String getLocation();
+	
+	public String getReverseLocation();
+	
+	public Category getParent();
+	
+	
+}
