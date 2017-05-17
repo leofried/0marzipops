@@ -1,6 +1,7 @@
 package main.interfaces;
 
 import main.helpers.Constants;
+import main.pages.Category;
 
 /** 
  * A Page object represents a page on the marzipops.com website.
@@ -8,7 +9,7 @@ import main.helpers.Constants;
  * <br>
  *  
  * <br><b>Type:</b> Abstract
- * <br><b>Abstract Methods:</b> String buildContent()
+ * <br><b>Abstract Methods:</b> String buildContent(), String getHTMLName()
  * <br><b>Constructors:</b> Page(String, String, Type)
  * <br><b>Enums:</b> Type
  */
@@ -214,11 +215,10 @@ public abstract class Page {
 	}
 
 	/**
+	 * <b>ABSTRACT</b>
 	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
 	 */
-	public String getHTMLName(){
-		return rawName.replaceAll("-", "&dash;").replaceAll("'", "&#39;");
-	}
+	public abstract String getHTMLName();
 	
 	/**
 	 * @return The location of the file of the page. This does not include the name of the file.

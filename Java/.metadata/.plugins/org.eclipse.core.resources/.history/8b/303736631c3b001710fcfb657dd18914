@@ -41,7 +41,7 @@ public interface Item {
 	
 	
 	/**
-	 * @return The part of the HTML file that contains the top location line of the page.
+	 * @return the HTML
 	 */
 	public default String buildTopLine(){
 		String add = getReverseLocation();

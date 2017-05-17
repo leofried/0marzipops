@@ -76,21 +76,4 @@ public class Category extends Page implements Item {
 	}
 	
 	
-	////////////////
-	////GETTERS/////
-	////////////////
-	
-	/**
-	 * @return The name of the page as it would appear in the name of the image. (Capitalized in some cases).
-	 */
-	public String getImageName(){
-		return getRawName().toUpperCase();
-	}
-	
-	/**
-	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
-	 */
-	public Category getParent(){
-		return parent;
-	}
 }

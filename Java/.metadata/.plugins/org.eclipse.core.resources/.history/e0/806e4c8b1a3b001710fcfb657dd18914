@@ -10,29 +10,12 @@ public class Category extends Page implements Item {
 	private Category parent;
 	private ArrayList<Item> listOfItems;
 	
-	
-	////////////////////
-	////CONSTRUCTORS////
-	////////////////////
-	
 	public Category(String name, Category parent){
 		super(name, parent.getChildLocation(), Type.CATEGORY);
 		this.parent = parent;
 		listOfItems = new ArrayList<Item>();
 	}
-	
-	public String getChildLocation(){
-		return getLocation() + getRawName() + "/";
-	}
-	
-	public void addToList(Item item){
-		listOfItems.add(item);
-	}
-	
-	
-	////////////////////////////////
-	//buildContent() AND HELPERS////
-	////////////////////////////////
+
 	
 	public String buildContent(){
 		String write = "";
@@ -71,26 +54,6 @@ public class Category extends Page implements Item {
 		return write;
 	}
 	
-	public String buildBottomForum(){
-		return "";
-	}
 	
 	
-	////////////////
-	////GETTERS/////
-	////////////////
-	
-	/**
-	 * @return The name of the page as it would appear in the name of the image. (Capitalized in some cases).
-	 */
-	public String getImageName(){
-		return getRawName().toUpperCase();
-	}
-	
-	/**
-	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
-	 */
-	public Category getParent(){
-		return parent;
-	}
 }

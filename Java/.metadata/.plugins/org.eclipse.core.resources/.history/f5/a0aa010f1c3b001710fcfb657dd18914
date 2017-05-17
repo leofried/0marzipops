@@ -40,9 +40,7 @@ public interface Item {
 	public Category getParent();
 	
 	
-	/**
-	 * @return The part of the HTML file that contains the top location line of the page.
-	 */
+	
 	public default String buildTopLine(){
 		String add = getReverseLocation();
 
@@ -53,10 +51,10 @@ public interface Item {
 		Category curCat = getParent();
 		String text = "";
 		while(curCat != null){
-			text = "<a href='" + add + curCat.getLocation() + curCat.getRawName() + ".html#'>" + curCat.getHTMLName() + "</a>: " + text;
+			text = "<a href='" + add + curCat.getLoc() + curCat.getLinkName() + ".html#'>" + curCat.getTextName() + "</a>: " + text;
 			curCat = curCat.getParent();
 		}
-		write += text + "<font class='popBlue'>" + getHTMLName() + "</font></p></div></div><br>";
+		write += text + "<font class='popBlue'>" + item.getTextName() + "</font></p></div></div><br>";
 
 		return write;
 	}
