@@ -1,44 +1,100 @@
 package main.interfaces;
 
+/** 
+ * A Page object represents a page on the marzipops.com website.
+ * This is a page of any type: a category, product, contact us, etc.
+ * <br>
+ *  
+ * <br><b>Type:</b> Abstract
+ * <br><b>Abstract Methods:</b> String buildContent(), String getAdjName()
+ * <br><b>Constructors:</b> Page(String, String, Type)
+ * <br><b>Enums:</b> Type
+ */
 public abstract class Page {
 	
-	public enum Type{PRODUCT, CATEGORY, SPECIAL};
 	
+	/////////////
+	////ENUMS////
+	/////////////
+	
+	/**
+	 * An enum that represents the type of a webpage.
+	 * <br>
+	 * <br><b>Values:</b> PRODUCT, CATEGORY, SPECIAL
+	 */
+	public enum Type{
+		/**
+		 * The webpage is a page detailing a product.
+		 */
+		PRODUCT,
+		
+		/**
+		 * The webpage is a page detailing a category of products.
+		 */
+		CATEGORY, 
+		
+		/**
+		 * The webpage is a page that serves some special purpose, such as the About page or the Contact page
+		 */
+		SPECIAL
+	};
+	
+	
+	//////////////////////////
+	////INSTANCE VARIABLES////
+	//////////////////////////
+	
+	/**
+	 * The raw name of the page, as it would appear on the name of the file.
+	 */
 	private String rawName;
-	private String adjName;
-	
+
+	/**
+	 * The location of the file of the page. This does not include the name of the file.
+	 */
 	private String location;
 	
+	/**
+	 * The type of the page.
+	 */
 	private Type pageType;
 	
 	
+	////////////////////
+	////CONSTRUCTORS////
+	////////////////////
+	
+	/**
+	 * The default constructor for a Page object. Assumes that the adjName is a derivative of the rawName.
+	 * @param rawName is the name of the page as it would appear on the name of the file.
+	 * @param location is the location of the page, not including the fileName.
+	 * @param pageType is the type of the page.
+	 */
 	public Page(String rawName, String location, Type pageType){
 		this.rawName = rawName;
-		this.adjName = rawName.replaceAll("-", "&dash;")
-							.replaceAll("'", "&#39;");
-
 		this.location = location;
-		
-		this.pageType = pageType;
-	}
-	
-	public Page(String rawName, String adjName, String location, Type pageType){
-		this.rawName = rawName;
-		this.adjName = adjName;
-		
-		this.location = location;
-		
 		this.pageType = pageType;
 	}
 	
 	
+	/////////////////////////////
+	////getHTML() AND HELPERS////
+	/////////////////////////////
+	
+	/**
+	 * @return The text of the HTML file of this page.
+	 */
 	public String getHTML(){
 		return buildHead() + buildTop() + buildContent() + buildFooter();
 	}
 	
+	/**
+	 * A helper method to getHTML().
+	 * @return The part of the HTML file that contains the information between the head and /head tags.
+	 */
 	private String buildHead(){
 		String pageTitle;
-		if(rawName.equals("index")){pageTitle = "marzipops";}else{pageTitle = "marzipops: " + adjName;}
+		if(rawName.equals("index")){pageTitle = "marzipops";}else{pageTitle = "marzipops: " + getAdjName();}
 		
 		String write = "<!doctype html><html>" +
 				"<head>" +
@@ -58,7 +114,12 @@ public abstract class Page {
 		return write;
 	}
 	
-	public String buildTop(){
+	/**
+	 * A helper method to getHTML().
+	 * @return The part of the HTML file that contains the header above the main content. It appears the same on every page.
+	 */
+	private String buildTop(){
+		
 		//Logo and search box
 		String write = "<div id='header'>" + Constants.BLANK + "<div class='row id='logo'>" +
 				"<div class='show-for-medium-up medium-3 columns'>&nbsp</div>" +
@@ -66,7 +127,7 @@ public abstract class Page {
 				"<div class='small-12 medium-3 columns' id='searchWrapper'>&nbsp;</div>" +
 				"</div><br>";
 
-		//Navagation bar
+		//Navigation bar
 		write += "<div class='row'><div class='small-12 columns'><ul id='nav'>";
 		for(int i=Constants.SPECIALS.length-1; i>=0; i--){
 			write = write + "<li><a href='" + getReverseLocation() + Constants.SPECIALS[i] + ".html#'>" + Constants.SPECIALS[i].toLowerCase() + "</a></li>";
@@ -75,22 +136,31 @@ public abstract class Page {
 			}
 		}
 
-		//Social Media pop-ups
+		//Social Media links
 		for(int i=0; i<Constants.MEDIA.length; i++){
 			write = write + "<li class='show-for-medium-up socialNav' id='" + Constants.MEDIA[i] + "'><a href='http://www." + Constants.MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.MEDIA[i] + ".jpg'></img></a></li>";
 		}
 		write += "</ul></div></div>";
 
+		//Break and Content Header
 		write += Constants.BLANK + "</div>";
-		
 		write += "<div id='content'>";
 
 		return write;
 	}
 	
+	/**
+	 * <b>ABSTRACT</b><br>
+	 * A helper method to getHTML().
+	 * @return The part of the HTML file that contains the main content of the page.
+	 */
 	public abstract String buildContent();
 	
-	public String buildFooter(){
+	/**
+	 * A helper method to getHTML().
+	 * @return The part of the HTML file that contains the footer below the main content. It appears the same on every page.
+	 */
+	private String buildFooter(){
 		String write = "";	
 		
 		//Bottom social media links
@@ -101,7 +171,7 @@ public abstract class Page {
 		write += "</div></div></div></div></div>" ;
 
 
-		//Pintrist
+		//Pinterest
 		if(pageType == Type.PRODUCT){
 			write += "<script async defer src='http://assets.pinterest.com/js/pinit.js'></script>";
 		}
@@ -129,18 +199,34 @@ public abstract class Page {
 		return write;
 	}
 	
+	
+	///////////////
+	////GETTERS////
+	///////////////
+	
+	/**
+	 * @return The raw name of the page, as it would appear on the name of the file.
+	 */
 	public String getRawName(){
 		return rawName;
 	}
+
+	/**
+	 * <b>ABSTRACT</b>
+	 * @return The adjusted name of the page, as it would appear in HTML text or in the title of a webpage.
+	 */
+	public abstract String getAdjName();
 	
-	public String getAdjNam(){
-		return adjName;
-	}
-	
+	/**
+	 * @return The location of the file of the page. This does not include the name of the file.
+	 */
 	public String getLocation(){
 		return location;
 	}
 	
+	/**
+	 * @return The file path to get from the location of the page to the root directory.
+	 */
 	public String getReverseLocation(){
 		int numberOfFolders = location.length() - location.replace(".", "").length();
 		
