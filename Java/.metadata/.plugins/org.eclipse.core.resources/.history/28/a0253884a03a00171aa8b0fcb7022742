@@ -1,0 +1,15 @@
+package main.helpers;
+
+public class Constants {
+
+	/**
+	 * A blank row of HTML.
+	 */
+	public final static String BLANK = "<div class='row'>&nbsp</div>";
+	
+	/**
+	 * List of social media sites that are refrenced on the website.
+	 */
+	public final static String[] LIST_OF_MEDIA = {"Facebook", "Twitter", "Instagram", "Pinterest"};
+	
+}

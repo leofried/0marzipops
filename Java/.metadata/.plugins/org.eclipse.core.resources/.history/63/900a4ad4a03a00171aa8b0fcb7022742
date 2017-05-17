@@ -140,7 +140,7 @@ public abstract class Page {
 
 		//Social Media links
 		for(int i=0; i<Constants.LIST_OF_MEDIA.length; i++){
-			write = write + "<li class='show-for-medium-up socialNav' id='" + Constants.LIST_OF_MEDIA[i] + "'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></li>";
+			write = write + "<li class='show-for-medium-up socialNav' id='" + Constants.MEDIA[i] + "'><a href='http://www." + Constants.MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.MEDIA[i] + ".jpg'></img></a></li>";
 		}
 		write += "</ul></div></div>";
 
@@ -167,8 +167,8 @@ public abstract class Page {
 		
 		//Bottom social media links
 		write += "</div><div id='footer'><div class='row show-for-small-only'><div class='small-6 small-centered columns'><div class='row'>";
-		for(int i=0; i<Constants.LIST_OF_MEDIA.length; i++){
-			write += "<div class='small-3 columns'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></div>";
+		for(int i=0; i<Constants.MEDIA.length; i++){
+			write += "<div class='small-3 columns'><a href='http://www." + Constants.MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.MEDIA[i] + ".jpg'></img></a></div>";
 		}
 		write += "</div></div></div></div></div>" ;
 
