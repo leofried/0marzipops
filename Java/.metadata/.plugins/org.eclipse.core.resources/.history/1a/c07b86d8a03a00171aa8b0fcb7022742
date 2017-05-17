@@ -140,7 +140,7 @@ public abstract class Page {
 
 		//Social Media links
 		for(int i=0; i<Constants.LIST_OF_MEDIA.length; i++){
-			write = write + "<li class='show-for-medium-up socialNav' id='" + Constants.LIST_OF_MEDIA[i] + "'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></li>";
+			write = write + "<li class='show-for-medium-up socialNav' id='" + Constants.LIST_OF_MEDIA[i] + "'><a href='http://www." + Constants.MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.MEDIA[i] + ".jpg'></img></a></li>";
 		}
 		write += "</ul></div></div>";
 

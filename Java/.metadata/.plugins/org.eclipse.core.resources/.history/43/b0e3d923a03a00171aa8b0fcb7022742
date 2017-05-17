@@ -1,0 +1,10 @@
+package main.helpers;
+
+public class Constants {
+
+	/**
+	 * A blank row of HTML.
+	 */
+	public final static String BLANK = "<div class='row'>&nbsp</div>";
+	
+}
