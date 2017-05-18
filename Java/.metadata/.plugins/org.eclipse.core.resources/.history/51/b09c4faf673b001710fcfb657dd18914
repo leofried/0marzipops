@@ -67,10 +67,10 @@ public abstract class Page {
 	////////////////////
 	
 	/**
-	 * The constructor for a Page object. Assumes that the adjName is a derivative of the rawName.
-	 * @param rawName The name of the page as it would appear on the name of the file.
-	 * @param location The location of the page, not including the fileName.
-	 * @param pageType The type of the page.
+	 * The main constructor for a Page object. Assumes that the adjName is a derivative of the rawName.
+	 * @param rawName is the name of the page as it would appear on the name of the file.
+	 * @param location is the location of the page, not including the fileName.
+	 * @param pageType is the type of the page.
 	 */
 	public Page(String rawName, String location, Type pageType){
 		this.rawName = rawName;

@@ -122,7 +122,6 @@ public class Category extends Page implements Item {
 	}
 	
 	/**
-	 * Abstract method of Item.java
 	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){

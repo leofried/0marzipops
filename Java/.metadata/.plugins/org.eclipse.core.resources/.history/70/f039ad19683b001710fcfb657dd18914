@@ -37,18 +37,10 @@ public class Category extends Page implements Item {
 		listOfItems = new ArrayList<Item>();
 	}
 	
-	/**
-	 * A helper method to Category(String, Category).
-	 * @return the location of any child Categories of this Category.
-	 */
 	public String getChildLocation(){
 		return getLocation() + getRawName() + "/";
 	}
 	
-	/**
-	 * Adds an Item to the list of Items that this Category contains.
-	 * @param item An Item to add to the list of Items that this Category contains.
-	 */
 	public void addToList(Item item){
 		listOfItems.add(item);
 	}
@@ -58,10 +50,6 @@ public class Category extends Page implements Item {
 	//buildContent() AND HELPERS////
 	////////////////////////////////
 	
-	/**
-	 * Abstract method of Page.java
-	 * @return The part of the HTML file that contains the main content of the page.
-	 */
 	public String buildContent(){
 		String write = "";
 
@@ -99,11 +87,6 @@ public class Category extends Page implements Item {
 		return write;
 	}
 	
-	/**
-	 * This method is intentionally blank. Index objects will overwrite it,
-	 * because they are the only objects that have a forum at the bottom of the webpage.
-	 * @return The part of the HTML file that contains the forum at the bottom of the page.
-	 */
 	public String buildBottomForum(){
 		return "";
 	}
@@ -114,7 +97,6 @@ public class Category extends Page implements Item {
 	////////////////
 	
 	/**
-	 * Abstract method of Item.java
 	 * @return The name of the page as it would appear in the name of the image. (Capitalized in some cases).
 	 */
 	public String getImageName(){
@@ -122,7 +104,6 @@ public class Category extends Page implements Item {
 	}
 	
 	/**
-	 * Abstract method of Item.java
 	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
