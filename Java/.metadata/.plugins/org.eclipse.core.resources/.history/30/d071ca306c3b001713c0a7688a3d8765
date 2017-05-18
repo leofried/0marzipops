@@ -7,10 +7,6 @@ public class Constants {
 	 */
 	public final static String BLANK = "<div class='row'>&nbsp</div>";
 	
-	/**
-	 * The email that forums should direct to.
-	 */
-	public final static String EMAIL = "dahlia@marzipops.com";
 	
 	
 	/**
