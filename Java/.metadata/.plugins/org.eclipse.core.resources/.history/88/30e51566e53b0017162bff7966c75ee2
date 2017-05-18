@@ -1,7 +1,6 @@
 package main.pages;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import main.interfaces.Item;
 import main.interfaces.Page;
@@ -20,7 +19,7 @@ public class Category extends Page implements Item {
 	/**
 	 * The list of items that are in this category.
 	 */
-	private List<Item> listOfItems;
+	private ArrayList<Item> listOfItems;
 	
 	
 	////////////////////

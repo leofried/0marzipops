@@ -89,22 +89,22 @@ public class Product extends Page implements Item{
 	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
-		return Utility.getCategory(productInfoReader.getInfo(Info.DEFAULT_CATEGORY, id), productInfoReader.getListOfCategories());
+		return Utility.getCategory(productInfoReader.getInfo(Info.DEFAULT_CATEGORY, id));
 	}
 
 	public String getDescription(){
-		return Utility.convertToText(productInfoReader.getInfo(Info.DESCRIPTION, id));
+		return Utility.convertToHTML(productInfoReader.getInfo(Info.DESCRIPTION, id));
 	}
 
 	public String getAvailable(){
-		return Utility.convertToText(productInfoReader.getInfo(Info.AVAILABLE, id));
+		return Utility.convertToHTML(productInfoReader.getInfo(Info.AVAILABLE, id));
 	}
 	
 	public List<Category> getCategories(){
 		List<String> stringList = Arrays.asList(productInfoReader.getInfo(Info.CATEGORIES, id).split("\\s*,\\s*"));
 		List<Category> returnList = new ArrayList<Category>();
 		for(String str : stringList){
-			returnList.add(Utility.getCategory(str, productInfoReader.getListOfCategories()));
+			returnList.add(Utility.getCategory(str));
 		}
 		return returnList;
 	}

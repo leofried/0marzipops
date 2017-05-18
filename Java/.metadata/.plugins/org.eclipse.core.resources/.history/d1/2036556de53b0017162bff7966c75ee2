@@ -1,7 +1,6 @@
 package main.pages;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import main.interfaces.Item;
 import main.interfaces.Page;

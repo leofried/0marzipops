@@ -89,7 +89,7 @@ public class Product extends Page implements Item{
 	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
-		return Utility.getCategory(productInfoReader.getInfo(Info.DEFAULT_CATEGORY, id), productInfoReader.getListOfCategories());
+		return Utility.getCategory(productInfoReader.getInfo(Info.DEFAULT_CATEGORY, id));
 	}
 
 	public String getDescription(){

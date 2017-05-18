@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
-import main.pages.Category;
 
 public class ProductInfoReader {
 
@@ -65,7 +64,7 @@ public class ProductInfoReader {
 		return numberOfProducts;
 	}
 	
-	public ArrayList<Category> getListOfCategories(){
+	public ArrayList<String> getListOfCategories(){
 		return listOfCategories;
 	}
 	
