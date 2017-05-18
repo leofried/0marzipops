@@ -1,7 +1,6 @@
 package main.pages;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import main.helpers.Constants;
 import main.interfaces.Item;
@@ -53,7 +52,7 @@ public class Product extends Page implements Item{
 				+ picture
 				+ "<div class='small-6 columns' id='productDescription'>"
 				+ "<div class='row'><div class='small-12 columns'><p class='text bold'>" + getTextName() + "</p></div></div>"
-				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getDescription() + "</p></div></div>"
+				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getDesciption() + "</p></div></div>"
 				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getAvailable() + ".</p></div></div>"
 				+ "<div class='row'><div class='small-12 columns'>"
 				+ "<a data-pin-do='buttonPin' data-pin-count='above' href='http://www.pinterest.com/pin/create/button/?url=http://www.marzipops.com/Products/" + getRawName() + ".html&media=http://www.marzipops.com/Images/Products/SQB " + getImageName() + " Marzipan Lollipops Marzipops.jpg&description=" + getRawName() + " by marzipops.com'>"
@@ -85,39 +84,34 @@ public class Product extends Page implements Item{
 	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
-		return Utility.getCategory(productInfoReader.getInfo(INFO.DEFAULT_CATEGORY, id));
+		return productInfoReader.getInfo(INFO.DEFAULT_CATEGORY, id);
 	}
 
 	public String getDescription(){
-		return Utility.convertToHTML(productInfoReader.getInfo(INFO.DESCRIPTION, id));
+		return productInfoReader.getInfo(INFO.DESCRIPTION, id);
 	}
 
 	public String getAvailable(){
-		return Utility.convertToHTML(productInfoReader.getInfo(INFO.AVAILABLE, id));
+		return productInfoReader.getInfo(INFO.AVAILABLE, id);
 	}
 	
 	public ArrayList<Category> getCategories(){
-		ArrayList<String> stringList = Arrays.asList(productInfoReader.getInfo(INFO.CATEGORIES, id).split("\\s*,\\s*"));
-		ArrayList<Category> returnList = new ArrayList<Category>();
-		for(String str : stringList){
-			returnList.add(Utility.getCategory(str));
-		}
-		return returnList;
+		return productInfoReader.getInfo(INFO.CATEGORIES, id);
 	}
 	
 	public ArrayList<String> getSearchTerms(){
-		return Arrays.asList(productInfoReader.getInfo(INFO.SEARCH_TERMS, id).split("\\s*,\\s*"));
+		return productInfoReader.getInfo(INFO.SEARCH_TERMS, id);
 	}
 	
 	public int getEtsyCode(){
-		return Integer.parseInt(productInfoReader.getInfo(INFO.ETSY, id));
+		return productInfoReader.getInfo(INFO.ETSY, id);
 	}
 	
 	public int getNumberOfExtraPhotos(){
-		return Integer.parseInt(productInfoReader.getInfo(INFO.EXTRA_PHOTOS, id));
+		return productInfoReader.getInfo(INFO.EXTRA_PHOTOS, id);
 	}
 	
 	public boolean getSoldOut(){
-		return productInfoReader.getInfo(INFO.SOLD_OUT, id) != "";
+		return productInfoReader.getInfo(INFO.SOLD_OUT, id);
 	}
 }

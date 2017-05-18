@@ -1,8 +1,5 @@
 package main.pages;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import main.helpers.Constants;
 import main.interfaces.Item;
 import main.interfaces.Page;
@@ -11,13 +8,11 @@ import main.interfaces.Page;
 public class Product extends Page implements Item{
 
 	ProductInfoReader productInfoReader;
-	int id;
 	
 	public Product(String rawName, ProductInfoReader productInfoReader, int id){
 		super(rawName, "Products/", Type.PRODUCT);
-		this.productInfoReader = productInfoReader;
-		this.id = id;
 	}
+
 
 	public String buildContent(){
 
@@ -53,7 +48,7 @@ public class Product extends Page implements Item{
 				+ picture
 				+ "<div class='small-6 columns' id='productDescription'>"
 				+ "<div class='row'><div class='small-12 columns'><p class='text bold'>" + getTextName() + "</p></div></div>"
-				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getDescription() + "</p></div></div>"
+				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getDesciption() + "</p></div></div>"
 				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getAvailable() + ".</p></div></div>"
 				+ "<div class='row'><div class='small-12 columns'>"
 				+ "<a data-pin-do='buttonPin' data-pin-count='above' href='http://www.pinterest.com/pin/create/button/?url=http://www.marzipops.com/Products/" + getRawName() + ".html&media=http://www.marzipops.com/Images/Products/SQB " + getImageName() + " Marzipan Lollipops Marzipops.jpg&description=" + getRawName() + " by marzipops.com'>"
@@ -85,39 +80,14 @@ public class Product extends Page implements Item{
 	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
-		return Utility.getCategory(productInfoReader.getInfo(INFO.DEFAULT_CATEGORY, id));
+		return ProductInfoReader(INFO.DEFAULT_CATEGORY, getRawName());
 	}
 
 	public String getDescription(){
-		return Utility.convertToHTML(productInfoReader.getInfo(INFO.DESCRIPTION, id));
+		return ProductInfoReader(INFO.DESCRIPTION, getRawName());
 	}
 
 	public String getAvailable(){
-		return Utility.convertToHTML(productInfoReader.getInfo(INFO.AVAILABLE, id));
-	}
-	
-	public ArrayList<Category> getCategories(){
-		ArrayList<String> stringList = Arrays.asList(productInfoReader.getInfo(INFO.CATEGORIES, id).split("\\s*,\\s*"));
-		ArrayList<Category> returnList = new ArrayList<Category>();
-		for(String str : stringList){
-			returnList.add(Utility.getCategory(str));
-		}
-		return returnList;
-	}
-	
-	public ArrayList<String> getSearchTerms(){
-		return Arrays.asList(productInfoReader.getInfo(INFO.SEARCH_TERMS, id).split("\\s*,\\s*"));
-	}
-	
-	public int getEtsyCode(){
-		return Integer.parseInt(productInfoReader.getInfo(INFO.ETSY, id));
-	}
-	
-	public int getNumberOfExtraPhotos(){
-		return Integer.parseInt(productInfoReader.getInfo(INFO.EXTRA_PHOTOS, id));
-	}
-	
-	public boolean getSoldOut(){
-		return productInfoReader.getInfo(INFO.SOLD_OUT, id) != "";
+		return ProductInfoReader(INFO.AVAILABLE, getRawName());
 	}
 }
