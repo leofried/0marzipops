@@ -131,7 +131,7 @@ public class Product extends Page implements Item{
 	}
 
 	/**
-	 * @return a converted-to-text version of the availability of this Product.
+	 * @return a converted-to-text version of the availabilty of this Product.
 	 */
 	public String getAvailable(){
 		return Utility.convertToText(productInfoReader.getInfo(Info.AVAILABLE, id));
@@ -149,10 +149,6 @@ public class Product extends Page implements Item{
 		return returnList;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
 	public List<String> getSearchTerms(){
 		return Arrays.asList(productInfoReader.getInfo(Info.SEARCH_TERMS, id).split("\\s*,\\s*"));
 	}

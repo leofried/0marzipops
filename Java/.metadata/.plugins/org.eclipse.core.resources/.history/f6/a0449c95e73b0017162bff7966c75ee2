@@ -28,32 +28,12 @@ public class Product extends Page implements Item{
 	 */
 	int id;
 	
-	
-	////////////////////
-	////CONSTRUCTORS////
-	////////////////////
-	
-	/**
-	 * The main constructor for a Product Object. It takes an id, rather than a name,
-	 * so a foreign method can create a product object for each Product without knowing the name of each Product.
-	 * @param id The id of this Product.
-	 * @param productInfoReader The Object that information of this Product can be read off of the excel file with.
-	 */
 	public Product(int id, ProductInfoReader productInfoReader){
 		super(productInfoReader.getInfo(Info.RAW_NAME, id), "Products/", Type.PRODUCT);
 		this.productInfoReader = productInfoReader;
 		this.id = id;
 	}
 
-	
-	//////////////////////
-	////buildContent()////
-	//////////////////////
-	
-	/**
-	 * Abstract method of Page.java
-	 * @return The part of the HTML file that contains the main content of the page.
-	 */
 	public String buildContent(){
 
 		String write = "";
@@ -123,23 +103,14 @@ public class Product extends Page implements Item{
 		return Utility.getCategory(productInfoReader.getInfo(Info.DEFAULT_CATEGORY, id), productInfoReader.getListOfCategories());
 	}
 
-	/**
-	 * @return a converted-to-text version of the description of this Product.
-	 */
 	public String getDescription(){
 		return Utility.convertToText(productInfoReader.getInfo(Info.DESCRIPTION, id));
 	}
 
-	/**
-	 * @return a converted-to-text version of the availability of this Product.
-	 */
 	public String getAvailable(){
 		return Utility.convertToText(productInfoReader.getInfo(Info.AVAILABLE, id));
 	}
 	
-	/**
-	 * @return a list of all of the categories that this Product belongs to.
-	 */
 	public List<Category> getCategories(){
 		List<String> stringList = Arrays.asList(productInfoReader.getInfo(Info.CATEGORIES, id).split("\\s*,\\s*"));
 		List<Category> returnList = new ArrayList<Category>();
@@ -149,10 +120,6 @@ public class Product extends Page implements Item{
 		return returnList;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
 	public List<String> getSearchTerms(){
 		return Arrays.asList(productInfoReader.getInfo(Info.SEARCH_TERMS, id).split("\\s*,\\s*"));
 	}

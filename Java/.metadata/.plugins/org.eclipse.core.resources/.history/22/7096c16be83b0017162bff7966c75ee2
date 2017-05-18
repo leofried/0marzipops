@@ -131,15 +131,12 @@ public class Product extends Page implements Item{
 	}
 
 	/**
-	 * @return a converted-to-text version of the availability of this Product.
+	 * @return a converted-to-text version of the description of this Product.
 	 */
 	public String getAvailable(){
 		return Utility.convertToText(productInfoReader.getInfo(Info.AVAILABLE, id));
 	}
 	
-	/**
-	 * @return a list of all of the categories that this Product belongs to.
-	 */
 	public List<Category> getCategories(){
 		List<String> stringList = Arrays.asList(productInfoReader.getInfo(Info.CATEGORIES, id).split("\\s*,\\s*"));
 		List<Category> returnList = new ArrayList<Category>();
@@ -149,10 +146,6 @@ public class Product extends Page implements Item{
 		return returnList;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
 	public List<String> getSearchTerms(){
 		return Arrays.asList(productInfoReader.getInfo(Info.SEARCH_TERMS, id).split("\\s*,\\s*"));
 	}
