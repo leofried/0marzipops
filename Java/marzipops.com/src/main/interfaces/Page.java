@@ -96,19 +96,19 @@ public abstract class Page {
 	 */
 	private String buildHead(){
 		String pageTitle;
-		if(rawName.equals("index")){pageTitle = "marzipops";}else{pageTitle = "marzipops: " + getHTMLName();}
+		if(rawName.equals("index")){pageTitle = "marzipops";}else{pageTitle = "marzipops: " + getTextName();}
 		
-		String write = "<!doctype html><html>" +
-				"<head>" +
-				"<title>" + pageTitle + "</title>" +
-				"<meta name='p:domain_verify' content='b556a9473bc0ff0cfd08b0608c15ffa3'/>" +
-				"<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "Foundation/css/foundation.css'></link>" +
-				"<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "Foundation/css/style.css'></link>" +
-				"<script src='" + getReverseLocation() + "Javascript/Javascript.js'></script>" +
-				"<script src='" + getReverseLocation() + "Javascript/Lists.js'></script>" +
-				"<script src='" + getReverseLocation() + "Javascript/Search.js'></script>" +
-				"</head>" +
-				"<body onload='javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == Type.PRODUCT) + ")'>";
+		String write = "<!doctype html><html>"
+				+ "<head>"
+				+ "<title>" + pageTitle + "</title>"
+				+ "<meta name='p:domain_verify' content='b556a9473bc0ff0cfd08b0608c15ffa3'/>"
+				+ "<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "Foundation/css/foundation.css'></link>"
+				+ "<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "Foundation/css/style.css'></link>"
+				+ "<script src='" + getReverseLocation() + "Javascript/Javascript.js'></script>"
+				+ "<script src='" + getReverseLocation() + "Javascript/Lists.js'></script>"
+				+ "<script src='" + getReverseLocation() + "Javascript/Search.js'></script>"
+				+ "</head>"
+				+ "<body onload='javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == Type.PRODUCT) + ")'>";
 		
 		//Website Wrapper
 		write += "<div id='full' style='visibility: hidden;'>";	
@@ -123,11 +123,11 @@ public abstract class Page {
 	private String buildTop(){
 		
 		//Logo and search box
-		String write = "<div id='header'>" + Constants.BLANK + "<div class='row id='logo'>" +
-				"<div class='show-for-medium-up medium-3 columns'>&nbsp</div>" +
-				"<div class='small-12 medium-6 columns'><a href=" + getReverseLocation() + "index.html><img id='logo' src='" + getReverseLocation() + "Images/Logo.jpg'></imgs></a></div>" +
-				"<div class='small-12 medium-3 columns' id='searchWrapper'>&nbsp;</div>" +
-				"</div><br>";
+		String write = "<div id='header'>" + Constants.BLANK + "<div class='row id='logo'>"
+				+ "<div class='show-for-medium-up medium-3 columns'>&nbsp</div>"
+				+ "<div class='small-12 medium-6 columns'><a href=" + getReverseLocation() + "index.html><img id='logo' src='" + getReverseLocation() + "Images/Logo.jpg'></imgs></a></div>"
+				+ "<div class='small-12 medium-3 columns' id='searchWrapper'>&nbsp;</div>"
+				+ "</div><br>";
 
 		//Navigation bar
 		write += "<div class='row'><div class='small-12 columns'><ul id='nav'>";
@@ -180,21 +180,21 @@ public abstract class Page {
 
 		
 		//Foundation
-		write += "</div><script src='" + getReverseLocation() + "Foundation/js/vendor/jquery.js'></script>" +
-				"<script src='" + getReverseLocation() + "Foundation/js/vendor/fastclick.js'></script>" +
-				"<script src='" + getReverseLocation() + "Foundation/js/foundation.min.js'></script>" +
-				"<script>jQuery.noConflict();$(document).foundation();</script>";
+		write += "</div><script src='" + getReverseLocation() + "Foundation/js/vendor/jquery.js'></script>"
+				+ "<script src='" + getReverseLocation() + "Foundation/js/vendor/fastclick.js'></script>"
+				+ "<script src='" + getReverseLocation() + "Foundation/js/foundation.min.js'></script>"
+				+ "<script>jQuery.noConflict();$(document).foundation();</script>";
 
 		
 		//Google Analytics
-		write += "<script>" +
-					"(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){" +
-						"(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o)," +
-						"m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)" +
-					"})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');" +
-					"ga('create', 'UA-78064797-1', 'auto');" +
-					"ga('send', 'pageview');" +
-  				"</script>";
+		write += "<script>"
+				+ "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
+				+ 	"(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"
+				+ 		"m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"
+				+ 	"})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');"
+				+ 	"ga('create', 'UA-78064797-1', 'auto');"
+				+ 	"ga('send', 'pageview');"
+				+ "</script>";
 
 		write += "</body></html>";
 
@@ -216,7 +216,7 @@ public abstract class Page {
 	/**
 	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
 	 */
-	public String getHTMLName(){
+	public String getTextName(){
 		return rawName.replaceAll("-", "&dash;").replaceAll("'", "&#39;");
 	}
 	

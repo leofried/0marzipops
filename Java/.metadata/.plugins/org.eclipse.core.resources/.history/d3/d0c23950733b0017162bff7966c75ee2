@@ -1,0 +1,5 @@
+package main.pages;
+
+public class Product extends Page.java implements Item{
+
+}

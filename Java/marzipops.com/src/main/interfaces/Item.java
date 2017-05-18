@@ -17,7 +17,7 @@ public interface Item {
 	/**
 	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
 	 */
-	public String getHTMLName();
+	public String getTextName();
 	
 	/**
 	 * @return The name of the page as it would appear in the name of the image. (Capitalized in some cases).
@@ -53,10 +53,10 @@ public interface Item {
 		Category curCat = getParent();
 		String text = "";
 		while(curCat != null){
-			text = "<a href='" + add + curCat.getLocation() + curCat.getRawName() + ".html#'>" + curCat.getHTMLName() + "</a>: " + text;
+			text = "<a href='" + add + curCat.getLocation() + curCat.getRawName() + ".html#'>" + curCat.getTextName() + "</a>: " + text;
 			curCat = curCat.getParent();
 		}
-		write += text + "<font class='popBlue'>" + getHTMLName() + "</font></p></div></div><br>";
+		write += text + "<font class='popBlue'>" + getTextName() + "</font></p></div></div><br>";
 
 		return write;
 	}

@@ -1,0 +1,84 @@
+package main.pages;
+
+import main.interfaces.Item;
+import main.interfaces.Page;
+
+public class Product extends Page implements Item{
+
+	public Product(String rawName){
+		super(rawName, "Products/", Type.PRODUCT);
+	}
+	
+	
+	public String buildContent(){
+		
+		String write = "";
+		
+		//Location Line
+		write += buildTopLine();
+		
+		
+		//Picture Text
+		String picture = "";
+		picture += "<div class='small-6 columns' id='productPic'><img src='../Images/Products/SQB " + getPicName() + " Marzipan Lollipops Marzipops.jpg' id='mainPic'></img>" +
+		"<p class='text'>Click <a class='popBlue' href='../Custom.html#'>here</a> for custom&nbsp;orders.</p>" +
+				"</div>";
+		
+		
+		//Buy Now Text
+		String buyNow = "";
+		if(!soldOut){
+			buyNow += "<div class='small-6 medium-3 large-2 columns end zeroPadding'><a href='http://www.etsy.com/listing/" + etsyCode + "' target='_blank'><img src='../Images/Click Images/Buy Now.jpg'></img></a></div>";
+		}
+		else{
+			buyNow += "<div class='small-12 columns'>";
+				buyNow += "<p class='text bold fontRed'>SOLD OUT</p>";
+				buyNow += "<p class='text'>Sorry, we are sold out of " + getTextName() + ".<br>"
+						+ "Browse our <a href='../index.html' class='popBlue'>other products,</a> "
+						+ "or visit our <a href='www.etsy.com/shop/marzipops' class='popBlue'>Etsy shop.</a><br>";
+				buyNow += "You can also check back later.</p>";
+			buyNow += "</div>";
+		}
+		
+		
+		//Build Picture and Description
+		write += "<div class='row' id='picDiscWrapper'>";
+			write += picture;
+			write += "<div class='small-6 columns' id='productDescription'>";
+				write += "<div class='row'><div class='small-12 columns'><p class='text bold'>" + getTextName() + "</p></div></div>";
+				write += "<div class='row'><div class='small-12 columns'><p class='text'>" + Utility.textConvert(discription) + "</p></div></div>";
+				write += "<div class='row'><div class='small-12 columns'><p class='text'>" + available.replaceAll(" or ", "&nbsp;or&nbsp;") + ".</p></div></div>";
+				write += "<div class='row'><div class='small-12 columns'>";
+					write += "<a data-pin-do='buttonPin' data-pin-count='above' href='http://www.pinterest.com/pin/create/button/?url=http://www.marzipops.com/Products/" + getLinkName() + ".html&media=http://www.marzipops.com/Images/Products/SQB " + getPicName() + " Marzipan Lollipops Marzipops.jpg&description=" + getLinkName() + " by marzipops.com'>";
+						write += "<img src='http://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png'/>";
+					write += "</a>&nbsp;";
+				write += "</div></div><br>";
+				write += "<div class='row'>" + buyNow + "</div>";
+			write += "</div>";
+		write += "</div>" + Constants.BLANK;
+		
+		
+		//Build Suggested Pics
+		Item[] suggested = getSuggestedPics(replacements);
+		
+		write += "<div class='row'><div class='small-12 columns'><p class='text bold center'>More sweet treats!</p></div></div>";
+		write += "<div class='row' id='suggestedPics'>";
+			write += "<div class='show-for-medium-up medium-3 columns'>&nbsp;</div>";
+			write += "<div class='small-4 medium-2 columns'><a href='" + suggested[0].getLinkName() + ".html'>";
+				write += "<div class='row'><div class='small-12 columns'><img src='../Images/Products/SQB " + suggested[0].getPicName() + " Marzipan Lollipops Marzipops.jpg'></div></div>";
+				write += "<div class='row'><div class='small-12 columns'><p class='center'>" + suggested[0].getTextName() + "</p></div></div>";
+			write += "</div><div class='small-4 medium-2 columns'><a href='" + suggested[1].getLinkName() + ".html'>";
+				write += "<div class='row'><div class='small-12 columns'><img src='../Images/Products/SQB " + suggested[1].getPicName() + " Marzipan Lollipops Marzipops.jpg'></div></div>";
+				write += "<div class='row'><div class='small-12 columns'><p class='center'>" + suggested[1].getTextName() + "</p></div></div>";
+			write += "</div><div class='small-4 medium-2 columns'><a href='" + suggested[2].getLinkName() + ".html'>";
+				write += "<div class='row'><div class='small-12 columns'><img src='../Images/Products/SQB " + suggested[2].getPicName() + " Marzipan Lollipops Marzipops.jpg'></div></div>";
+				write += "<div class='row'><div class='small-12 columns'><p class='center'>" + suggested[2].getTextName() + "</p></div></div>";
+			write += "</div>";
+			write += "<div class='show-for-medium-up medium-3 columns'>&nbsp;</div>";
+		write += "</div>";
+		
+		return write;
+	}
+	
+	
+}
