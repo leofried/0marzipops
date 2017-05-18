@@ -8,7 +8,7 @@ import main.helpers.Constants;
  * <br>
  *  
  * <br><b>Type:</b> Abstract
- * <br><b>Abstract Methods:</b> String buildContent(), String getHTMLName()
+ * <br><b>Abstract Methods:</b> String buildContent()
  * <br><b>Constructors:</b> Page(String, String, Type)
  * <br><b>Enums:</b> Type
  */
@@ -67,10 +67,10 @@ public abstract class Page {
 	////////////////////
 	
 	/**
-	 * The default constructor for a Page object. Assumes that the adjName is a derivative of the rawName.
-	 * @param rawName is the name of the page as it would appear on the name of the file.
-	 * @param location is the location of the page, not including the fileName.
-	 * @param pageType is the type of the page.
+	 * The constructor for a Page object. Assumes that the adjName is a derivative of the rawName.
+	 * @param rawName The name of the page as it would appear on the name of the file.
+	 * @param location The location of the page, not including the fileName.
+	 * @param pageType The type of the page.
 	 */
 	public Page(String rawName, String location, Type pageType){
 		this.rawName = rawName;
@@ -86,7 +86,7 @@ public abstract class Page {
 	/**
 	 * @return The text of the HTML file of this page.
 	 */
-	public String getHTML(){
+	public String buildHTML(){
 		return buildHead() + buildTop() + buildContent() + buildFooter();
 	}
 	
@@ -214,10 +214,11 @@ public abstract class Page {
 	}
 
 	/**
-	 * <b>ABSTRACT</b>
 	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
 	 */
-	public abstract String getHTMLName();
+	public String getHTMLName(){
+		return rawName.replaceAll("-", "&dash;").replaceAll("'", "&#39;");
+	}
 	
 	/**
 	 * @return The location of the file of the page. This does not include the name of the file.

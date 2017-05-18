@@ -1,5 +1,7 @@
 package main.interfaces;
 
+import main.pages.Category;
+
 /**
  * <b>Type:</b> Interface
  * <br>
@@ -36,6 +38,28 @@ public interface Item {
 	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent();
+	
+	
+	/**
+	 * @return The part of the HTML file that contains the top location line of the page.
+	 */
+	public default String buildTopLine(){
+		String add = getReverseLocation();
+
+		String write = "";
+		write += "<div class='row'><div class='small-12 columns'><p class='fullUnderline zeroMargin'>";
+		write += "<a href='" + add + "Shop.html#'>shop</a>: ";
+
+		Category curCat = getParent();
+		String text = "";
+		while(curCat != null){
+			text = "<a href='" + add + curCat.getLocation() + curCat.getRawName() + ".html#'>" + curCat.getHTMLName() + "</a>: " + text;
+			curCat = curCat.getParent();
+		}
+		write += text + "<font class='popBlue'>" + getHTMLName() + "</font></p></div></div><br>";
+
+		return write;
+	}
 	
 	
 }
