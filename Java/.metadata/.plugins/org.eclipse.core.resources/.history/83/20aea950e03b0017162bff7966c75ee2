@@ -1,0 +1,21 @@
+package main.readers;
+
+public class ProductInfoReader {
+
+
+	public enum INFO {
+
+		EMPTY ("Empty"),
+		RED ("Red"),
+		YELLOW ("Yellow");
+
+		
+		private int String column;
+		private INFO(final String column) {
+			this.column = column;
+		}
+		public String getValue() { return value; }
+	}
+
+
+}
