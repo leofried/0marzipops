@@ -20,7 +20,7 @@ public class Index extends Category {
 	}
 
 	/**
-	 * @return The part of the HTML file that contains the forum at the bottom of the page.
+	 * 
 	 */
 	public String buildBottomForum(){
 		String write = "";

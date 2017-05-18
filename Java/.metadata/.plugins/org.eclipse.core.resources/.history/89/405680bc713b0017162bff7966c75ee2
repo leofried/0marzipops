@@ -4,24 +4,15 @@ import main.helpers.Constants;
 
 public class Index extends Category {
 	
-	/**
-	 * The main constructor for an Index object
-	 * @param rawName The name of the page as it would appear on the name of the file. 
-	 */
+	
 	public Index(String rawName){
-		super(rawName, null);
+		super("", null);
 	}
 	
-	/**
-	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
-	 */
 	public String getHTMLName(){
 		return getRawName().replaceAll("SignedUp", "");
 	}
 
-	/**
-	 * @return The part of the HTML file that contains the forum at the bottom of the page.
-	 */
 	public String buildBottomForum(){
 		String write = "";
 
@@ -43,8 +34,6 @@ public class Index extends Category {
 				 "</div>" +
 			 "</div>";
 		}
-		
-		return write;
 	}
 	
 }
