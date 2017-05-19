@@ -60,7 +60,7 @@ public class Category extends Page implements Item {
 	//////////////////////////////////
 	
 	/**
-	 * Allows the use of a default method to fulfill an abstract one.
+	 * Allows the use of a defualt method to fulfill an abstract one.
 	 */
 	public String buildTopLine(){ return Item.super.buildTopLine();}
 	

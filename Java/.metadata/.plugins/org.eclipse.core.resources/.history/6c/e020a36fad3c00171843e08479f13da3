@@ -3,19 +3,12 @@ package main.pages;
 import main.helpers.Constants;
 import main.interfaces.Page;
 
-public abstract class Special extends Page {
+public class Special extends Page {
 	
-	/**
-	 * Constructor for a Special Page
-	 * @param rawName The raw name of the page, as it would appear on the name of the file.
-	 */
 	public Special(String rawName){
 		super(rawName, "", Type.SPECIAL);
 	}
 	
-	/**
-	 * @return The part of the HTML file that contains the top line.
-	 */
 	public String buildTopLine(){
 		return "<div class='row'><div class='small-12 columns'><p class='fullUnderline zeroMargin popBlue'>"
 				+ getTextName() + "</p></div></div><br>";
@@ -39,6 +32,9 @@ public abstract class Special extends Page {
 		write += "<input type='hidden' name='_next' value='" + destination + "'>";
 		write += "<button type='submit' id='contactButton' class='backBlue'><p class='fontWhite'>Send</p></button></form></div>";
 		return write;
-	}	
+	}
+	
+	
+	
 	
 }

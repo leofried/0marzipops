@@ -39,6 +39,9 @@ public abstract class Special extends Page {
 		write += "<input type='hidden' name='_next' value='" + destination + "'>";
 		write += "<button type='submit' id='contactButton' class='backBlue'><p class='fontWhite'>Send</p></button></form></div>";
 		return write;
-	}	
+	}
+	
+	
+	
 	
 }
