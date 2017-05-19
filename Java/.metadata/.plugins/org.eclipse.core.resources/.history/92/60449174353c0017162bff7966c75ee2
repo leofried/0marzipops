@@ -22,28 +22,22 @@ public class Utility {
 				.replaceAll("9", "<br>")
 				.replaceAll("…", "&hellip;")
 
-				.replaceAll("~&lsquo;", "1")
-				.replaceAll("~&rsquo;", "2")
-				.replaceAll("~&ldquo;", "3")
-				.replaceAll("~&rdquo;", "4")
-				.replaceAll("~5", "5")
-				.replaceAll("~&ntilde", "6")
-				.replaceAll("~&hellip;", "7")
-				.replaceAll("~8", "8")
-				.replaceAll("~<br>", "9")
+				.replaceAll("~&lsquo;", "1");
+				.replaceAll("~&rsquo;", "2");
+				.replaceAll("~&ldquo;", "3");
+			.replaceAll("~&rdquo;", "4");
+			.replaceAll("~5", "5");
+				.replaceAll("~&ntilde", "6");
+				.replaceAll("~&hellip;", "7");
+				.replaceAll("~8", "8");
+				.replaceAll("~<br>", "9");
 				.replaceAll("~0", "0");
 	}
 	
 	
-	/**
-	 * Find the Category with a certain name given a list of Categories.
-	 * @param rawName The name of Category to search for.
-	 * @param listOfCategories The list of Categories to search through.
-	 * @return The Category with the name rawName.
-	 */
-	public static Category getCategory(String rawName, List<Category> listOfCategories){
+	public static Category getCategory(String str, List<Category> listOfCategories){
 		for(Category c : listOfCategories){
-			if(rawName.equals(c.getRawName())){
+			if(str.equals(c.getRawName())){
 				return c;
 			}
 		}

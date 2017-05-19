@@ -117,28 +117,28 @@ public class Product extends Page implements Item{
 
 	/**
 	 * Abstract method of Item.java
-	 * @return The default parent Category to this item. (The one that would appear in the top filepath bar.
+	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
 		return Utility.getCategory(productInfoReader.getInfo(Info.DEFAULT_CATEGORY, id), productInfoReader.getListOfCategories());
 	}
 
 	/**
-	 * @return A converted-to-text version of the description of this Product.
+	 * @return a converted-to-text version of the description of this Product.
 	 */
 	public String getDescription(){
 		return Utility.convertToText(productInfoReader.getInfo(Info.DESCRIPTION, id));
 	}
 
 	/**
-	 * @return A converted-to-text version of the availability of this Product.
+	 * @return a converted-to-text version of the availability of this Product.
 	 */
 	public String getAvailable(){
 		return Utility.convertToText(productInfoReader.getInfo(Info.AVAILABLE, id));
 	}
 	
 	/**
-	 * @return A list of all of the categories that this Product belongs to.
+	 * @return a list of all of the categories that this Product belongs to.
 	 */
 	public List<Category> getCategories(){
 		List<String> stringList = Arrays.asList(productInfoReader.getInfo(Info.CATEGORIES, id).split("\\s*,\\s*"));
@@ -150,29 +150,20 @@ public class Product extends Page implements Item{
 	}
 	
 	/**
-	 * @return A list of all of the keywords that should bring up this Product during a search.
+	 * @return a list of all of the keywords that should bring up this Product during a search.
 	 */
 	public List<String> getSearchTerms(){
 		return Arrays.asList(productInfoReader.getInfo(Info.SEARCH_TERMS, id).split("\\s*,\\s*"));
 	}
 	
-	/**
-	 * @return The code for the etsy page of this Product.
-	 */
 	public int getEtsyCode(){
 		return Integer.parseInt(productInfoReader.getInfo(Info.ETSY, id));
 	}
 	
-	/**
-	 * @return The number of extra photos this Product has.
-	 */
 	public int getNumberOfExtraPhotos(){
 		return Integer.parseInt(productInfoReader.getInfo(Info.EXTRA_PHOTOS, id));
 	}
 	
-	/**
-	 * @return Whether this Product is sold out.
-	 */
 	public boolean getSoldOut(){
 		return productInfoReader.getInfo(Info.SOLD_OUT, id) != "";
 	}

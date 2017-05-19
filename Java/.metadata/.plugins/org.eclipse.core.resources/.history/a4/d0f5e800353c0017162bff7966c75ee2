@@ -163,16 +163,10 @@ public class Product extends Page implements Item{
 		return Integer.parseInt(productInfoReader.getInfo(Info.ETSY, id));
 	}
 	
-	/**
-	 * @return The number of extra photos this Product has.
-	 */
 	public int getNumberOfExtraPhotos(){
 		return Integer.parseInt(productInfoReader.getInfo(Info.EXTRA_PHOTOS, id));
 	}
 	
-	/**
-	 * @return Whether this Product is sold out.
-	 */
 	public boolean getSoldOut(){
 		return productInfoReader.getInfo(Info.SOLD_OUT, id) != "";
 	}

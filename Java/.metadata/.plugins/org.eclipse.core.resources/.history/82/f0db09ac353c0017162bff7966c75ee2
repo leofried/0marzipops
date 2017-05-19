@@ -37,9 +37,9 @@ public class Utility {
 	
 	/**
 	 * Find the Category with a certain name given a list of Categories.
-	 * @param rawName The name of Category to search for.
-	 * @param listOfCategories The list of Categories to search through.
-	 * @return The Category with the name rawName.
+	 * @param str
+	 * @param listOfCategories
+	 * @return
 	 */
 	public static Category getCategory(String rawName, List<Category> listOfCategories){
 		for(Category c : listOfCategories){
