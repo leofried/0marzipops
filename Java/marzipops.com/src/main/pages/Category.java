@@ -60,6 +60,12 @@ public class Category extends Page implements Item {
 	//////////////////////////////////
 	
 	/**
+	 * Allows the use of a default method to fulfill an abstract one.
+	 */
+	public String buildTopLine(){ return Item.super.buildTopLine();}
+	
+	
+	/**
 	 * Abstract method of Page.java
 	 * @return The part of the HTML file that contains the main content of the page.
 	 */
