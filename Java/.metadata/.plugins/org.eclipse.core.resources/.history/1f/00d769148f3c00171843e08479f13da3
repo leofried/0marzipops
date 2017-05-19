@@ -1,0 +1,7 @@
+package main.pages;
+
+import main.interfaces.Page;
+
+public class Special extends Page {
+
+}

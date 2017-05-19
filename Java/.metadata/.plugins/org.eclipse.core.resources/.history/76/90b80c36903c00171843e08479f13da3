@@ -80,7 +80,7 @@ public abstract class Page {
 	
 	
 	/////////////////////////////
-	////buildHTML() AND HELPERS////
+	////getHTML() AND HELPERS////
 	/////////////////////////////
 	
 	/**
@@ -91,7 +91,7 @@ public abstract class Page {
 	}
 	
 	/**
-	 * A helper method to buildHTML().
+	 * A helper method to getHTML().
 	 * @return The part of the HTML file that contains the information between the head and /head tags.
 	 */
 	private String buildHead(){
@@ -117,7 +117,7 @@ public abstract class Page {
 	}
 	
 	/**
-	 * A helper method to buildHTML().
+	 * A helper method to getHTML().
 	 * @return The part of the HTML file that contains the header above the main content. It appears the same on every page.
 	 */
 	private String buildTop(){
@@ -154,22 +154,20 @@ public abstract class Page {
 		return write;
 	}
 	
-	/**
-	 * <b>ABSTRACT</b><br>
-	 * A helper method to buildTop().
-	 * @return The part of the HTML file that contains the top line.
-	 */
-//	public abstract String buildTopLine();
+	
+	public absgtrcat buildTopLine(){
+		
+	}
 	
 	/**
 	 * <b>ABSTRACT</b><br>
-	 * A helper method to buildHTML().
+	 * A helper method to getHTML().
 	 * @return The part of the HTML file that contains the main content of the page.
 	 */
 	public abstract String buildContent();
 	
 	/**
-	 * A helper method to buildHTML().
+	 * A helper method to getHTML().
 	 * @return The part of the HTML file that contains the footer below the main content. It appears the same on every page.
 	 */
 	private String buildFooter(){

@@ -159,7 +159,7 @@ public abstract class Page {
 	 * A helper method to buildTop().
 	 * @return The part of the HTML file that contains the top line.
 	 */
-//	public abstract String buildTopLine();
+	public abstract String buildTopLine();
 	
 	/**
 	 * <b>ABSTRACT</b><br>
