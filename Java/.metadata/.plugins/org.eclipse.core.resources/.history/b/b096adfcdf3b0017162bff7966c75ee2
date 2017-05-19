@@ -1,0 +1,10 @@
+package main.readers;
+
+public class ProductInfoReader {
+
+	public enum INFO{
+		
+	}
+	
+	
+}
