@@ -65,50 +65,23 @@ public class ProductInfoReader {
 		 * The column in the excel file that the Info can be found in.
 		 */
 		private int column;
-		
-		/**
-		 * Constructor for an Info enum.
-		 * @param column The column in the excel file that the Info can be found in.
-		 */
 		private Info(final int column){
 			this.column = column;
 		}
-		
-		/**
-		 * @return The column in the excel file that the Info can be found in.
-		 */
 		public int getColumn(){
 			return column;
 		}
 	}
 
-	/**
-	 * What row the excel file start listing Products.
-	 */
 	private static final int START = 2;
 
-	/**
-	 * The number of Products listed in the excel file.
-	 */
 	private int numberOfProducts;
 
-	/**
-	 * Each product and then the info about each product.
-	 */
 	private String[][] sheetContents;
 
-	/**
-	 * The list of Categories.
-	 */
 	private ArrayList<Category> listOfCategories;
 
-	/**
-	 * The main constructor for a ProductInfoReader object.
-	 * @param fileLocation The location of the excel file that this ProductInfoReader should read from.
-	 * @param listOfCategories The list of Categories.
-	 * @throws BiffException Workbook.getWorkbook(File)
-	 * @throws IOException Workbook.getWorkbook(File)
-	 */
+
 	public ProductInfoReader(String fileLocation, ArrayList<Category> listOfCategories) throws BiffException, IOException{
 		File file = new File(fileLocation);
 		Workbook w = Workbook.getWorkbook(file);
@@ -127,26 +100,14 @@ public class ProductInfoReader {
 		this.listOfCategories = listOfCategories;
 	}
 	
-	/**
-	 * @return The number of Products listed in the excel file.
-	 */
 	public int getNumberOfProducts(){
 		return numberOfProducts;
 	}
 	
-	/**
-	 * @return The list of Categories.
-	 */
 	public ArrayList<Category> getListOfCategories(){
 		return listOfCategories;
 	}
 	
-	/**
-	 * Get a piece of info about a particular Product.
-	 * @param info The piece of info to return.
-	 * @param id The id of the Product to check about.
-	 * @return The piece of info about a particular Product.
-	 */
 	public String getInfo(Info info, int id){
 		 return sheetContents[id][info.ordinal()];
 	}

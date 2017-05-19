@@ -134,19 +134,10 @@ public class ProductInfoReader {
 		return numberOfProducts;
 	}
 	
-	/**
-	 * @return The list of Categories.
-	 */
 	public ArrayList<Category> getListOfCategories(){
 		return listOfCategories;
 	}
 	
-	/**
-	 * Get a piece of info about a particular Product.
-	 * @param info The piece of info to return.
-	 * @param id The id of the Product to check about.
-	 * @return The piece of info about a particular Product.
-	 */
 	public String getInfo(Info info, int id){
 		 return sheetContents[id][info.ordinal()];
 	}

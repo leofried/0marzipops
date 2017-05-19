@@ -88,7 +88,7 @@ public class ProductInfoReader {
 	private static final int START = 2;
 
 	/**
-	 * The number of Products listed in the excel file.
+	 * How many Products are listed in the excel file.
 	 */
 	private int numberOfProducts;
 
@@ -106,8 +106,6 @@ public class ProductInfoReader {
 	 * The main constructor for a ProductInfoReader object.
 	 * @param fileLocation The location of the excel file that this ProductInfoReader should read from.
 	 * @param listOfCategories The list of Categories.
-	 * @throws BiffException Workbook.getWorkbook(File)
-	 * @throws IOException Workbook.getWorkbook(File)
 	 */
 	public ProductInfoReader(String fileLocation, ArrayList<Category> listOfCategories) throws BiffException, IOException{
 		File file = new File(fileLocation);
@@ -127,26 +125,14 @@ public class ProductInfoReader {
 		this.listOfCategories = listOfCategories;
 	}
 	
-	/**
-	 * @return The number of Products listed in the excel file.
-	 */
 	public int getNumberOfProducts(){
 		return numberOfProducts;
 	}
 	
-	/**
-	 * @return The list of Categories.
-	 */
 	public ArrayList<Category> getListOfCategories(){
 		return listOfCategories;
 	}
 	
-	/**
-	 * Get a piece of info about a particular Product.
-	 * @param info The piece of info to return.
-	 * @param id The id of the Product to check about.
-	 * @return The piece of info about a particular Product.
-	 */
 	public String getInfo(Info info, int id){
 		 return sheetContents[id][info.ordinal()];
 	}
