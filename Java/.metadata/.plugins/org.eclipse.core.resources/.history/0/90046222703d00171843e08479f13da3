@@ -1,0 +1,7 @@
+package main.pages.speicals;
+
+public class About extends Special{
+
+	
+	
+}
