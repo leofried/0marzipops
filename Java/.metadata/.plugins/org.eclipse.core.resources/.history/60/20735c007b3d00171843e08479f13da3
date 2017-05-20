@@ -1,0 +1,19 @@
+package main.pages.specials;
+
+import main.pages.Special;
+
+public class Search extends Special{
+
+	/**
+	 * Constructor for an Search object.
+	 */
+	public Search (){
+		super("Search");
+	}
+	
+	/**
+	 * Abstract method of Page.java
+	 * @return The part of the HTML file that contains the main content of the page.
+	 */
+	public String buildContent(){		
+}
