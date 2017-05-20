@@ -12,8 +12,7 @@ public class Search extends Special{
 	}
 	
 	/**
-	 * Abstract method of Page.java.
-	 * Blank because Search.html is dynamically created using javascript.
+	 * Abstract method of Page.java. Blank because Search.html is dynamically created using javascript.
 	 * @return The part of the HTML file that contains the main content of the page.
 	 */
 	public String buildContent(){
