@@ -33,7 +33,7 @@ public class Category extends Page implements Item {
 	 * @param parent The parent Category of this Category.
 	 */
 	public Category(String rawName, Category parent){
-		super(rawName, parent.getChildLocation(), PageType.CATEGORY);
+		super(rawName, parent.getChildLocation(), Type.CATEGORY);
 		this.parent = parent;
 		listOfItems = new ArrayList<Item>();
 	}

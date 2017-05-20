@@ -44,7 +44,6 @@ public class About extends Special{
 							+ "</div>"
 						+ "</div>";
 		
-		//Adding the reviews to the page.
 		write += "<div class='row'><div class='small-12 columns'>";
 		write += "<p class='center'>Our clients and customers love " + marzipops + "! Here are some things they say:</p>";
 		for(int i=0; i<reviewText.length; i++){
