@@ -1,5 +1,10 @@
 package main.pages.speicals;
 
+public class Custom {
+
+}
+package main.pages.speicals;
+
 import main.pages.Special;
 
 public class About extends Special{
@@ -37,12 +42,12 @@ public class About extends Special{
 		
 		//Adding the main text to the page.
 		String write = "<div class='row'>"
-						+ "<div class='small-6 medium-4 small-centered medium-uncentered columns'>"
-							+ "<img src='Images/Special/About/Mom Pic.jpg'></img>"
-						+ "</div><br class='show-for-small-only'><div class='small-12 medium-8 columns'>"
-							+ "<p>" + mainText + "</p>"
-						+ "</div>"
-					+ "</div>";
+							+ "<div class='small-6 medium-4 small-centered medium-uncentered columns'>"
+								+ "<img src='Images/Special/About/Mom Pic.jpg'></img>"
+							+ "</div><br class='show-for-small-only'><div class='small-12 medium-8 columns'>"
+								+ "<p>" + mainText + "</p>"
+							+ "</div>"
+						+ "</div>";
 		
 		//Adding the reviews to the page.
 		write += "<div class='row'><div class='small-12 columns'>";
