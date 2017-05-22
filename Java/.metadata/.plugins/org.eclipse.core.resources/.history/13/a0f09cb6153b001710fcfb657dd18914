@@ -1,5 +1,0 @@
-package main.pages;
-
-public class Category extends Page implements Item {
-
-}

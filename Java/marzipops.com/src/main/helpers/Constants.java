@@ -12,6 +12,11 @@ public class Constants {
 	 */
 	public final static String EMAIL = "dahlia@marzipops.com";
 	
+	/**
+	 * The excel file that should be read from.
+	 */
+	public final static String EXCEL_FILE = "../Marzipops Descriptions xls.xls";
+	
 	
 	/**
 	 * List of social media sites that are referenced on the website.
