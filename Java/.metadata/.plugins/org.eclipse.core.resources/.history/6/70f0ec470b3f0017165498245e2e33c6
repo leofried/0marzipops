@@ -3,7 +3,6 @@ package main.pages.specials;
 import main.helpers.Constants;
 import main.helpers.Utility;
 import main.pages.Special;
-import main.readers.DetailsReader;
 
 public class Details extends Special{
 
