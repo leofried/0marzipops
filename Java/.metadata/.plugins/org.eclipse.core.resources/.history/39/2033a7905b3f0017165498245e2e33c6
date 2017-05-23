@@ -18,11 +18,14 @@ public class Details extends Special{
 	 */
 	public String buildContent() {
 		
-		//Reader
 		DetailsReader reader;
 		try {
 			reader = new DetailsReader(Constants.EXCEL_FILE);
-		} catch (Exception e) {
+		} catch (BiffException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

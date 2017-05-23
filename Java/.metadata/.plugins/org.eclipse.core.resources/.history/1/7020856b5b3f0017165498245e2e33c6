@@ -8,6 +8,7 @@ import java.util.List;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
+import main.helpers.Constants;
 import main.helpers.Utility;
 
 public class DetailsReader {
@@ -50,6 +51,6 @@ public class DetailsReader {
 	}
 	
 	public String getAnswer(int index){
-		return Utility.convertToText(detailsArray.get(index)[1]);
+		return Utility.Constants.convertToText(detailsArray.get(index)[1]);
 	}
 }

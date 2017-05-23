@@ -1,9 +1,7 @@
 package main.pages.specials;
 
-import java.io.IOException;
-
-import jxl.read.biff.BiffException;
 import main.helpers.Constants;
+import main.helpers.Utility;
 import main.pages.Special;
 import main.readers.DetailsReader;
 
@@ -18,13 +16,7 @@ public class Details extends Special{
 	 */
 	public String buildContent() {
 		
-		//Reader
-		DetailsReader reader;
-		try {
-			reader = new DetailsReader(Constants.EXCEL_FILE);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		DetailsReader reader = new DetailsReader(Constants.EXCEL_FILE);
 		
 		//Questions
 		String write = "<div class='row'><div class='small-12 columns'>"
@@ -36,7 +28,7 @@ public class Details extends Special{
 				}else if(index == reader.getBreakingPoint()){
 					write += writeHeader(false, "Placing an Order");
 				}
-				String question = reader.getQuestion(index);
+				String question = reader.getQuestion(index)[0]);
 				write += "<p class='bold pointer'><a href='#" + index + "'>" + question + "</a></p>";
 			}
 			

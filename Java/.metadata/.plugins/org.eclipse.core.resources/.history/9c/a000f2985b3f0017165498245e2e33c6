@@ -18,7 +18,6 @@ public class Details extends Special{
 	 */
 	public String buildContent() {
 		
-		//Reader
 		DetailsReader reader;
 		try {
 			reader = new DetailsReader(Constants.EXCEL_FILE);
