@@ -24,7 +24,7 @@ public abstract class Page {
 	 * <br>
 	 * <br><b>Values:</b> PRODUCT, CATEGORY, SPECIAL
 	 */
-	public enum Type{
+	public enum PageType{
 		/**
 		 * The webpage is a page detailing a product.
 		 */
@@ -59,7 +59,7 @@ public abstract class Page {
 	/**
 	 * The type of the page.
 	 */
-	private Type pageType;
+	private PageType pageType;
 	
 	
 	////////////////////
@@ -72,7 +72,7 @@ public abstract class Page {
 	 * @param location The location of the page, not including the fileName.
 	 * @param pageType The type of the page.
 	 */
-	public Page(String rawName, String location, Type pageType){
+	public Page(String rawName, String location, PageType pageType){
 		this.rawName = rawName;
 		this.location = location;
 		this.pageType = pageType;
@@ -108,7 +108,7 @@ public abstract class Page {
 				+ "<script src='" + getReverseLocation() + "Javascript/Lists.js'></script>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Search.js'></script>"
 				+ "</head>"
-				+ "<body onload='javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == Type.PRODUCT) + ")'>";
+				+ "<body onload='javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ")'>";
 		
 		//Website Wrapper
 		write += "<div id='full' style='visibility: hidden;'>";	
@@ -184,7 +184,7 @@ public abstract class Page {
 
 
 		//Pinterest
-		if(pageType == Type.PRODUCT){
+		if(pageType == PageType.PRODUCT){
 			write += "<script async defer src='http://assets.pinterest.com/js/pinit.js'></script>";
 		}
 

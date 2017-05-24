@@ -1,0 +1,12 @@
+package main.pages.specials;
+
+import main.pages.Special;
+
+public class Details extends Special{
+
+	public Details(){
+		super("Details");
+	}
+	
+	
+}

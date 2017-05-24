@@ -10,7 +10,7 @@ public abstract class Special extends Page {
 	 * @param rawName The raw name of the page, as it would appear on the name of the file.
 	 */
 	public Special(String rawName){
-		super(rawName, "", Type.SPECIAL);
+		super(rawName, "", PageType.SPECIAL);
 	}
 	
 	/**

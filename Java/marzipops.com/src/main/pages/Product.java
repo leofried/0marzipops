@@ -40,7 +40,7 @@ public class Product extends Page implements Item{
 	 * @param productInfoReader The Object that information of this Product can be read off of the excel file with.
 	 */
 	public Product(int id, ProductInfoReader productInfoReader){
-		super(productInfoReader.getInfo(Info.RAW_NAME, id), "Products/", Type.PRODUCT);
+		super(productInfoReader.getInfo(Info.RAW_NAME, id), "Products/", PageType.PRODUCT);
 		this.productInfoReader = productInfoReader;
 		this.id = id;
 	}

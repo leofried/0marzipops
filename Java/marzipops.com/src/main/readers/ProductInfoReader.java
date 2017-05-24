@@ -150,17 +150,4 @@ public class ProductInfoReader {
 	public String getInfo(Info info, int id){
 		 return sheetContents[id][info.ordinal()];
 	}
-	
-	
-
-
-
-
-
-
-
-
-
-
-
 }
