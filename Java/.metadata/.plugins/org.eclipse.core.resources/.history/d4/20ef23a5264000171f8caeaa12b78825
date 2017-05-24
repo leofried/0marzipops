@@ -72,9 +72,9 @@ public class DetailsReader {
 	}
 	
 	/**
-	 * Get a particular answer.
-	 * @param index The index of the answer.
-	 * @return The answer to the question at a certain index.
+	 * Get a particular question.
+	 * @param index The index of the question.
+	 * @return The question at a certain index.
 	 */
 	public String getAnswer(int index){
 		return Utility.convertToText(detailsArray.get(index)[1]);

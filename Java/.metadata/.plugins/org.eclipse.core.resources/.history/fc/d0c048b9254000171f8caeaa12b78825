@@ -6,16 +6,12 @@ import main.readers.DetailsReader;
 
 public class Details extends Special{
 
-	/**
-	 * Constructor for an Details object.
-	 */
 	public Details(){
 		super("Details");
 	}
 	
 	/**
-	 * Abstract method of Page.java
-	 * @return The part of the HTML file that contains the main content of the page.
+	 * Page superclass 
 	 */
 	public String buildContent() {
 		String write = "";
@@ -74,12 +70,6 @@ public class Details extends Special{
 		return write;
 	}
 	
-	/**
-	 * Helper method to buildContent(). Builds the part of the HTML file that contains the section headers on the details page.
-	 * @param haveName Should the "a" element have a "name" attribute. True if yes.
-	 * @param text The name of the section.
-	 * @return The HTML file that contains the section headers on the details page.
-	 */
 	private String writeHeader(boolean haveName, String text){
 		String name = "";
 		if(haveName==true){name = "name=" + text.charAt(0);}

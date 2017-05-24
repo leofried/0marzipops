@@ -23,14 +23,15 @@ public class DetailsReader {
 	private List<String[]> detailsArray;
 	
 	/**
-	 * The first row of the second section of questions.
+	 * The first row of the section of questions.
 	 */
 	private int breakingPoint;
 	
 	/**
-	 * The constructor of a DetailsReader Object.
-	 * Reads the excel file and stores it into an array.
+	 * The constructor of a DetailsReader Object. Reads the excel file and stores it into an array.
 	 * @param fileLoc The location of the excel file.
+	 * @throws BiffException
+	 * @throws IOException
 	 */
 	public DetailsReader(String fileLoc) throws BiffException, IOException {
 		File file = new File(fileLoc);
@@ -49,33 +50,20 @@ public class DetailsReader {
 	}
 	
 	/**
-	 * @return The first row of the second section of questions.
+	 * @return the point in which the questions get separated into different groups
 	 */
 	public int getBreakingPoint(){
 		return breakingPoint;
 	}
 	
-	/**
-	 * @return The number of questions that should go onto the Details Page.
-	 */
 	public int getNumberOfQuestions(){ 
 		return detailsArray.size();
 	}
 	
-	/**
-	 * Get a particular question.
-	 * @param index The index of the question.
-	 * @return The question at a certain index.
-	 */
 	public String getQuestion(int index){
 		return Utility.convertToText(detailsArray.get(index)[0]);
 	}
 	
-	/**
-	 * Get a particular answer.
-	 * @param index The index of the answer.
-	 * @return The answer to the question at a certain index.
-	 */
 	public String getAnswer(int index){
 		return Utility.convertToText(detailsArray.get(index)[1]);
 	}

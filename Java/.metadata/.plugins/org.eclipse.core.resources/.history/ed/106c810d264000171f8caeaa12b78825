@@ -75,10 +75,10 @@ public class Details extends Special{
 	}
 	
 	/**
-	 * Helper method to buildContent(). Builds the part of the HTML file that contains the section headers on the details page.
-	 * @param haveName Should the "a" element have a "name" attribute. True if yes.
-	 * @param text The name of the section.
-	 * @return The HTML file that contains the section headers on the details page.
+	 * Helper method to buildContent()
+	 * @param haveName
+	 * @param text
+	 * @return
 	 */
 	private String writeHeader(boolean haveName, String text){
 		String name = "";
