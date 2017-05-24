@@ -17,10 +17,7 @@ public class Constants {
 	 */
 	public final static String EXCEL_FILE = "../Marzipops Descriptions xls.xls";
 	
-	/**
-	 * The location of the actual website. 
-	 */
-	public final static String WEB_LOCATION = "../../Build/";
+	public final static int WEB_LOCATION = "../../Build/";
 	
 	
 	/**

@@ -47,18 +47,13 @@ public class Category extends Page implements Item {
 	}
 	
 	/**
-	 * Adds an Item to the end of the list of Items that this Category contains.
+	 * Adds an Item to the list of Items that this Category contains.
 	 * @param item An Item to add to the list of Items that this Category contains.
 	 */
 	public void addToList(Item item){
-		addToList(listOfItems.size()-1, item);
+		
 	}
 	
-	/**
-	 * Inserts an Item into the list of Items that this Category contains.
-	 * @param index The index to insert the Item into.
-	 * @param item An Item to add to the list of Items that this Category contains.
-	 */
 	public void addToList(int index, Item item){
 		listOfItems.add(index, item);
 	}

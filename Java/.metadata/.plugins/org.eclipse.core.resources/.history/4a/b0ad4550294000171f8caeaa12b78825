@@ -60,7 +60,7 @@ public class Utility {
 	 */
 	public static void clearDirectory(File folder, boolean deleteFolder) {
 		File[] files = folder.listFiles();
-		if(files != null) {
+		if(files!=null) {
 			for(File f: files) {
 				if(f.isDirectory()) {
 					clearDirectory(f, true);

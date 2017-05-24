@@ -1,6 +1,5 @@
 package main.helpers;
 
-import java.io.File;
 import java.util.List;
 
 import main.pages.Category;
@@ -50,27 +49,5 @@ public class Utility {
 		}
 
 		return null;
-	}
-	
-	
-	/**
-	 * Deletes a folder and all of its contents.
-	 * @param folder The folder to be cleared
-	 * @param deleteFolder Whether or not to delete the folder itself.
-	 */
-	public static void clearDirectory(File folder, boolean deleteFolder) {
-		File[] files = folder.listFiles();
-		if(files != null) {
-			for(File f: files) {
-				if(f.isDirectory()) {
-					clearDirectory(f, true);
-				} else {
-					f.delete();
-				}
-			}
-		}
-		if(deleteFolder == true){
-			folder.delete();
-		}
 	}
 }
