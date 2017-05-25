@@ -22,7 +22,7 @@ public class Main {
 		//Create the Shop Category and fill it with categories.
 		Category shop = new Index("Shop");
 		Category specialHoliday = fillCategory(shop, Constants.LIST_OF_CATEGORIES);
-		shop.addToList(2, specialHoliday);
+
 		
 	}
 	
@@ -37,13 +37,9 @@ public class Main {
 				}
 			}
 			target.addToList(newCategory);
-			
-			if(target.getRawName().equals("Holiday") && i==0){
-				specialHoliday = newCategory;
-			}
 		}
 		
-		return specialHoliday;
+		return specialHoldiay;
 	}
 	
 	

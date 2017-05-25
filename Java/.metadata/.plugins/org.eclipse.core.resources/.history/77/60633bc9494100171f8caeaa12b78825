@@ -146,7 +146,7 @@ public class Category extends Page implements Item {
 	}
 	
 	
-	public List<Item> getListOfChildren(){
-		return listOfItems;
+	public List<Item> getListOfItems(){
+		
 	}
 }

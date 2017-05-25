@@ -144,9 +144,4 @@ public class Category extends Page implements Item {
 	public Category getParent(){
 		return parent;
 	}
-	
-	
-	public List<Item> getListOfChildren(){
-		return listOfItems;
-	}
 }
