@@ -1,0 +1,47 @@
+package main.readers;
+
+import java.util.ArrayList;
+
+public class ProductInfoReader {
+
+
+	public enum Info {
+
+		RAW_NAME(0),
+		DESCRIPTION(2),
+		AVAILABLE(3),
+		DEFAULT_CATEGORY(7),
+		CATEGORIES(13),
+		SEARCH_TERMS(14),
+		ETSY(16),
+		EXTRA_PHOTOS(17),
+		SOLD_OUT(18);		
+
+		
+		private int column;
+		private Info(final int column){
+			this.column = column;
+		}
+		public int getColumn(){
+			return column;
+		}
+	}
+	
+	private static final int START = 2;
+	
+	private ArrayList<ArrayList<String>> sheetContents;
+
+	
+	public ProductInfoReader(String fileLocation)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

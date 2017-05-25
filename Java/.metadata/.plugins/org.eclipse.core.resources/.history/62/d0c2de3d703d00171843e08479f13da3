@@ -1,0 +1,9 @@
+package main.pages.speicals;
+
+import main.pages.Special;
+
+public class About extends Special{
+
+	
+	
+}

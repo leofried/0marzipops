@@ -1,0 +1,18 @@
+package main.pages;
+
+public class Index extends Category{
+
+	private boolean isIndex;
+	private boolean isSiginedUp;
+	
+	public Index(boolean isIndex, boolean isSignedUp){
+		super("", null);
+		this.isIndex = isIndex;
+		this.isSiginedUp = isSignedUp;
+	}
+	
+	public String getRawName(){
+		return null;
+	}
+	
+}

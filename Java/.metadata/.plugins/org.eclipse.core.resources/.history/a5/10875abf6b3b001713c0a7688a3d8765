@@ -1,0 +1,36 @@
+package main.pages;
+
+public class Index extends Category {
+	
+	
+	public Index(String rawName){
+		super("", null);
+	}
+	
+	public String getHTMLName(){
+		return getRawName().replaceAll("SignedUp", "");
+	}
+
+	public String buildBottomForum(){
+		String write;
+		if(getLinkName().equals("index") || getLinkName().equals("Shop")){				
+			write += "<div class='row'>";
+				write += "<div class='small-12 medium-6 large-4 small-centered columns'><form action='//formspree.io/" + Constants.EMAIL + "' method='POST' name='emailList1' onSubmit='return emailList(true)'>";
+					write += "<p>Stay up to date: Sign up for our email!</p>";
+					write += "<span class='inlineBlock'><input type='text' name='email' placeholder='Email'>";
+					write += "<input type='hidden' name='_subject' value='For Email List'>";
+					write += "<input type='hidden' name='_next' value='" + getLinkName() + "signedup.html#signedUp'>";
+					write += "</span>&nbsp;&nbsp;&nbsp";
+					write += "<button type='submit' id='shopButton' class='backBlue'><p class='fontWhite'>Send</p></button></form>";
+				write += "</div>";
+			write += "</div>";
+		}else{
+			write += "<div class='row' id='signedUp'>";
+				write += "<div class='small-12 medium-6 large-4 small-centered columns'>";
+					write += "<p class='center'>Sweet, you're on the list!</p>";
+				write += "</div>";
+			write += "</div>";
+		}
+	}
+	
+}

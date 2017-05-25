@@ -1,0 +1,259 @@
+p, h3{
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	text-align: left;
+	white-space: nowrap;
+	color: black;
+}
+
+p#catName{ 
+	border-bottom: solid 1px #000000;
+	padding-bottom: 1px;
+	margin: 0;
+}
+p.picName{
+	text-align: center !important;
+}
+
+p#item{
+	font-weight: bold;
+}
+p#text, p#Answers, p#Form, p#aval, p#center, p#center, p#aboutText{
+	white-space: normal !important;
+}
+p#text{
+	margin-bottom: 0px;
+}
+
+p#Social{
+	text-align: center !important;
+	white-space: normal !important;
+	font-size: 16px;
+}
+p#Reach{
+	white-space: normal !important;
+	text-align: center !important;
+	font-size: 20px;
+}
+sup#TM{
+	font-size: 8px;
+}
+
+p#Questions, #Questions2{
+	font-weight: bold;
+	white-space: normal !important;
+	cursor: pointer;
+}
+p#Questions{
+	margin-bottom: 0px;
+}
+
+p#center, p#aboutText{
+	text-align: center !important;
+}
+p#aboutText{
+	font-style: italic;
+}
+
+#Header{
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#Header a{
+	color: #4CB7E1 !important;
+}
+
+img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img#logo{
+	width: 65%;
+	height: 65%;
+}
+img#Slideshow{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+img#search, img#bigSearch{
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+	float: right;
+}
+#searchCover{
+	overflow: hidden;
+	padding-right: .5em;
+}
+
+#submit{
+	width: 10px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #4CB7E1 !important; 
+}
+#submit p{
+	margin-left: -20px;
+	color: white;
+}
+
+a, a:hover{ 
+	color: black;
+	padding: 0px;
+}
+
+#extraImages{
+	margin-left: 0px;
+}
+#extraImages li{
+	list-style: none;
+}
+#extraImages img{
+	cursor: pointer;
+}
+#PopBlue{
+	color: #4CB7E1;
+}
+
+
+li.Slideshow{
+	float: left;
+	list-style: none;
+	cursor: pointer;
+}
+#slideshowRow{
+	padding-top: 10px;
+}
+
+@media only screen and (max-width: 624px) {
+	p#item, p#text, p#aval{ 
+		font-size: 3.2vw;
+	}
+	p#Reach{
+		font-size: 16px;
+	}
+}
+@media only screen and (min-width: 625px) and (max-width: 1000px) {
+	p#item, p#text, p#aval{ 
+		font-size: 16px;
+	}
+}
+@media only screen and (min-width: 1001px) {
+	p#item, p#text, p#aval{ 
+		font-size: 16px;
+	}
+}
+
+
+/* Nav Bar.
+Hopefully turn this to javascript
+*/
+
+
+
+@media only screen and (min-width: 0px) {
+	#nav li{
+		font-size: 11.5px;
+	}
+	#nav a{
+		padding: 0 2px;
+	}
+	#nav ul ul{
+		margin-top: -24px;
+		padding-left: 75px;
+		width: 150px;
+	}
+}
+@media only screen and (min-width: 390px) {
+	#nav li{
+		font-size: 14px;
+	}
+	#nav a{
+		padding: 0 3px;
+	}
+	#nav ul ul{
+		margin-top: -28px;
+		padding-left: 90px;
+		width: 200px;
+	}
+}
+@media only screen and (min-width: 450px) {
+	#nav li{
+		font-size: 17px;
+	}
+	#nav a{
+		padding: 0 3px;
+	}
+	#nav ul ul{
+		margin-top: -35px;
+		padding-left: 105px;
+		width: 250px;
+	}
+}
+@media only screen and (min-width: 540px) {
+	#nav li{
+		font-size: 20px;
+	}
+	#nav a{
+		padding: 0 5px;
+	}
+	#nav ul ul{
+		margin-top: -40px;
+		padding-left: 120px;
+		width: 300px;
+	}
+	#socialNav{
+		margin-top: 4px !important;
+	}
+}
+@media only screen and (min-width: 725px) {
+	#nav li{
+		font-size: 20px;
+	}
+	#nav a{
+		padding: 0 10px;
+	}
+	#nav ul ul{
+		margin-top: -42px;
+		padding-left: 130px;
+		width: 300px;
+	}
+	#socialNav{
+		margin-top: 4px !important;
+	}
+}
+@media only screen and (min-width: 790px) {
+	#nav li{
+		font-size: 23px;
+	}
+	#nav a{
+		padding: 0 10px;
+	}
+	#nav ul ul{
+		margin-top: -47px;
+		padding-left: 150px;
+		width: 350px;
+	}
+	#socialNav{
+		margin-top: 6px !important;
+	}
+}
+@media only screen and (min-width: 970px) {
+	#nav li{
+		font-size: 23px;
+	}
+	#nav a{
+		padding: 0 20px;
+	}
+	#nav ul ul{
+		margin-top: -47px;
+		padding-left: 150px;
+		width: 350px;
+	}
+	#socialNav{
+		margin-top: 6px !important;
+	}
+}
+
+
