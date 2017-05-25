@@ -145,15 +145,16 @@ public class Category extends Page implements Item {
 		return parent;
 	}
 	
-	public List<Item> getListOfItems(){
+	
+	public List<Item> getListOfChildren(){
 		return listOfItems;
 	}
 	
-	public List<Category> getListOfAllChildCategories(){
-		List<Category> returnList = new ArrayList<Category>();
-		for(Item item : listOfItems){
-			returnList.addAll(((Category) item).getListOfAllChildCategories());
+	public static List<Category> getListOfAllChildren{
+		if(source.getListOfChildren().isEmpty()){
+			List<Category> returnList = new ArrayList<Category>();
+			returnList.add(source);
+			
 		}
-		return returnList;
 	}
 }

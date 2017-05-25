@@ -37,12 +37,12 @@ public class Main {
 		for(String pageName : otherHomePageNames){
 			Category otherHomePage = new Index(pageName);
 			listOfCategories.add(otherHomePage);
-			for(Item item : index.getListOfItems()){
+			for(Item item : index.getListOfChildren()){
 				otherHomePage.addToList(item);
 			}
 		}
 		
-		listOfCategories.addAll(index.getListOfAllChildCategories());
+		listOfCategories.addAll(getListOfCategories(index));
 		return listOfCategories;
 	}
 	

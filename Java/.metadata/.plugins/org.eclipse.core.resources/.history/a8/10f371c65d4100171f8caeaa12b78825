@@ -20,33 +20,27 @@ public class Main {
 
 	
 	public static List<Category> makeListOfCategories(){		
-		List<Category> listOfCategories = new ArrayList<Category>();
-		
 		//Create the Shop Category and fill it with categories.
-		Category index = new Index("index");
-		fillCategory(index, Constants.LIST_OF_CATEGORIES);
-		listOfCategories.add(index);
+		Category shop = new Index("Shop");
+		fillCategory(shop, Constants.LIST_OF_CATEGORIES);
 
-		for(Item item : index.getListOfAllChildCategories()){
-			if(item.getRawName().equals(Utility.sortHolidays()[0])){
-				index.addToList((Category) item);
+		for(Item item : shop.getListOfChildren()){
+			if(item.getRawName().equals("Holidays")){
+				shop.addToList(2, ((Category) item).getListOfChildren().get(0));
 			}
 		}
 		
-		String[] otherHomePageNames = {"indexSignedUp", "Shop", "ShopSignedUp"};
+		String[] otherHomePageNames = {"index", "indexSignedUp", "indexSignedUp"};
 		for(String pageName : otherHomePageNames){
 			Category otherHomePage = new Index(pageName);
-			listOfCategories.add(otherHomePage);
-			for(Item item : index.getListOfItems()){
+			for(Item item : shop.getListOfChildren()){
 				otherHomePage.addToList(item);
 			}
 		}
 		
-		listOfCategories.addAll(index.getListOfAllChildCategories());
-		return listOfCategories;
 	}
 	
-	public static Category fillCategory(Category target, String[] listOfCategoryNames){
+	public Category fillCategory(Category target, String[] listOfCategoryNames){
 		for(int i=0; i<listOfCategoryNames.length; i++){
 			Category newCategory = new Category(listOfCategoryNames[i], target);
 			for(String[][] infoList : Constants.LIST_OF_SPECIAL_CATEGORIES){
@@ -57,5 +51,6 @@ public class Main {
 			target.addToList(newCategory);
 		}
 	}
+	
 	
 }

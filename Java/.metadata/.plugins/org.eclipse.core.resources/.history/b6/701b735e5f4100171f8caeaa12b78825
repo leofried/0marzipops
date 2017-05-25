@@ -42,7 +42,7 @@ public class Main {
 			}
 		}
 		
-		listOfCategories.addAll(index.getListOfAllChildCategories());
+		listOfCategories.addAll(getListOfCategories(index));
 		return listOfCategories;
 	}
 	

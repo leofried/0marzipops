@@ -23,26 +23,26 @@ public class Main {
 		List<Category> listOfCategories = new ArrayList<Category>();
 		
 		//Create the Shop Category and fill it with categories.
-		Category index = new Index("index");
-		fillCategory(index, Constants.LIST_OF_CATEGORIES);
-		listOfCategories.add(index);
+		Category shop = new Index("Shop");
+		fillCategory(shop, Constants.LIST_OF_CATEGORIES);
+		listOfCategories.add(shop);
 
-		for(Item item : index.getListOfAllChildCategories()){
-			if(item.getRawName().equals(Utility.sortHolidays()[0])){
-				index.addToList((Category) item);
+		for(Item item : shop.getListOfChildren()){
+			if(item.getRawName().equals("Holidays")){
+				shop.addToList(2, ((Category) item).getListOfChildren().get(0));
 			}
 		}
 		
-		String[] otherHomePageNames = {"indexSignedUp", "Shop", "ShopSignedUp"};
+		String[] otherHomePageNames = {"index", "indexSignedUp", "indexSignedUp"};
 		for(String pageName : otherHomePageNames){
 			Category otherHomePage = new Index(pageName);
 			listOfCategories.add(otherHomePage);
-			for(Item item : index.getListOfItems()){
+			for(Item item : shop.getListOfChildren()){
 				otherHomePage.addToList(item);
 			}
 		}
 		
-		listOfCategories.addAll(index.getListOfAllChildCategories());
+		listOfCategories.addAll(getListOfCategories(shop));
 		return listOfCategories;
 	}
 	
@@ -57,5 +57,7 @@ public class Main {
 			target.addToList(newCategory);
 		}
 	}
+	
+	public static List<Category> getListOfCategories()
 	
 }

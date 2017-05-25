@@ -27,9 +27,9 @@ public class Main {
 		fillCategory(index, Constants.LIST_OF_CATEGORIES);
 		listOfCategories.add(index);
 
-		for(Item item : index.getListOfAllChildCategories()){
-			if(item.getRawName().equals(Utility.sortHolidays()[0])){
-				index.addToList((Category) item);
+		for(Item item : index.getListOfChildren()){
+			if(item.getRawName().equals("Holidays")){
+				index.addToList(2, ((Category) item).getListOfChildren().get(0));
 			}
 		}
 		
@@ -37,12 +37,12 @@ public class Main {
 		for(String pageName : otherHomePageNames){
 			Category otherHomePage = new Index(pageName);
 			listOfCategories.add(otherHomePage);
-			for(Item item : index.getListOfItems()){
+			for(Item item : index.getListOfChildren()){
 				otherHomePage.addToList(item);
 			}
 		}
 		
-		listOfCategories.addAll(index.getListOfAllChildCategories());
+		listOfCategories.addAll(getListOfCategories(index));
 		return listOfCategories;
 	}
 	
@@ -56,6 +56,10 @@ public class Main {
 			}
 			target.addToList(newCategory);
 		}
+	}
+	
+	public static List<Category> getListOfCategories(Category source){
+		if(source.getListOfChildren().isEmpty()) return new ArrayList<Category>();
 	}
 	
 }
