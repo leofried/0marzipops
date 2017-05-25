@@ -183,8 +183,8 @@ public class Main {
 	 * There is currently only one picture that needs changing: The holidays picture changes to match whichever the first holiday is.
 	 */
 	private static void changePictures() throws IOException{
-		File source = new File(Constants.WEB_LOCATION + "Images/Categories/holidays/SQB " + Utility.sortHolidays()[0] + " Marzipan Lollipops Marzipops.jpg");
-		File dest   = new File(Constants.WEB_LOCATION + "Images/Categories/SQB " + Utility.sortHolidays()[0] + " Marzipan Lollipops Marzipops.jpg");
+		File source = new File(Constants.WEB_LOCATION + "Images/Categories/holidays/SQB " + Utility.sortHolidays().get(0) + " Marzipan Lollipops Marzipops.jpg");
+		File dest   = new File(Constants.WEB_LOCATION + "Images/Categories/SQB " + Utility.sortHolidays().get(0) + " Marzipan Lollipops Marzipops.jpg");
 		Utility.copyFile(source, dest);
 	}
 	

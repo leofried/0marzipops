@@ -43,19 +43,8 @@ public class Constants {
 	public final static String[][][] LIST_OF_MIDDLE_CATEGORIES = {{{"holidays"}, Utility.sortHolidays()}};
 	
 	/**
-	 * List of holidays.
+	 * List of holidays
 	 */
 	public final static String[] LIST_OF_HOLIDAYS = {"valentine's day", "purim", "passover", "easter", "mother's day", "father's day", "july 4th", "rosh hashanah", "halloween", "thanksgiving", "hanukkah", "christmas"};
-
-	/**
-	 * List of dates that the holidays occur on.
-	 */
-	public final static int[] LIST_OF_HOLIDAY_DATES = {210, 			211, 		410, 		515, 	516, 			619, 			704, 		930, 			1031, 			1128, 			1224, 		1225};
-
-
-
-
-
-
 
 }

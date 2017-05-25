@@ -86,7 +86,7 @@ public class Utility {
 	 * Sorts the list of holidays.
 	 * @return The list of sorted holidays.
 	 */
-	public static String[] sortHolidays(){
+	public static List<String> sortHolidays(){
 		Map<Integer, String> holidayMap = new TreeMap<Integer, String>();
 		
 		int currentDate = LocalDateTime.now().getMonthValue() * 100 + LocalDateTime.now().getDayOfMonth();
@@ -100,14 +100,12 @@ public class Utility {
 			holidayMap.put(daysAway, name);
 		}
 		
-		List<String> sortedList = new ArrayList<String>();
+		List<String> returnList = new ArrayList<String>();
 		for(Map.Entry<Integer, String> entry: holidayMap.entrySet()){
-			sortedList.add(entry.getValue());
+			returnList.add(entry.getValue());
 		}
 		
-		String[] returnList = new String[sortedList.size()];
-		sortedList.toArray(returnList);
-		return returnList;
+		return returnList.toArray();
 	}
 	
 	
