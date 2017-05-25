@@ -8,7 +8,7 @@ import main.helpers.Constants;
 import main.helpers.Utility;
 import main.interfaces.Item;
 import main.pages.Category;
-import main.pages.HomePage;
+import main.pages.Index;
 
 public class Main {
 	
@@ -18,12 +18,6 @@ public class Main {
 		List<Category> categories = makeListOfCategories();		
 	}
 
-	/*
-	 * I can fix the casting by having getListOfCategories be a Item method
-	 * and then having makeListOfCategories() return a list of Items instead of Categories.
-	 * Although I might need a fix for makeListOfProducts then.
-	 */
-	
 	
 	/**
 	 * Creates the list of Categories that are needed for this website.
@@ -32,7 +26,7 @@ public class Main {
 	 * Children Categories that have children themselves will follow the same process,
 	 * With their children being created and then filled and so on and so forth.<br>
 	 * 2) Add the current first holiday to the index Page's list of Items.<br>
-	 * 3) Create the three other HomePages (indexSignedUp, Shop, and ShopSignedUp).<br>
+	 * 3) Create the three other home pages (indexSignedUp, Shop, and ShopSignedUp).<br>
 	 * 4) Get a list of all of the Categories that were created and add them to a list which then gets returned.
 	 * @return a list of all of the Categories.
 	 */
@@ -58,7 +52,7 @@ public class Main {
 		}
 		
 		//Part 3
-		//Create and fill the other three HomePages. Also add these Categories to the listOfCategories.
+		//Create and fill the other three 
 		String[] otherHomePageNames = {"indexSignedUp", "Shop", "ShopSignedUp"};
 		for(String pageName : otherHomePageNames){
 			Category otherHomePage = new HomePage(pageName);
@@ -68,20 +62,11 @@ public class Main {
 			}
 		}
 		
-		//Part 4
-		//Get a list of all of the children and children of children, etc, of the index Category. Add these to the listOfCategories.
-		//This works because all of the items in the listOfItems of Categories are Categories at the moment.
 		listOfCategories.addAll(index.getListOfAllChildCategories());
 		return listOfCategories;
 	}
 	
-	/**
-	 * A recursive function that fills a given Category by creating and filling it's children Categories,
-	 * before adding those Categories to the original Category.
-	 * @param target The Category that should be filled.
-	 * @param listOfCategoryNames The list of names for the target's children Category.
-	 */
-	public static void fillCategory(Category target, String[] listOfCategoryNames){
+	public static Category fillCategory(Category target, String[] listOfCategoryNames){
 		for(int i=0; i<listOfCategoryNames.length; i++){
 			Category newCategory = new Category(listOfCategoryNames[i], target);
 			for(String[][] infoList : Constants.LIST_OF_SPECIAL_CATEGORIES){

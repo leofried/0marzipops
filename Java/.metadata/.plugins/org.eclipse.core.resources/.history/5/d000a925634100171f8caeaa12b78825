@@ -18,12 +18,6 @@ public class Main {
 		List<Category> categories = makeListOfCategories();		
 	}
 
-	/*
-	 * I can fix the casting by having getListOfCategories be a Item method
-	 * and then having makeListOfCategories() return a list of Items instead of Categories.
-	 * Although I might need a fix for makeListOfProducts then.
-	 */
-	
 	
 	/**
 	 * Creates the list of Categories that are needed for this website.

@@ -18,12 +18,6 @@ public class Main {
 		List<Category> categories = makeListOfCategories();		
 	}
 
-	/*
-	 * I can fix the casting by having getListOfCategories be a Item method
-	 * and then having makeListOfCategories() return a list of Items instead of Categories.
-	 * Although I might need a fix for makeListOfProducts then.
-	 */
-	
 	
 	/**
 	 * Creates the list of Categories that are needed for this website.
@@ -80,6 +74,7 @@ public class Main {
 	 * before adding those Categories to the original Category.
 	 * @param target The Category that should be filled.
 	 * @param listOfCategoryNames The list of names for the target's children Category.
+	 * @return
 	 */
 	public static void fillCategory(Category target, String[] listOfCategoryNames){
 		for(int i=0; i<listOfCategoryNames.length; i++){

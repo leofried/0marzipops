@@ -139,25 +139,16 @@ public class Category extends Page implements Item {
 	
 	/**
 	 * Abstract method of Item.java
-	 * @return The default parent Category to this item. (The one that would appear in the top filepath bar.
+	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
 		return parent;
 	}
 	
-	/**
-	 * @return The list of items in this Category.
-	 */
 	public List<Item> getListOfItems(){
 		return listOfItems;
 	}
 	
-	/**
-	 * A list of all of the Categories that are the children, grandchildren, etc, of this Category.
-	 * This works by calling this method on all of this method's children and then adding up all of their lists.
-	 * The casting is legal because this only gets called before Categories are populated with Products.
-	 * @return A list of all of the Categories that are the children, grandchildren, etc, of this Category.
-	 */
 	public List<Category> getListOfAllChildCategories(){
 		List<Category> returnList = new ArrayList<Category>();
 		for(Item item : listOfItems){
