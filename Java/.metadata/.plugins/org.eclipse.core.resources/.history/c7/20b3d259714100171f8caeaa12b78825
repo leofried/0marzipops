@@ -1,11 +1,7 @@
 package main.helpers;
 
 import java.io.File;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import main.pages.Category;
 
@@ -78,26 +74,8 @@ public class Utility {
 		}
 	}
 	
-	public static List<String> sortHolidays(){
-		Map<Integer, String> holidayMap = new TreeMap<Integer, String>();
-		
-		int currentDate = LocalDateTime.now().getMonthValue() * 100 + LocalDateTime.now().getDayOfMonth();
-		
-		for(int i=0; i<Constants.LIST_OF_HOLIDAYS; i++){
-			int daysAway = currentDate - Constants.LIST_OF_HOLIDAY_DATES[i];
-			if(daysAway < 0) daysAway += 10000;
-			
-			String name = Constants.LIST_OF_HOLIDAYS[i];
-			
-			holidayMap.put(daysAway, name);
-		}
-		
-		List<String> returnList = new ArrayList<String>();
-		for(Map.Entry<Integer, String> entry: holidayMap.entrySet()){
-			returnList.add(entry.getValue());
-		}
-		
-		return returnList;
+	public static List<String> sortCategories(){
+		Map<Integer, String> holidayMap = new TreeMap<Integer, String>()
 	}
 	
 	

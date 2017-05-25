@@ -67,7 +67,7 @@ public class Main {
 
 		//Part 2
 		//Find the Category that has the name of the first Holiday and add that one to the index Page's list of items.
-		index.addToList(Utility.getCategory(Utility.sortHolidays().get(0), index.getListOfAllChildCategories()));
+		index.addToList(Utility.getCategory(Utility.sortHolidays()[0], index.getListOfAllChildCategories()));
 		
 		//Part 3
 		//Create and fill the other three HomePages. Also add these Categories to the listOfCategories.
@@ -183,8 +183,8 @@ public class Main {
 	 * There is currently only one picture that needs changing: The Holidays picture changes to match whichever the first Holiday is.
 	 */
 	private static void changePictures(){
-		File source = new File(Constants.WEB_LOCATION + "Images/Categories/holidays/SQB " + Utility.sortHolidays().get(0) + " Marzipan Lollipops Marzipops.jpg");
-		File dest   = new File(Constants.WEB_LOCATION + "Images/Categories/SQB " + Utility.sortHolidays().get(0) + " Marzipan Lollipops Marzipops.jpg");
+		File source = new File(Constants.WEB_LOCATION + "Images/Categories/holidays/SQB " + Utility.sortHolidays()[0] + " Marzipan Lollipops Marzipops.jpg");
+		File dest   = new File(Constants.WEB_LOCATION + "Images/Categories/SQB " + Utility.sortHolidays()[0] + " Marzipan Lollipops Marzipops.jpg");
 		Utility.copyFile(source, dest);
 	}
 	

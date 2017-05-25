@@ -78,7 +78,7 @@ public class Utility {
 		}
 	}
 	
-	public static List<String> sortHolidays(){
+	public static List<String> sortCategories(){
 		Map<Integer, String> holidayMap = new TreeMap<Integer, String>();
 		
 		int currentDate = LocalDateTime.now().getMonthValue() * 100 + LocalDateTime.now().getDayOfMonth();
@@ -97,7 +97,7 @@ public class Utility {
 			returnList.add(entry.getValue());
 		}
 		
-		return returnList;
+		return returnList'
 	}
 	
 	
