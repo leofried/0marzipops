@@ -1,6 +1,15 @@
 package main.helpers;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import main.pages.Category;
 
@@ -50,4 +59,75 @@ public class Utility {
 
 		return null;
 	}
+	
+	
+	/**
+	 * Deletes a folder and all of its contents.
+	 * @param folder The folder to be cleared
+	 * @param deleteFolder Whether or not to delete the folder itself.
+	 */
+	public static void clearDirectory(File folder, boolean deleteFolder) {
+		File[] files = folder.listFiles();
+		if(files != null) {
+			for(File f: files) {
+				if(f.isDirectory()) {
+					clearDirectory(f, true);
+				} else {
+					f.delete();
+				}
+			}
+		}
+		if(deleteFolder == true){
+			folder.delete();
+		}
+	}
+	
+	/**
+	 * Sorts the list of holidays.
+	 * @return The list of sorted holidays.
+	 */
+	public static String[] sortHolidays(){
+		Map<Integer, String> holidayMap = new TreeMap<Integer, String>();
+		
+		int currentDate = LocalDateTime.now().getMonthValue() * 100 + LocalDateTime.now().getDayOfMonth();
+		
+		for(int i=0; i<Constants.LIST_OF_HOLIDAYS.length; i++){
+			int daysAway = currentDate - Constants.LIST_OF_HOLIDAY_DATES[i];
+			if(daysAway < 0) daysAway += 10000;
+			
+			String name = Constants.LIST_OF_HOLIDAYS[i];
+			
+			holidayMap.put(daysAway, name);
+		}
+		
+		List<String> sortedList = new ArrayList<String>();
+		for(Map.Entry<Integer, String> entry: holidayMap.entrySet()){
+			sortedList.add(entry.getValue());
+		}
+		
+		String[] returnList = new String[sortedList.size()];
+		sortedList.toArray(returnList);
+		return returnList;
+	}
+	
+	
+	/**
+	 * Copies a file from source to destination. Overwrites destination.
+	 * This is mostly a black box.
+	 * @param source The file to copy from.
+	 * @param dest The file to copy to.
+	 */
+	public static void copyFile(File source, File dest) throws IOException {
+		FileInputStream inputStream = new FileInputStream(source);
+		FileChannel inputChannel = inputStream.getChannel();
+		
+		FileOutputStream outputStream = new FileOutputStream(dest);
+		FileChannel outputChannel = outputStream.getChannel();
+
+		outputChannel.transferFrom(inputChannel, 0, inputChannel.size());
+		
+		inputStream.close();
+		outputStream.close();
+	}	
+	
 }

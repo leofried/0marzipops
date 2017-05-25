@@ -2,7 +2,7 @@ package main.readers;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import jxl.Sheet;
 import jxl.Workbook;
@@ -100,7 +100,7 @@ public class ProductInfoReader {
 	/**
 	 * The list of Categories.
 	 */
-	private ArrayList<Category> listOfCategories;
+	private List<Category> listOfCategories;
 
 	/**
 	 * The main constructor for a ProductInfoReader object.
@@ -109,7 +109,7 @@ public class ProductInfoReader {
 	 * @throws BiffException Workbook.getWorkbook(File)
 	 * @throws IOException Workbook.getWorkbook(File)
 	 */
-	public ProductInfoReader(String fileLocation, ArrayList<Category> listOfCategories) throws BiffException, IOException{
+	public ProductInfoReader(String fileLocation, List<Category> listOfCategories) throws BiffException, IOException{
 		File file = new File(fileLocation);
 		Workbook w = Workbook.getWorkbook(file);
 		Sheet sheet = w.getSheet(0);
@@ -137,7 +137,7 @@ public class ProductInfoReader {
 	/**
 	 * @return The list of Categories.
 	 */
-	public ArrayList<Category> getListOfCategories(){
+	public List<Category> getListOfCategories(){
 		return listOfCategories;
 	}
 	

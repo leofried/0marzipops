@@ -17,7 +17,11 @@ public class Constants {
 	 */
 	public final static String EXCEL_FILE = "../Marzipops Descriptions xls.xls";
 	
-	
+	/**
+	 * The location of the actual website. 
+	 */
+	public final static String WEB_LOCATION = "../../Build/";
+		
 	/**
 	 * List of social media sites that are referenced on the website.
 	 */
@@ -28,4 +32,30 @@ public class Constants {
 	 */
 	public final static String[] LIST_OF_SPECIALS = {"Shop", "Custom", "About", "Details", "Contact"};
 	
+	/**
+	 * List of Categories.
+	 */
+	public final static String[] LIST_OF_CATEGORIES = {"new", "featured", "holidays", "candy bites", "animals", "sports", "candy tiles", "emoji", "baby", "flowers", "food designs", "winter break", "summer fun", "themes", "2-in-1", "everything"};
+
+	/**
+	 * List of Categories with child Categories.
+	 */
+	public final static String[][][] LIST_OF_MIDDLE_CATEGORIES = {{{"holidays"}, Utility.sortHolidays()}};
+	
+	/**
+	 * List of holidays.
+	 */
+	public final static String[] LIST_OF_HOLIDAYS = {"valentine's day", "purim", "passover", "easter", "mother's day", "father's day", "july 4th", "rosh hashanah", "halloween", "thanksgiving", "hanukkah", "christmas"};
+
+	/**
+	 * List of dates that the holidays occur on.
+	 */
+	public final static int[] LIST_OF_HOLIDAY_DATES = {210, 			211, 		410, 		515, 	516, 			619, 			704, 		930, 			1031, 			1128, 			1224, 		1225};
+
+
+
+
+
+
+
 }

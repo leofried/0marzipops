@@ -47,11 +47,20 @@ public class Category extends Page implements Item {
 	}
 	
 	/**
-	 * Adds an Item to the list of Items that this Category contains.
+	 * Adds an Item to the end of the list of Items that this Category contains.
 	 * @param item An Item to add to the list of Items that this Category contains.
 	 */
 	public void addToList(Item item){
-		listOfItems.add(item);
+		addToList(listOfItems.size()-1, item);
+	}
+	
+	/**
+	 * Inserts an Item into the list of Items that this Category contains.
+	 * @param index The index to insert the Item into.
+	 * @param item An Item to add to the list of Items that this Category contains.
+	 */
+	public void addToList(int index, Item item){
+		listOfItems.add(index, item);
 	}
 	
 	
@@ -130,9 +139,30 @@ public class Category extends Page implements Item {
 	
 	/**
 	 * Abstract method of Item.java
-	 * @return the default parent Category to this item. (The one that would appear in the top filepath bar.
+	 * @return The default parent Category to this item. (The one that would appear in the top filepath bar.
 	 */
 	public Category getParent(){
 		return parent;
+	}
+	
+	/**
+	 * @return The list of items in this Category.
+	 */
+	public List<Item> getListOfItems(){
+		return listOfItems;
+	}
+	
+	/**
+	 * A list of all of the Categories that are the children, grandchildren, etc, of this Category.
+	 * This works by calling this method on all of this method's children and then adding up all of their lists.
+	 * The casting is legal because this only gets called before Categories are populated with Products.
+	 * @return A list of all of the Categories that are the children, grandchildren, etc, of this Category.
+	 */
+	public List<Category> getListOfAllChildCategories(){
+		List<Category> returnList = new ArrayList<Category>();
+		for(Item item : listOfItems){
+			returnList.addAll(((Category) item).getListOfAllChildCategories());
+		}
+		return returnList;
 	}
 }

@@ -7,73 +7,71 @@ import main.readers.DetailsReader;
 public class Details extends Special{
 
 	/**
+	 * The Object that reads the list of questions and answers from the excel file.
+	 */
+	private DetailsReader reader;
+	
+	/**
 	 * Constructor for an Details object.
 	 */
-	public Details(){
+	public Details(DetailsReader reader){
 		super("Details");
+		this.reader = reader;
 	}
-	
+
 	/**
 	 * Abstract method of Page.java
 	 * @return The part of the HTML file that contains the main content of the page.
 	 */
 	public String buildContent() {
 		String write = "";
-		
-		try {
-			//Reader
-			DetailsReader reader = new DetailsReader(Constants.EXCEL_FILE);
 
-			//Questions
-			write = "<div class='row'><div class='small-12 columns'>"
-					+ "<div class='row'><div class='small-12 columns'>";
-			
-				for(int index=0; index<reader.getNumberOfQuestions(); index++){
-					if(index == 0){
-						write += writeHeader(false, "About our Products");
-					}else if(index == reader.getBreakingPoint()){
-						write += writeHeader(false, "Placing an Order");
-					}
-					String question = reader.getQuestion(index);
-					write += "<p class='bold pointer'><a href='#" + index + "'>" + question + "</a></p>";
-				}
-				
-			write += "</div></div>";
-			
-			//Answers		
-			write += "<div class='row'><div class='small-12 columns'>";
-				
-			for(int index=0; index<reader.getNumberOfQuestions(); index++){
-				if(index == 0){
-					write += writeHeader(true, "About our Products");
-				}else if(index == reader.getBreakingPoint()){
-					write += writeHeader(true, "Placing an Order");
-				}
-				
-				String question = reader.getQuestion(index);
-				String answer = reader.getAnswer(index);
-				
-				write += "<a name='" + index + "'>&nbsp;</a><br>"
-						+ "<div class='row'><div class='small-12 columns'><p class='bold pointer'><a id='PopBlue' href='#" + index + "' onClick='boldStuff(" + index + ");' '>" + question + "</a></p></div></div>"
-						+ "<div class='row'><div class='small-12 columns'><p>" + answer + "</p></div></div>";
+		//Questions
+		write = "<div class='row'><div class='small-12 columns'>"
+				+ "<div class='row'><div class='small-12 columns'>";
+
+		for(int index=0; index<reader.getNumberOfQuestions(); index++){
+			if(index == 0){
+				write += writeHeader(false, "About our Products");
+			}else if(index == reader.getBreakingPoint()){
+				write += writeHeader(false, "Placing an Order");
 			}
-			
-			write += "</div></div>"
-					+ "</div></div>";
-			
-			
-			//Blanks at the bottom to leave room for #names
-			for(int i=0; i<35; i++){
-				write += Constants.BLANK;
+			String question = reader.getQuestion(index);
+			write += "<p class='bold pointer'><a href='#" + index + "'>" + question + "</a></p>";
+		}
+
+		write += "</div></div>";
+
+		//Answers		
+		write += "<div class='row'><div class='small-12 columns'>";
+
+		for(int index=0; index<reader.getNumberOfQuestions(); index++){
+			if(index == 0){
+				write += writeHeader(true, "About our Products");
+			}else if(index == reader.getBreakingPoint()){
+				write += writeHeader(true, "Placing an Order");
 			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			String question = reader.getQuestion(index);
+			String answer = reader.getAnswer(index);
+
+			write += "<a name='" + index + "'>&nbsp;</a><br>"
+					+ "<div class='row'><div class='small-12 columns'><p class='bold pointer'><a id='PopBlue' href='#" + index + "' onClick='boldStuff(" + index + ");' '>" + question + "</a></p></div></div>"
+					+ "<div class='row'><div class='small-12 columns'><p>" + answer + "</p></div></div>";
+		}
+
+		write += "</div></div>"
+				+ "</div></div>";
+
+
+		//Blanks at the bottom to leave room for #names
+		for(int i=0; i<35; i++){
+			write += Constants.BLANK;
 		}
 		
 		return write;
 	}
-	
+
 	/**
 	 * Helper method to buildContent(). Builds the part of the HTML file that contains the section headers on the details page.
 	 * @param haveName Should the "a" element have a "name" attribute. True if yes.
