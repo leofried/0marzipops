@@ -39,10 +39,10 @@ public class DetailsReader {
 
 		detailsArray = new ArrayList<String[]>();
 		
-		for(int row = START; row < Integer.valueOf(sheet.getCell(0, 0).getContents()) + START; row++){
-			detailsArray.set(row, new String[2]);
-			detailsArray.get(row)[0] = sheet.getCell(2, row).getContents();
-			detailsArray.get(row)[1] = sheet.getCell(3, row).getContents();
+		for(int index=0; index < Integer.valueOf(sheet.getCell(0, 0).getContents()); index++){
+			detailsArray.add(new String[2]);
+			detailsArray.get(index)[0] = sheet.getCell(2, index + START).getContents();
+			detailsArray.get(index)[1] = sheet.getCell(3, index + START).getContents();
 		}
 		
 		breakingPoint = Integer.valueOf(sheet.getCell(1, 0).getContents());	

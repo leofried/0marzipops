@@ -59,23 +59,23 @@ public class Main {
 		
 		//PART 1
 		//Create the Index Category
-		Category index = new HomePage("index");
+		Category shop = new HomePage("shop");
 		//Fill with Categories. As this is a recursive function, all of the non-home-page categories will be created here.
-		fillCategory(index, Constants.LIST_OF_CATEGORIES);
+		fillCategory(shop, Constants.LIST_OF_CATEGORIES);
 		//Add the index category to the listOfCategories
-		listOfCategories.add(index);
+		listOfCategories.add(shop);
 
 		//Part 2
 		//Find the Category that has the name of the first Holiday and add that one to the index Page's list of items.
-		index.addToList(Utility.getCategory(Utility.sortHolidays()[0], index.getListOfAllChildCategories()));
+		shop.addToList(2, Utility.getCategory(Utility.sortHolidays()[0], shop.getListOfAllChildCategories()));
 		
 		//Part 3
 		//Create and fill the other three HomePages. Also add these Categories to the listOfCategories.
-		String[] otherHomePageNames = {"indexSignedUp", "Shop", "ShopSignedUp"};
+		String[] otherHomePageNames = {"shopSignedUp", "index", "indexSignedUp"};
 		for(String pageName : otherHomePageNames){
 			Category otherHomePage = new HomePage(pageName);
 			listOfCategories.add(otherHomePage);
-			for(Item item : index.getListOfItems()){
+			for(Item item : shop.getListOfItems()){
 				otherHomePage.addToList(item);
 			}
 		}
@@ -83,7 +83,7 @@ public class Main {
 		//Part 4
 		//Get a list of all of the children and children of children, etc, of the index Category. Add these to the listOfCategories.
 		//This works because all of the items in the listOfItems of Categories are Categories at the moment.
-		listOfCategories.addAll(index.getListOfAllChildCategories());
+		listOfCategories.addAll(shop.getListOfAllChildCategories());
 		return listOfCategories;
 	}
 	
@@ -95,11 +95,14 @@ public class Main {
 	 * @param listOfCategoryNames The list of names for the target's children Category.
 	 */
 	private static void fillCategory(Category target, String[] listOfCategoryNames){
+		
 		for(int i=0; i<listOfCategoryNames.length; i++){
 			Category newCategory = new Category(listOfCategoryNames[i], target);
+
 			for(String[][] infoList : Constants.LIST_OF_MIDDLE_CATEGORIES){
 				if(infoList[0][0].equals(newCategory.getRawName())){
-					fillCategory(newCategory, infoList[0]);
+					fillCategory(newCategory, infoList[1]);
+					new File(Constants.WEB_LOCATION + newCategory.getLocation() + newCategory.getRawName()).mkdir();
 				}
 			}
 			target.addToList(newCategory);
@@ -116,7 +119,11 @@ public class Main {
 		
 		List<Product> returnList = new ArrayList<Product>();
 		for(int i=0; i<reader.getNumberOfProducts(); i++){
-			returnList.add(new Product(i, reader));
+			Product product = new Product(i, reader);
+			for(Category category : product.getCategories()){
+				category.addToList(product);
+			}
+			returnList.add(product);
 		}
 		
 		return returnList;
@@ -143,7 +150,7 @@ public class Main {
 	private static void writePages(List<Page> pages) throws IOException{
 		for(Page page : pages){
 			FileWriter writer = new FileWriter(Constants.WEB_LOCATION + page.getLocation() + page.getRawName() + ".html" , false);
-			writer.write(page.buildContent());
+			writer.write(page.buildHTML());
 			writer.close();
 		}
 	}

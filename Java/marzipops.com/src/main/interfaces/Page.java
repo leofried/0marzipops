@@ -131,7 +131,7 @@ public abstract class Page {
 
 		//Navigation bar
 		write += "<div class='row'><div class='small-12 columns'><ul id='nav'>";
-		for(int i=Constants.LIST_OF_SPECIALS.length-1; i>=0; i--){
+		for(int i=0; i<Constants.LIST_OF_SPECIALS.length; i++){
 			write = write + "<li><a href='" + getReverseLocation() + Constants.LIST_OF_SPECIALS[i] + ".html#'>" + Constants.LIST_OF_SPECIALS[i].toLowerCase() + "</a></li>";
 			if(i != Constants.LIST_OF_SPECIALS.length-1){
 				write = write + "<li class='popBlue'>|</li>";
@@ -241,7 +241,7 @@ public abstract class Page {
 	 * @return The file path to get from the location of the page to the root directory.
 	 */
 	public String getReverseLocation(){
-		int numberOfFolders = location.length() - location.replace(".", "").length();
+		int numberOfFolders = location.length() - location.replace("/", "").length();
 		
 		String str = "";
 		for(int i=0; i<numberOfFolders; i++){

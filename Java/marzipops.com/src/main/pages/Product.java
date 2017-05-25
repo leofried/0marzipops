@@ -63,10 +63,6 @@ public class Product extends Page implements Item{
 
 		String write = "";
 
-		//Location Line
-		write += buildTopLine();
-
-
 		//Picture Text
 		String picture = "<div class='small-6 columns' id='productPic'><img src='../Images/Products/SQB " + getImageName() + " Marzipan Lollipops Marzipops.jpg' id='mainPic'></img>"
 				+ "<p class='text'>Click <a class='popBlue' href='../Custom.html#'>here</a> for custom&nbsp;orders.</p>"
@@ -139,7 +135,7 @@ public class Product extends Page implements Item{
 	 * @return A converted-to-text version of the availability of this Product.
 	 */
 	public String getAvailable(){
-		return Utility.convertToText(productInfoReader.getInfo(Info.AVAILABLE, id));
+		return productInfoReader.getInfo(Info.AVAILABLE, id).replaceAll("-", "&dash;").replaceAll("'", "&#39;");
 	}
 	
 	/**

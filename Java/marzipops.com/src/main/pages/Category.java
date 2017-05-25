@@ -28,13 +28,25 @@ public class Category extends Page implements Item {
 	////////////////////
 	
 	/**
-	 * The constructor for a Category object. Uses parent.getChildLocation() to find the location.
+	 * The main constructor for a Category object. Used for non-HomePage Categories.
+	 * Uses parent.getChildLocation() to find the location.
 	 * @param rawName The name of the page as it would appear on the name of the file. 
 	 * @param parent The parent Category of this Category.
 	 */
 	public Category(String rawName, Category parent){
 		super(rawName, parent.getChildLocation(), PageType.CATEGORY);
 		this.parent = parent;
+		listOfItems = new ArrayList<Item>();
+	}
+	
+	/**
+	 * Another constructor for a Category object. Used for HomePage Categories.
+	 * Assumes that the location is "Categories/".
+	 * @param rawName The name of the page as it would appear on the name of the file. 
+	 */
+	public Category(String rawName){
+		super(rawName, "", PageType.CATEGORY);
+		parent = null;
 		listOfItems = new ArrayList<Item>();
 	}
 	
@@ -51,7 +63,7 @@ public class Category extends Page implements Item {
 	 * @param item An Item to add to the list of Items that this Category contains.
 	 */
 	public void addToList(Item item){
-		addToList(listOfItems.size()-1, item);
+		addToList(listOfItems.size(), item);
 	}
 	
 	/**
@@ -79,10 +91,7 @@ public class Category extends Page implements Item {
 	 * @return The part of the HTML file that contains the main content of the page.
 	 */
 	public String buildContent(){
-		String write = "";
-
-		//Location line and Slideshow 
-		write += buildTopLine();		
+		String write = "";	
 		
 		//Grid
 		write += "<div class='row'>";
@@ -110,7 +119,7 @@ public class Category extends Page implements Item {
 
 
 		//Bottom Forum
-		buildBottomForum();
+		write += buildBottomForum();
 
 		return write;
 	}
@@ -160,6 +169,7 @@ public class Category extends Page implements Item {
 	 */
 	public List<Category> getListOfAllChildCategories(){
 		List<Category> returnList = new ArrayList<Category>();
+		returnList.add(this);
 		for(Item item : listOfItems){
 			returnList.addAll(((Category) item).getListOfAllChildCategories());
 		}
