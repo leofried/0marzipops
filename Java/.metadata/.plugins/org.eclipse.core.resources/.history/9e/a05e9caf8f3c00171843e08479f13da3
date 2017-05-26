@@ -1,0 +1,18 @@
+package main.pages;
+
+import main.interfaces.Page;
+
+public class Special extends Page {
+
+	
+	
+	public Special(String name){
+		super(name, "", Type.SPECIAL);
+	}
+	
+	
+	
+	
+	
+	
+}

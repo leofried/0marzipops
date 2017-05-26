@@ -1,0 +1,55 @@
+package main.pages.speicals;
+
+import main.pages.Special;
+
+public class Custom extends Special{
+
+	/**
+	 * Constructor for an About object.
+	 */
+	public Custom (){
+		super("Custom");
+	}
+	
+	/**
+	 * Abstract method of Page.java
+	 * @return The part of the HTML file that contains the main content of the page.
+	 */
+	public String buildContent(){		
+		String text = "Give someone special a gift or celebrate a "
+				+ "wedding, birthday, baby shower or corporate "
+				+ "event with delicious marzipops!<br><br>"
+				+ "We can create custom designs and "
+				+ "personalized packaging to make your gift, "
+				+ "party or event truly stand out.<br><br>"
+				+ "To request a custom order, email us at info@marzipops.com or fill out the form below.";
+		
+		String write = "";
+		
+		
+		write += "<div class='row'>";
+			write += "<div class='small-3 columns'>";
+				write += "<div class='row'><div class='small-12 columns'><img src='Images/Special/Custom/SQB " + picList[0] + " Marzipan Lollipops Marzipops.jpg'></img><br></div></div><br>";
+				write += "<div class='row'><div class='small-12 columns'><img src='Images/Special/Custom/SQB " + picList[2] + " Marzipan Lollipops Marzipops.jpg'><br></img></div></div><br>";
+				write += "<div class='row'><div class='small-12 columns'><img src='Images/Special/Custom/SQB " + picList[4] + " Marzipan Lollipops Marzipops.jpg'><br></img></div></div>";
+				write += "</div>";
+					
+			write += "<div class='small-6 columns'><div class='row'>";
+				write += "<div class='small-12 columns'><p class='text'>" + text + "</p></div>";
+				if(type == 0){
+					write += buildForm("CustomSignedUp.html");
+				}else{
+					write += "<div class='small-12 columns'><p>Thanks for contacting us! We will get in touch with you shortly.</p></div>";
+				}
+			write += "</div></div>";
+			
+			write += "<div class='small-3 columns'>";
+				write += "<div class='row'><div class='small-12 columns'><img src='Images/Special/Custom/SQB " + picList[1] + " Marzipan Lollipops Marzipops.jpg'></img><br></div></div><br>";
+				write += "<div class='row'><div class='small-12 columns'><img src='Images/Special/Custom/SQB " + picList[3] + " Marzipan Lollipops Marzipops.jpg'></img><br></div></div><br>";
+				write += "<div class='row'><div class='small-12 columns'><img src='Images/Special/Custom/SQB " + picList[5] + " Marzipan Lollipops Marzipops.jpg'></img><br></div></div>";
+			write += "</div>";
+		write += "</div>";
+		
+		return write;
+	}
+}

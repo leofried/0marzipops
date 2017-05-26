@@ -1,0 +1,20 @@
+package main.pages;
+
+public class Index extends Category {
+	
+	
+	public Index(String rawName){
+		super("", null);
+	}
+	
+	public String getHTMLName(){
+		return getRawName().replaceAll("SignedUp", "");
+	}
+
+	public String buildBottomForum(){
+		public String buildBottomForum(){
+			return "";
+		}
+	}
+	
+}

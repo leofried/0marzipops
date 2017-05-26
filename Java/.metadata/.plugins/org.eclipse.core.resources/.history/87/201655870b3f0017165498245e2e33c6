@@ -1,0 +1,51 @@
+package main.readers;
+
+public class DetailsReader {
+	
+	private static final int START = 1;			//The starting row of the sheet
+	
+	private ArrayList<String[]> detailsArray;
+	
+	private int breakingPoint;					//The point in which the questions get separated into different groups
+	
+	public DetailsReader(String fileLoc) {
+		File file = new File(fileLoc);
+		Workbook w = Workbook.getWorkbook(file);
+		sheet = w.getSheet(1);
+
+		curRow = START;
+
+		breakingPoint = Integer.valueOf(sheet.getCell(1, 0).getContents());	
+	}
+	
+	
+	/**
+	 * Iterator interface
+	 */
+	public boolean hasNext() {
+		return curRow <= Integer.valueOf(sheet.getCell(0, 0).getContents()) + START;
+	}
+
+	/**
+	 * Iterator interface
+	 */
+	public String[] next() {
+		String[] arr = {sheet.getCell(2, curRow).getContents(), sheet.getCell(3, curRow).getContents()};
+		curRow++;
+		return arr;
+	}
+	
+	/**
+	 * Iterable interface
+	 */
+	public Iterator<String[]> iterator() {
+		return this;
+	}
+	
+	/**
+	 * @return the point in which the questions get separated into different groups
+	 */
+	public int getBreakingPoint(){
+		return breakingPoint;
+	}
+}

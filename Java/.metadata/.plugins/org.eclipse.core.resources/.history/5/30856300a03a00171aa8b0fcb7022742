@@ -1,0 +1,7 @@
+package main.helpers;
+
+public class Constants {
+
+	public final static String BLANK = "<div class='row'>&nbsp</div>";
+	
+}

@@ -1,0 +1,73 @@
+package main;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import main.helpers.Constants;
+import main.helpers.Utility;
+import main.interfaces.Item;
+import main.pages.Category;
+import main.pages.Index;
+
+public class Main {
+	
+	public static void main(String[] args){
+		Utility.clearDirectory(new File(Constants.WEB_LOCATION + "Categories"), false);	
+		Utility.clearDirectory(new File(Constants.WEB_LOCATION + "Products"), false);
+		List<Category> categories = makeListOfCategories();		
+	}
+
+	
+	/**
+	 * Creates the list of Categories that are needed for this website.
+	 * This method has four steps:<br>
+	 * 1) Create the index page and create and fill it with all of it's children categories.
+	 * Children Categories that have children themselves will follow the same process,
+	 * With their children being created and then filled and so on and so forth.<br>
+	 * 2) Add the current first holiday to the index Page's list of Items.<br>
+	 * 3) Create the three other home pages (indexSignedUp, Shop, and ShopSignedUp).<br>
+	 * 4) Get a list of all of the Categories that were created and add them to a list which then gets returned.
+	 * @return a list of all of the Categories.
+	 */
+	public static List<Category> makeListOfCategories(){		
+		//The list of all of the Categories. This will get returned.
+		List<Category> listOfCategories = new ArrayList<Category>();
+		
+		//Create the Shop Category
+		Category index = new Index("index");
+		fillCategory(index, Constants.LIST_OF_CATEGORIES);
+		listOfCategories.add(index);
+
+		for(Item item : index.getListOfAllChildCategories()){
+			if(item.getRawName().equals(Utility.sortHolidays()[0])){
+				index.addToList((Category) item);
+			}
+		}
+		
+		String[] otherHomePageNames = {"indexSignedUp", "Shop", "ShopSignedUp"};
+		for(String pageName : otherHomePageNames){
+			Category otherHomePage = new Index(pageName);
+			listOfCategories.add(otherHomePage);
+			for(Item item : index.getListOfItems()){
+				otherHomePage.addToList(item);
+			}
+		}
+		
+		listOfCategories.addAll(index.getListOfAllChildCategories());
+		return listOfCategories;
+	}
+	
+	public static Category fillCategory(Category target, String[] listOfCategoryNames){
+		for(int i=0; i<listOfCategoryNames.length; i++){
+			Category newCategory = new Category(listOfCategoryNames[i], target);
+			for(String[][] infoList : Constants.LIST_OF_SPECIAL_CATEGORIES){
+				if(infoList[0][0].equals(newCategory.getRawName())){
+					fillCategory(newCategory, infoList[0]);
+				}
+			}
+			target.addToList(newCategory);
+		}
+	}
+	
+}
