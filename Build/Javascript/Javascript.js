@@ -1,16 +1,15 @@
-function javascript(name, add, isProduct){
-	updateHeader(name, add);
-	if(isProduct){
-		updateProductPage(name);
-	}
-	if(name == "Search"){
-		buildSearch();
-	}
+function javascript(name, add, isProduct, index){
+	updateEveryPage(add);
+	if(isProduct) updateProductPage(name, index);
+	if(name == "index") updateIndexPage();
 }
 
-function updateHeader(name, add){
 
-	//Add the search box.
+function updateEveryPage(add){
+
+	/////////////////////////
+	////Build Search Form////
+	/////////////////////////
 
 	var searchForm = document.createElement("form");
 		searchForm.action = "javascript:searchFunction(&quot" + add + "&quot, false)";
@@ -50,65 +49,43 @@ function updateHeader(name, add){
 	searchBoxContainer.appendChild(searchForm);
 }
 
-function updateProductPage(name){
+function updateProductPage(name, index){
+
+	////////////////////////
+	////Add Extra Photos////
+	////////////////////////
+
+	if(extraPicList[index][i] != 0){
+
+		var verticalPictures = document.createElement("div");
+			verticalPictures.className = "small-2 medium-1 columns zeroLeftPadding";
+
+			var list = document.createElement("ul");
+				list.id = "extraImages";
+
+				for(var i=0; i<extraPicList[index][i]; i++){
+					var text = "";
+					if(i != 0) text = " " + i;
+
+					var listElement = document.createElement("li");
+
+						var image = document.createElement("img");
+							image.src = "../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg";
+							image.onClick = "changeImg(\"" + name + text + "\");";
+							image.className = "pointer";
+
+						listElement.appendChild(image);
+
+					list.appendChild(listElement);
+				}
+
+			verticalPictures.appendChild(list);
+
+		document.getElementById("productPic").class = "small-4 medium-5 columns";
+
+		document.getElementById("picDiscWrapper").insertBefore(verticalPictures, document.getElementById("productDescription"));
 	
-	//Check if there are any secondary photos for this name.
-	for(var i=0; i<extraPicList.length; i++){
-		if(extraPicList[i][0] == name){
-			if(extraPicList[i][1] != 0){
-				addExtraPhotos(name, i);
-			}
-		}
 	}
-}
-
-function addExtraPhotos(name, index){
-
-	var verticalPictures = document.createElement("div");
-		verticalPictures.className = "small-2 medium-1 columns zeroLeftPadding";
-
-		var list = document.createElement("ul");
-			list.id = "extraImages";
-
-			for(var i=0; i<extraPicList[index][i]; i++){
-				var text = "";
-				if(i != 0) text = " " + i;
-
-				var listElement = document.createElement("li");
-
-					var image = document.createElement("img");
-						image.src = "../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg";
-						image.onClick = "changeImg(\"" + name + text + "\");";
-						image.className = "pointer";
-
-					listElement.appendChild(image);
-
-				list.appendChild(listElement);
-			}
-
-		verticalPictures.appendChild(list);
-
-	document.getElementById("productPic").class = "small-4 medium-5 columns";
-
-	document.getElementById("picDiscWrapper").insertBefore(verticalPictures, document.getElementById("productDescription"));
-
-/*
-	var picture = "<div class='small-2 medium-1 columns zeroLeftPadding'><ul id='extraImages'>";
-	for(var i=0; i<=extraPicList[index][1]; i++){
-		if(i == 0){var text = "";}else{var text = " " + i;}
-		link = "'../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg'";
-		picture += "<li><img src=" + link + " onClick='changeImg(\"" + name + text + "\");' class='pointer'></img></li><br>";
-	}
-	picture += "</ul></div>";
-
-	document.getElementById('productPic').className = 'small-4 medium-5 columns';
-
-	var currentText = document.getElementById('picDiscWrapper').innerHTML;
-	var index = currentText.indexOf('</div>') + 6;
-	var newText = currentText.slice(0, index) + picture + currentText.slice(index);
-
-	document.getElementById('picDiscWrapper').innerHTML = newText;
-*/
 }
 
 function changeImg(text){
@@ -116,6 +93,19 @@ function changeImg(text){
 	element.src = "../Images/Products/SQB " + text + " Marzipan Lollipops Marzipops.jpg";
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+//Needs work
 function searchFunction(add, isBig){
 	var form = document.forms.search;
 	var item = 'search';
@@ -123,6 +113,7 @@ function searchFunction(add, isBig){
 	window.open(add + "Search.html?bigSearch=" + form.elements[item].value, "_self");
 }
 
+//Will be replaced by PHP.
 function emailList(isEmailList){
 
 	if(isEmailList == true){

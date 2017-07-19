@@ -91,11 +91,6 @@ public class Product extends Page implements Item{
 				+ "<div class='row'><div class='small-12 columns'><p class='text bold'>" + getTextName() + "</p></div></div>"
 				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getDescription() + "</p></div></div>"
 				+ "<div class='row'><div class='small-12 columns'><p class='text'>" + getAvailable() + ".</p></div></div>"
-				+ "<div class='row'><div class='small-12 columns'>"
-				+ "<a data-pin-do='buttonPin' data-pin-count='above' href='http://www.pinterest.com/pin/create/button/?url=http://www.marzipops.com/Products/" + getRawName() + ".html&media=http://www.marzipops.com/Images/Products/SQB " + getImageName() + " Marzipan Lollipops Marzipops.jpg&description=" + getRawName() + " by marzipops.com'>"
-				+ "<img src='http://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png'/>"
-				+ "</a>&nbsp;"
-				+ "</div></div><br>"
 				+ "<div class='row'>" + buyNow + "</div>"
 				+ "</div>"
 				+ "</div>" + Constants.BLANK;
@@ -176,5 +171,12 @@ public class Product extends Page implements Item{
 	 */
 	public boolean getSoldOut(){
 		return productInfoReader.getInfo(Info.SOLD_OUT, id) != "";
+	}
+	
+	/**
+	 * @return The id of the product.
+	 */
+	public int getPageIndex(){
+		return id;
 	}
 }

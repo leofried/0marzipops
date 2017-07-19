@@ -19,4 +19,8 @@ public class Search extends Special{
 	public String buildContent(){
 		return "";
 	}
+	
+	public String getOnLoadCall(){
+		return "buildSearchPage()";
+	}
 }

@@ -108,12 +108,20 @@ public abstract class Page {
 				+ "<script src='" + getReverseLocation() + "Javascript/Lists.js'></script>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Search.js'></script>"
 				+ "</head>"
-				+ "<body onload='javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ")'>";
+				+ "<body onload='" + getOnLoadCall() + "'>";
 		
 		//Website Wrapper
 		write += "<div id='full' style='visibility: hidden;'>";	
 
 		return write;
+	}
+	
+	/**
+	 * A helper method to buildHead()
+	 * @return the method that should be called when the page loads.
+	 */
+	public String getOnLoadCall(){
+		return "javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ", " + getPageIndex() + ")";
 	}
 	
 	/**
@@ -180,13 +188,7 @@ public abstract class Page {
 		for(int i=0; i<Constants.LIST_OF_MEDIA.length; i++){
 			write += "<div class='small-3 columns'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></div>";
 		}
-		write += "</div></div></div></div></div>" ;
-
-
-		//Pinterest
-		if(pageType == PageType.PRODUCT){
-			write += "<script async defer src='http://assets.pinterest.com/js/pinit.js'></script>";
-		}
+		write += "</div></div></div></div></div>";
 
 		
 		//Foundation
@@ -249,5 +251,12 @@ public abstract class Page {
 		}
 		
 		return str;
+	}
+	
+	/**
+	 * @return the index of the page. -1 for all non-products.
+	 */
+	public int getPageIndex(){
+		return -1;
 	}
 }
