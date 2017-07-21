@@ -35,7 +35,7 @@ public class HomePage extends Category {
 			return super.buildTopLine();
 		}else{
 			return "<div class='row'>"
-					+ "<div class='small-12 columns'><a id='SlideshowLink' href='Categories/holidays/Passsover.html'><img id='Slideshow' src='Images/Slideshow/Slideshow 1.jpg'></img></a></div>"
+					+ "<div class='small-12 columns'><a id='SlideshowLink' href='Products/emoji.html'><img id='SlideshowImage' src='Images/Slideshow/Slideshow 1.jpg'></img></a></div>"
 					+ "</div>"
 					+ Constants.BLANK;
 		}		
@@ -51,15 +51,15 @@ public class HomePage extends Category {
 			write += "<div class='row'>"
 					+ "<div class='small-12 medium-6 large-4 small-centered columns'><form action='//formspree.io/" + Constants.EMAIL + "' method='POST' name='emailList1' onSubmit='return emailList(true)'>"
 						+ "<p>Stay up to date: Sign up for our email!</p>"
-						+ "<span class='inlineBlock'><input type='text' name='email' placeholder='Email'>"
+						+ "<span class='shopButtonInputWrapper'><input type='text' name='email' placeholder='Email'>"
 						+ "<input type='hidden' name='_subject' value='For Email List'>"
 						+ "<input type='hidden' name='_next' value='" + getRawName() + "signedup.html#signedUp'>"
-						+  "</span>&nbsp;&nbsp;&nbsp"
-						+  "<button type='submit' id='shopButton' class='backBlue'><p class='fontWhite'>Send</p></button></form>"
+						+ "</span>&nbsp;&nbsp;&nbsp"
+						+ "<button type='submit' class='shopButton'><p>Send</p></button></form>"
 					+ "</div>"
 					+ "</div>";
 		}else{
-			write += "<div class='row' id='signedUp'>"
+			write += "<div class='row'>"
 					+ "<div class='small-12 medium-6 large-4 small-centered columns'>"
 						+ "<p class='center'>Sweet, you're on the list!</p>"
 					+ "</div>"

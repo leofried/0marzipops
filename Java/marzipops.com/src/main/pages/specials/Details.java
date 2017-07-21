@@ -32,12 +32,12 @@ public class Details extends Special{
 
 		for(int index=0; index<reader.getNumberOfQuestions(); index++){
 			if(index == 0){
-				write += writeHeader(false, "About our Products");
+				write += writeHeader(true, "About our Products");
 			}else if(index == reader.getBreakingPoint()){
-				write += writeHeader(false, "Placing an Order");
+				write += writeHeader(true, "Placing an Order");
 			}
 			String question = reader.getQuestion(index);
-			write += "<p class='bold pointer'><a href='#" + index + "'>" + question + "</a></p>";
+			write += "<p class='question'><a href='#" + index + "'>" + question + "</a></p>";
 		}
 
 		write += "</div></div>";
@@ -47,17 +47,17 @@ public class Details extends Special{
 
 		for(int index=0; index<reader.getNumberOfQuestions(); index++){
 			if(index == 0){
-				write += writeHeader(true, "About our Products");
+				write += writeHeader(false, "About our Products");
 			}else if(index == reader.getBreakingPoint()){
-				write += writeHeader(true, "Placing an Order");
+				write += writeHeader(false, "Placing an Order");
 			}
 
 			String question = reader.getQuestion(index);
 			String answer = reader.getAnswer(index);
 
-			write += "<a name='" + index + "'>&nbsp;</a><br>"
-					+ "<div class='row'><div class='small-12 columns'><p class='bold pointer'><a id='PopBlue' href='#" + index + "' onClick='boldStuff(" + index + ");' '>" + question + "</a></p></div></div>"
-					+ "<div class='row'><div class='small-12 columns'><p>" + answer + "</p></div></div>";
+			write += "<div class='row'><div class='small-12 columns'><a name='" + index + "'>&nbsp;</a>"
+					+ "<p class='question'><a href='#" + index + "' onClick='boldStuff(" + index + ");' '>" + question + "</a></p>"
+					+ "<p class='answer'>" + answer + "</p></div></div>";
 		}
 
 		write += "</div></div>"
@@ -74,13 +74,20 @@ public class Details extends Special{
 
 	/**
 	 * Helper method to buildContent(). Builds the part of the HTML file that contains the section headers on the details page.
-	 * @param haveName Should the "a" element have a "name" attribute. True if yes.
+	 * @param first Whether this is the first time that the question header has a appeared in the page.
 	 * @param text The name of the section.
 	 * @return The HTML file that contains the section headers on the details page.
 	 */
-	private String writeHeader(boolean haveName, String text){
+	private String writeHeader(boolean first, String text){
+		String blank = Constants.BLANK;
+		if(text.equals("About our Products") && first) blank = "";
+		
 		String name = "";
-		if(haveName==true){name = "name=" + text.charAt(0);}
-		return Constants.BLANK + "<h3><a class='bold popBlue' " + name + " href='#" + text.charAt(0) + "'>" + text + "</a></h3>";
+		if(!first) name = "name=" + text.charAt(0);
+		
+		String firstInWords = "first";
+		if(!first) firstInWords = "second";
+		
+		return blank + "<div class='row'><div class='small-12 columns'><p class='" + firstInWords + "QuestionHeader'><a " + name + " href='#" + text.charAt(0) + "'>" + text + "</a></p></div></div>";
 	}
 }

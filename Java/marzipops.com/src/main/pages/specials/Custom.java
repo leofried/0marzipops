@@ -35,7 +35,7 @@ public class Custom extends Special{
 						+ "</div>"
 						
 						+ "<div class='small-6 columns'><div class='row'>"
-							+ "<div class='small-12 columns'><p class='text'>" + text + "</p></div>"
+							+ "<div class='small-12 columns'><p>" + text + "</p></div>"
 							+ buildForm("Custom.html")
 						+ "</div></div>"
 				

@@ -1,0 +1,221 @@
+/* This turns on when CSS turns on.*/
+.full{
+	visibility: visible !important;
+	position: relative;
+	min-height: 100%;
+}
+
+
+/*//////////////////////*/
+/* Element-level styles */
+/*//////////////////////*/
+
+p{
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	text-align: left;
+	color: black;
+	font-size: 16px;
+}
+@media only screen and (max-width: 624px) {
+	p{
+		font-size: 3.2vw;
+	}
+}
+
+a, a:visited{
+	cursor: pointer;
+	color: #4CB7FF;
+}
+a:hover{
+	color: #FF9B00;
+}
+
+button{
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: top;
+	background-color: #4CB7FF;
+}
+button:visited, button:hover, button:active{
+	background-color: #4CB7FF;
+}
+
+button p{
+	color: white;
+}
+
+li, ul{
+	list-style: none;
+	margin: 0px;
+}
+
+/*////////*/
+/* Search */
+/*////////*/
+
+.searchImage {
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+	float: right;
+}
+.searchInputWrapper{
+	overflow: hidden;
+	padding-right: .5em;
+}
+
+
+/*////////////////*/
+/* Navigation Bar */
+/*////////////////*/
+
+.navigationBar{
+	width: 100%;
+	float: left;
+}
+
+
+.navigationBar-link{
+	float: left;
+}
+
+.navigationBar-link > p > a{
+	color: black;
+	font-size: 3.25vw;
+	line-height: 2em;
+	padding: 0 2px;
+}
+
+.navigationBar-link > p > a:hover{
+	color: #4CB7FF;
+}
+
+.navigationBar > :nth-child(1) > p{
+	padding-left: 0px;
+}
+
+
+.navigationBar-verticalLine{
+	margin-top: 2px;
+	float: left;
+}
+
+.navigationBar-verticalLine > p{
+	color: #4CB7FF;
+	font-size: 3.4vw;
+}
+
+
+.navigationBar-social{
+	margin-top: 1.75vw;
+	float: right;
+}
+
+.navigationBar-social > a{
+	padding: 0px 5px 5px 5px;
+}
+
+.navigationBar > :nth-child(5) > p{
+	padding-right: 0px;
+}
+
+.topLine{
+	border-bottom: solid 1px #000000;
+	margin: 0px;
+}
+
+
+/*////////////*/
+/* Categories */
+/*////////////*/
+
+.grid-itemName{
+	text-align: center;
+}
+
+.shopButtonInputWrapper{
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+
+/*//////////*/
+/* Products */
+/*//////////*/
+
+.productInfo-name{
+	font-weight: bold;
+}
+
+.productInfo-buyNowButton{
+	padding: 0px;
+}
+
+.productInfo-soldOut{
+	font-weight: bold;
+	color: red;
+}
+
+
+/*/////////*/
+/* Special */
+/*/////////*/
+
+.shopButton{
+	width: 40px;
+	height: 40px;
+}
+
+.shopButton p{
+	font-size: 10px;
+	margin-top: 10px;
+	margin-left: 8px;
+}
+
+.contactButton{
+	width: 60px;
+	height: 60px;
+}
+.contactButton p{
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+.reviewHeader{
+	text-align: center;
+}
+
+.review{
+	text-align: center;
+	font-style: italic;
+}
+
+.marzipopsWord{
+	font-weight: bold;
+	color: #4CB7FF;
+}
+
+.firstQuestionHeader{
+	font-weight: bold;
+}
+
+.secondQuestionHeader{
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+.question a{
+	color: black;
+	font-weight: bold;
+}
+
+.question a:hover{
+	color: #4CB7FF;
+}
+
+.contactMessage{
+	text-align: center;
+}

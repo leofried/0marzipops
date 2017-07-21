@@ -46,7 +46,7 @@ public interface Item {
 	public default String buildTopLine(){
 
 		String write = "";
-		write += "<div class='row'><div class='small-12 columns'><p class='fullUnderline zeroMargin'>";
+		write += "<div class='row'><div class='small-12 columns'><p class='topLine'>";
 		
 
 		Category curCat = getParent();
@@ -59,7 +59,7 @@ public interface Item {
 			}
 			write += text;
 		}
-		write += "<font class='popBlue'>" + getTextName() + "</font></p></div></div><br>";
+		write += getTextName() + "</p></div></div><br>";
 		
 		return write;
 	}

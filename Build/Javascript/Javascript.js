@@ -24,7 +24,7 @@ function updateEveryPage(add){
 		var container = document.createElement("div");
 
 			var picture = document.createElement("img");
-				picture.id = "search";
+				picture.className = "searchImage";
 				picture.onClick = "searchFunction(&quot" + add + "&quot, false)";
 				picture.src = add + "Images/Click Images/Search.jpg";
 
@@ -32,7 +32,7 @@ function updateEveryPage(add){
 
 
 			var searchCover = document.createElement("div");
-				searchCover.id = "searchCover";
+				searchCover.className = "searchInputWrapper";
 
 				var input = document.createElement("input");
 					input.type = "text";
@@ -81,9 +81,9 @@ function updateProductPage(name, index){
 
 			verticalPictures.appendChild(list);
 
-		document.getElementById("productPic").class = "small-4 medium-5 columns";
+		document.getElementById("productImage").class = "small-4 medium-5 columns";
 
-		document.getElementById("picDiscWrapper").insertBefore(verticalPictures, document.getElementById("productDescription"));
+		document.getElementById("productInfoWrapper").insertBefore(verticalPictures, document.getElementById("productDescription"));
 	
 	}
 }

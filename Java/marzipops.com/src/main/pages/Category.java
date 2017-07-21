@@ -94,13 +94,13 @@ public class Category extends Page implements Item {
 		String write = "";	
 		
 		//Grid
-		write += "<div class='row'>";
+		write += "<div class='row grid'>";
 		for(int i=0; i<listOfItems.size(); i++){
 			Item item = listOfItems.get(i);
 
 			write += "<div class='small-6 medium-4 large-3 columns end'><div class='row'><div class='small-12 columns'>"
 					+ "<a href=\"" + getReverseLocation() + item.getLocation() + item.getTextName() + ".html#\"><img src=\"" + getReverseLocation() + "Images/" + item.getLocation() + "SQB " + item.getImageName() + " Marzipan Lollipops Marzipops.jpg\"></img></a>"
-					+ "<p class='center'>" + item.getTextName() + "</p>"
+					+ "<p class='grid-itemName'>" + item.getTextName() + "</p>"
 					+ "</div></div></div>";
 
 			//Space between rows
