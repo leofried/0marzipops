@@ -19,4 +19,11 @@ public class Search extends Special{
 	public String buildContent(){
 		return "";
 	}
+	
+	/**
+	 * What javascript function should be called when the page is called
+	 */
+	public String getOnLoadCall(){
+		return "buildSearchPage()";
+	}
 }

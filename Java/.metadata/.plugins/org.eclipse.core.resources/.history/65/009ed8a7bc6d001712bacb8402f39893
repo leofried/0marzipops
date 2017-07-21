@@ -1,0 +1,91 @@
+package main.pages.specials;
+
+import main.helpers.Constants;
+import main.pages.Special;
+import main.readers.DetailsReader;
+
+public class Details extends Special{
+
+	/**
+	 * The Object that reads the list of questions and answers from the excel file.
+	 */
+	private DetailsReader reader;
+	
+	/**
+	 * Constructor for an Details object.
+	 */
+	public Details(DetailsReader reader){
+		super("Details");
+		this.reader = reader;
+	}
+
+	/**
+	 * Abstract method of Page.java
+	 * @return The part of the HTML file that contains the main content of the page.
+	 */
+	public String buildContent() {
+		String write = "";
+
+		//Questions
+		write = "<div class='row'><div class='small-12 columns'>"
+				+ "<div class='row'><div class='small-12 columns'>";
+
+		for(int index=0; index<reader.getNumberOfQuestions(); index++){
+			if(index == 0){
+				write += writeHeader(false, "About our Products", "first");
+			}else if(index == reader.getBreakingPoint()){
+				write += writeHeader(false, "Placing an Order", "first");
+			}
+			String question = reader.getQuestion(index);
+			write += "<p class='question'><a href='#" + index + "'>" + question + "</a></p>";
+		}
+
+		write += "</div></div>";
+
+		//Answers		
+		write += "<div class='row'><div class='small-12 columns'>";
+
+		for(int index=0; index<reader.getNumberOfQuestions(); index++){
+			if(index == 0){
+				write += writeHeader(true, "About our Products", "second");
+			}else if(index == reader.getBreakingPoint()){
+				write += writeHeader(true, "Placing an Order", "second");
+			}
+
+			String question = reader.getQuestion(index);
+			String answer = reader.getAnswer(index);
+
+			write += "<div class='row'><div class='small-12 columns'><a name='" + index + "'>&nbsp;</a>"
+					+ "<p class='question'><a href='#" + index + "' onClick='boldStuff(" + index + ");' '>" + question + "</a></p>"
+					+ "<p class='answer'>" + answer + "</p></div></div>";
+		}
+
+		write += "</div></div>"
+				+ "</div></div>";
+
+
+		//Blanks at the bottom to leave room for #names
+		for(int i=0; i<35; i++){
+			write += Constants.BLANK;
+		}
+		
+		return write;
+	}
+
+	/**
+	 * Helper method to buildContent(). Builds the part of the HTML file that contains the section headers on the details page.
+	 * @param haveName Should the "a" element have a "name" attribute. True if yes.
+	 * @param text The name of the section.
+	 * @param time The time that this question header has appeared on the page
+	 * @return The HTML file that contains the section headers on the details page.
+	 */
+	private String writeHeader(boolean haveName, String text, String time){
+		String name = "";
+		if(haveName==true){name = "name=" + text.charAt(0);}
+		
+		String blank = Constants.BLANK;
+		if(time.equals("first") && text.equals("About Our Products")){blank = "";}
+		
+		return Constants.BLANK + "<div class='row'><div class='small-12 columns'><p class='" + time + "QuestionHeader'><a " + name + " href='#" + text.charAt(0) + "'>" + text + "</a></p></div></div>";
+	}
+}

@@ -103,17 +103,25 @@ public abstract class Page {
 				+ "<title>" + pageTitle + "</title>"
 				+ "<meta name='p:domain_verify' content='b556a9473bc0ff0cfd08b0608c15ffa3'/>"
 				+ "<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "Foundation/css/foundation.css'></link>"
-				+ "<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "Foundation/css/style.css'></link>"
+				+ "<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "CSS/style.css'></link>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Javascript.js'></script>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Lists.js'></script>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Search.js'></script>"
 				+ "</head>"
-				+ "<body onload='javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ")'>";
+				+ "<body onload='" + getOnLoadCall() + "'>";
 		
 		//Website Wrapper
-		write += "<div id='full' style='visibility: hidden;'>";	
+		write += "<div class='full' style='visibility: hidden;'>";	
 
 		return write;
+	}
+	
+	/**
+	 * A helper method to buildHead()
+	 * @return the method that should be called when the page loads.
+	 */
+	public String getOnLoadCall(){
+		return "javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ", " + getPageIndex() + ")";
 	}
 	
 	/**
@@ -123,33 +131,32 @@ public abstract class Page {
 	private String buildTop(){
 		
 		//Logo and search box
-		String write = "<div id='header'>" + Constants.BLANK + "<div class='row id='logo'>"
+		String write = "<div id='header'>" + Constants.BLANK + "<div class='row'>"
 				+ "<div class='show-for-medium-up medium-3 columns'>&nbsp</div>"
-				+ "<div class='small-12 medium-6 columns'><a href=" + getReverseLocation() + "index.html><img id='logo' src='" + getReverseLocation() + "Images/Logo.jpg'></imgs></a></div>"
+				+ "<div class='small-12 medium-6 columns'><a href=" + getReverseLocation() + "index.html><img src='" + getReverseLocation() + "Images/Logo.jpg'></imgs></a></div>"
 				+ "<div class='small-12 medium-3 columns' id='searchWrapper'>&nbsp;</div>"
 				+ "</div><br>";
 
 		//Navigation bar
-		write += "<div class='row'><div class='small-12 columns'><ul id='nav'>";
+		write += "<div class='row'><div class='small-12 columns'><ul class='navigationBar'>";
 		for(int i=0; i<Constants.LIST_OF_SPECIALS.length; i++){
-			write = write + "<li><a href='" + getReverseLocation() + Constants.LIST_OF_SPECIALS[i] + ".html#'>" + Constants.LIST_OF_SPECIALS[i].toLowerCase() + "</a></li>";
+			write = write + "<li class='navigationBar-link'><p><a href='" + getReverseLocation() + Constants.LIST_OF_SPECIALS[i] + ".html#'>" + Constants.LIST_OF_SPECIALS[i].toLowerCase() + "</a></p></li>";
 			if(i != Constants.LIST_OF_SPECIALS.length-1){
-				write = write + "<li class='popBlue'>|</li>";
+				write = write + "<li class='navigationBar-verticalLine'><p>|</p></li>";
 			}
 		}
 
 		//Social Media links
 		for(int i=0; i<Constants.LIST_OF_MEDIA.length; i++){
-			write = write + "<li class='show-for-medium-up socialNav' id='" + Constants.LIST_OF_MEDIA[i] + "'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></li>";
+			write = write + "<li class='show-for-medium-up navigationBar-social'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></li>";
 		}
 		write += "</ul></div></div>";
-
-		//Blank and top line.
-		write += Constants.BLANK + "</div>";
-		write += buildTopLine();
 		
 		//Content Header
-		write += "<div id='content'>";
+		write += "</div><div id='content'>";
+		
+		//Top Line
+		write += buildTopLine();
 
 		return write;
 	}
@@ -180,13 +187,7 @@ public abstract class Page {
 		for(int i=0; i<Constants.LIST_OF_MEDIA.length; i++){
 			write += "<div class='small-3 columns'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></div>";
 		}
-		write += "</div></div></div></div></div>" ;
-
-
-		//Pinterest
-		if(pageType == PageType.PRODUCT){
-			write += "<script async defer src='http://assets.pinterest.com/js/pinit.js'></script>";
-		}
+		write += "</div></div></div></div></div>";
 
 		
 		//Foundation
@@ -227,7 +228,7 @@ public abstract class Page {
 	 * @return The name of the page as it would appear in HTML text or in the title of a webpage.
 	 */
 	public String getTextName(){
-		return rawName.replaceAll("-", "&dash;").replaceAll("'", "&#39;");
+		return rawName.replaceAll("-", "&dash;").replaceAll("'", "&#39;").toLowerCase();
 	}
 	
 	/**
@@ -249,5 +250,12 @@ public abstract class Page {
 		}
 		
 		return str;
+	}
+	
+	/**
+	 * @return the index of the page. -1 for all non-products.
+	 */
+	public int getPageIndex(){
+		return -1;
 	}
 }

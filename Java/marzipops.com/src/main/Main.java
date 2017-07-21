@@ -182,6 +182,13 @@ public class Main {
 			writer.write("],\n");
 		}
 		writer.write("];\n\n\n");
+		
+		//List of categories.
+		writer.write("categoriesList = [");
+		for(String category : Constants.LIST_OF_CATEGORIES){
+			writer.write("'" + category.toUpperCase() + "', ");
+		}
+		writer.write("];");
 		writer.close();
 	}
 	

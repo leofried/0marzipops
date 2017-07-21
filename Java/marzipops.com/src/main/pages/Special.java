@@ -17,7 +17,7 @@ public abstract class Special extends Page {
 	 * @return The part of the HTML file that contains the top line.
 	 */
 	public String buildTopLine(){
-		return "<div class='row'><div class='small-12 columns'><p class='fullUnderline zeroMargin popBlue'>"
+		return "<div class='row'><div class='small-12 columns'><p class='topLine'>"
 				+ getTextName() + "</p></div></div><br>";
 	}
 	
@@ -37,7 +37,7 @@ public abstract class Special extends Page {
 		write += "<textarea rows='5' placeholder='Message' name='message'></textarea>";
 		write += "<input type='hidden' name='_subject' value='Note'>";
 		write += "<input type='hidden' name='_next' value='" + destination + "'>";
-		write += "<button type='submit' id='contactButton' class='backBlue'><p class='fontWhite'>Send</p></button></form></div>";
+		write += "<button type='submit' class='contactButton'><p>Send</p></button></form></div>";
 		return write;
 	}	
 	

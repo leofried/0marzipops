@@ -20,7 +20,7 @@ public class Contact extends Special{
 		String write = "";
 		
 		//The words at the top.
-		write += "<div class='row'><div class='small-12 small-centered columns'><p id='Reach' class='center fontSixteen'>"
+		write += "<div class='row'><div class='small-12 small-centered columns'><p class='contactMessage'>"
 				+ "We want to hear from you!<br>hello@marzipops.com<br>(917)&nbsp658&ndash;0726</p></div></div>";
 	
 		//The marzipop photos of the various social media sites.
@@ -38,7 +38,7 @@ public class Contact extends Special{
 							+ "<input type='text' name='email' placeholder='Email'>"
 							+ "<input type='hidden' name='_subject' value='For Email List'>"
 							+ "<input type='hidden' name='_next' value='ContactSignedUp1'>"
-							+ "<button type='submit' id='contactButton' class='backBlue'><p class='fontWhite'>Send</p></button>"
+							+ "<button type='submit' class='contactButton'><p>Send</p></button>"
 						+ "</form></div>"
 						+ "<div class='small-12 columns'>" + Constants.BLANK + "</div>"
 						+ "<div class='small-12 columns'><p>Send us a note!</p></div>"
