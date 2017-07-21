@@ -79,13 +79,7 @@ a:hover{
 a:hover.popBlue{
 	color: #FF9B00 !important;	
 }
-button{
-	cursor: pointer;
-	border-radius: 50%;
-	padding: 0px;
-	margin: 0px;
-	vertical-align: top;
-}
+
 input{
 	width: 100%;
 }
@@ -112,6 +106,14 @@ li, ul{
 .fontWhite{color: white;}
 .fontRed{color: red;}
 
+
+#contactButton, #shopButton{
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: top;
+}
 #contactButton{
 	width: 60px;
 	height: 60px;

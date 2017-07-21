@@ -20,9 +20,6 @@ public class Search extends Special{
 		return "";
 	}
 	
-	/**
-	 * What javascript function should be called when the page is called
-	 */
 	public String getOnLoadCall(){
 		return "buildSearchPage()";
 	}

@@ -159,6 +159,15 @@ li, ul{
 	color: red;
 }
 
+.productInfo-altImageWrapper{
+	padding: 0px;
+	margin-top: -10px;
+}
+.productInfo-altImageWrapper > ul > li{
+	padding: 10px 0px;
+	cursor: pointer;
+}
+
 
 /*/////////*/
 /* Special */

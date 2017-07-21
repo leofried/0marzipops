@@ -1,7 +1,7 @@
 function javascript(name, add, isProduct, index){
 	updateEveryPage(add);
-	if(isProduct) updateProductPage(name, index);
-	if(name == "index") updateIndexPage();
+//	if(isProduct) updateProductPage(name, index);
+//	if(name == "index") updateIndexPage();
 }
 
 
@@ -12,7 +12,7 @@ function updateEveryPage(add){
 	/////////////////////////
 
 	var searchForm = document.createElement("form");
-		searchForm.action = "javascript:searchFunction(&quot" + add + "&quot, false)";
+		searchForm.action = "javascript:searchFunction('" + add + "', false)";
 		searchForm.name = "search";
 		searchForm.method = "POST";
 
@@ -23,10 +23,12 @@ function updateEveryPage(add){
 
 		var container = document.createElement("div");
 
-			var picture = document.createElement("img");
+			var picture = document.createElement("input");
+				picture.id = "saveForm";
+				picture.type = "image";
 				picture.className = "searchImage";
-				picture.onClick = "searchFunction(&quot" + add + "&quot, false)";
 				picture.src = add + "Images/Click Images/Search.jpg";
+//				picture.onClick = function(){alert("yeah");};
 
 			container.appendChild(picture);
 
@@ -51,19 +53,21 @@ function updateEveryPage(add){
 
 function updateProductPage(name, index){
 
+
 	////////////////////////
 	////Add Extra Photos////
 	////////////////////////
 
-	if(extraPicList[index][i] != 0){
+	if(extraPicList[index][1] != 0){
 
 		var verticalPictures = document.createElement("div");
-			verticalPictures.className = "small-2 medium-1 columns zeroLeftPadding";
+			verticalPictures.className = "small-2 medium-1 columns productInfo-altImageWrapper";
 
 			var list = document.createElement("ul");
 				list.id = "extraImages";
 
-				for(var i=0; i<extraPicList[index][i]; i++){
+				for(var i=0; i<extraPicList[index][1]; i++){
+
 					var text = "";
 					if(i != 0) text = " " + i;
 
@@ -71,26 +75,34 @@ function updateProductPage(name, index){
 
 						var image = document.createElement("img");
 							image.src = "../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg";
-							image.onClick = "changeImg(\"" + name + text + "\");";
-							image.className = "pointer";
+							image.onclick = function(name, text){
+								var element = document.getElementById('productImage');
+								element.src = "../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg";
+							};
 
 						listElement.appendChild(image);
+
 
 					list.appendChild(listElement);
 				}
 
 			verticalPictures.appendChild(list);
 
-		document.getElementById("productImage").class = "small-4 medium-5 columns";
+		document.getElementById("productPic").className = "small-4 medium-5 columns";
 
 		document.getElementById("productInfoWrapper").insertBefore(verticalPictures, document.getElementById("productDescription"));
 	
 	}
 }
 
-function changeImg(text){
-	var element = document.getElementById('mainPic');
-	element.src = "../Images/Products/SQB " + text + " Marzipan Lollipops Marzipops.jpg";
+function changeImg(name){
+	var element = document.getElementById('productImage');
+	element.src = "../Images/Products/SQB " + name + " 1 Marzipan Lollipops Marzipops.jpg";
+
+	console.log(element.src);
+	console.log(element.src.substring(22 + name, element.src.length - 34));
+
+	return false;
 }
 
 
@@ -108,8 +120,11 @@ function changeImg(text){
 //Needs work
 function searchFunction(add, isBig){
 	var form = document.forms.search;
-	var item = 'search';
-	if(isBig == true){form=document.forms.bigSearch; item='bigSearch';}
+	var item = "search";
+	if(isBig == true){
+		form=document.forms.bigSearch;
+		item="bigSearch";
+	}
 	window.open(add + "Search.html?bigSearch=" + form.elements[item].value, "_self");
 }
 
