@@ -112,6 +112,11 @@ li, ul{
 	color: #4CB7FF;
 	font-size: 3.4vw;
 }
+@media only screen and (min-width: 1020px) {
+	.navigationBar-verticalLine > p{
+		font-size: 33px;
+	}
+}
 
 
 .navigationBar-social{
