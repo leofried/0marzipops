@@ -1,8 +1,0 @@
-package main.pages;
-
-public class Index extends Category{
-
-	private boolean isIndex;
-	private boolean isSiginedUp;
-	
-}
