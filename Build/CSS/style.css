@@ -87,6 +87,12 @@ li, ul{
 	line-height: 2em;
 	padding: 0 2px;
 }
+@media only screen and (min-width: 1020px) {
+	.navigationBar-link > p > a{
+		font-size: 33px;
+	}
+}
+
 
 .navigationBar-link > p > a:hover{
 	color: #4CB7FF;
@@ -105,6 +111,11 @@ li, ul{
 .navigationBar-verticalLine > p{
 	color: #4CB7FF;
 	font-size: 3.4vw;
+}
+@media only screen and (min-width: 1020px) {
+	.navigationBar-verticalLine > p{
+		font-size: 33px;
+	}
 }
 
 

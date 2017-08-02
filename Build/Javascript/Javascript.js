@@ -1,6 +1,6 @@
 function javascript(name, add, isProduct, index){
 	updateEveryPage(add);
-//	if(isProduct) updateProductPage(name, index);
+	if(isProduct) updateProductPage(name, index);
 //	if(name == "index") updateIndexPage();
 }
 
@@ -73,15 +73,14 @@ function updateProductPage(name, index){
 
 					var listElement = document.createElement("li");
 
-						var image = document.createElement("img");
+/*						var image = document.createElement("img");
 							image.src = "../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg";
-							image.onclick = function(name, text){
-								var element = document.getElementById('productImage');
-								element.src = "../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg";
-							};
+							image.onClick = "changeImg(\"" + name + "\")";
 
 						listElement.appendChild(image);
+*/
 
+						listElement.innerHTML = "<img src='../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg' + onClick='changeImage(\"" + name + text + "\")'></img>";
 
 					list.appendChild(listElement);
 				}
@@ -95,20 +94,10 @@ function updateProductPage(name, index){
 	}
 }
 
-function changeImg(name){
+function changeImage(value){
 	var element = document.getElementById('productImage');
-	element.src = "../Images/Products/SQB " + name + " 1 Marzipan Lollipops Marzipops.jpg";
-
-	console.log(element.src);
-	console.log(element.src.substring(22 + name, element.src.length - 34));
-
-	return false;
+	element.src = "../Images/Products/SQB " + value + " Marzipan Lollipops Marzipops.jpg";
 }
-
-
-
-
-
 
 
 
