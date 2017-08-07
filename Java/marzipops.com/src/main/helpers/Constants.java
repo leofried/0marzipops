@@ -45,7 +45,7 @@ public class Constants {
 	/**
 	 * List of Categories.
 	 */
-	public final static String[] LIST_OF_CATEGORIES = {"new", "featured", "holidays", "candy bites", "animals", "sports", "candy tiles", "emoji", "baby", "flowers", "food designs", "winter break", "summer fun", "themes", "2-in-1", "everything"};
+	public final static String[] LIST_OF_CATEGORIES = {"new", "featured", "holidays", "three dimensional", "candy bites", "animals", "sports", "candy tiles", "emoji", "baby", "flowers", "food designs", "winter break", "summer fun", "themes", "2-in-1", "everything"};
 
 	/**
 	 * List of Categories with child Categories.
