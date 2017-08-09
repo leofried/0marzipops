@@ -168,7 +168,7 @@ public class Main {
 		for(Product product : products){
 			writer.write("['" + product.getRawName() + "',[");
 			for(String searchTerm : product.getSearchTerms()){
-				writer.write("'" + searchTerm.replace("'", "\\'") + "',");
+				writer.write("'" + searchTerm + "',");
 			}
 			writer.write("]],\n");
 		}

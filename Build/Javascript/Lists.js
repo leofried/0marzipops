@@ -10,7 +10,7 @@ fullSearchList = [
 ['hebrew rosh hashanah card',['apple','honey','rosh','hashana','hashanah','shofar','fall','holiday','jewish','red','hostess','fruit','Gift',]],
 ['happy unicorn poop',['poop','emoji','unicorn','rainbow','kawaii','gift','poo',]],
 ['unicorn poop pops',['poop','emoji','unicorn','rainbow','gift','star','poo',]],
-['dessert foodies',['s'more','smore','neopolitan','ice','cream','sandwich','donut','doughnut','rainbow','foodie','gift','trio',]],
+['dessert foodies',['s\'more','smore','neopolitan','ice','cream','sandwich','donut','doughnut','rainbow','foodie','gift','trio',]],
 ['apples',['Holiday','Apple','Red','Fruit','Rosh','Hashana','Hashanah','hostess','honey','jewish','Gift',]],
 ['apples & honey',['apple','honey','rosh','hashana','hashanah','shofar','fall','holiday','jewish','red','hostess','fruit','Gift',]],
 ['green and red apples',['apple','honey','rosh','hashana','hashanah','shofar','fall','holiday','jewish','red','green','Gift',]],
