@@ -99,7 +99,7 @@ public class Category extends Page implements Item {
 			Item item = listOfItems.get(i);
 
 			write += "<div class='small-6 medium-4 large-3 columns end'><div class='row'><div class='small-12 columns'>"
-					+ "<a href=\"" + getReverseLocation() + item.getLocation() + item.getTextName() + ".html#\"><img src=\"" + getReverseLocation() + "Images/" + item.getLocation() + "SQB " + item.getImageName() + " Marzipan Lollipops Marzipops.jpg\"></img></a>"
+					+ "<a href=\"" + getReverseLocation() + item.getLocation() + item.getRawName() + ".html#\"><img src=\"" + getReverseLocation() + "Images/" + item.getLocation() + "SQB " + item.getImageName() + " Marzipan Lollipops Marzipops.jpg\"></img></a>"
 					+ "<p class='grid-itemName'>" + item.getTextName() + "</p>"
 					+ "</div></div></div>";
 
@@ -112,7 +112,7 @@ public class Category extends Page implements Item {
 				write += "<div class='small-12 show-for-medium-only columns'>&nbsp;</div>";
 			}
 			if((i + 1) % 4 == 0){
-				write += "<div class='small-12 show-for-large-up columns'>&nbsp;</div>";
+				write += "<div class='small-12 show-for-large-only columns'>&nbsp;</div>";
 			}
 		}
 		write += "</div>";

@@ -66,21 +66,13 @@ function updateProductPage(name, index){
 			var list = document.createElement("ul");
 				list.id = "extraImages";
 
-				for(var i=0; i<extraPicList[index][1]; i++){
+				for(var i=0; i<=extraPicList[index][1]; i++){
 
 					var text = "";
 					if(i != 0) text = " " + i;
 
 					var listElement = document.createElement("li");
-
-/*						var image = document.createElement("img");
-							image.src = "../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg";
-							image.onClick = "changeImg(\"" + name + "\")";
-
-						listElement.appendChild(image);
-*/
-
-						listElement.innerHTML = "<img src='../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg' + onClick='changeImage(\"" + name + text + "\")'></img>";
+						listElement.innerHTML = "<img src='../Images/Products/SQB " + name + text + " Marzipan Lollipops Marzipops.jpg' onClick='changeImage(\"" + name + text + "\")'></img>";
 
 					list.appendChild(listElement);
 				}

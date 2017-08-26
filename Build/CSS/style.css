@@ -32,7 +32,6 @@ a:hover{
 
 button{
 	cursor: pointer;
-	border-radius: 50%;
 	padding: 0px;
 	margin: 0px;
 	vertical-align: top;
@@ -40,6 +39,9 @@ button{
 }
 button:visited, button:hover, button:active{
 	background-color: #4CB7FF;
+}
+[type='submit']{
+	border-radius: 50%;
 }
 
 button p{
