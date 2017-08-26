@@ -154,17 +154,12 @@ li, ul{
 	zoom: 1;
 }
 
-
 /*//////////*/
 /* Products */
 /*//////////*/
 
 .productInfo-name{
 	font-weight: bold;
-}
-
-.productInfo-buyNowButton{
-	padding: 0px;
 }
 
 .productInfo-soldOut{
