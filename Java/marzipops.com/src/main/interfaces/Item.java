@@ -54,7 +54,7 @@ public interface Item {
 			write += "<a href='" + getReverseLocation() + "Shop.html#'>shop</a>: ";
 			String text = "";
 			while(curCat.getParent() != null){
-				text = "<a href='" + getReverseLocation() + curCat.getLocation() + curCat.getRawName() + ".html#'>" + curCat.getTextName() + "</a>: " + text;
+				text = "<a href=\"" + getReverseLocation() + curCat.getLocation() + curCat.getRawName() + ".html#\">" + curCat.getTextName() + "</a>: " + text;
 				curCat = curCat.getParent();
 			}
 			write += text;

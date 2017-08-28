@@ -132,7 +132,7 @@ public abstract class Page {
 		
 		//Logo and search box
 		String write = "<div id='header'>" + Constants.BLANK + "<div class='row'>"
-				+ "<div class='show-for-medium-up medium-3 columns'>&nbsp</div>"
+				+ "<div class='show-for-medium medium-3 columns'>&nbsp</div>"
 				+ "<div class='small-12 medium-6 columns'><a href=" + getReverseLocation() + "index.html><img src='" + getReverseLocation() + "Images/Logo.jpg'></imgs></a></div>"
 				+ "<div class='small-12 medium-3 columns' id='searchWrapper'>&nbsp;</div>"
 				+ "</div><br>";
@@ -148,7 +148,7 @@ public abstract class Page {
 
 		//Social Media links
 		for(int i=0; i<Constants.LIST_OF_MEDIA.length; i++){
-			write = write + "<li class='show-for-medium-up navigationBar-social'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></li>";
+			write = write + "<li class='show-for-medium navigationBar-social'><a href='http://www." + Constants.LIST_OF_MEDIA[i] + ".com/marzipops' target='_blank'><img src='" + getReverseLocation() + "Images/Social Media/Orange " + Constants.LIST_OF_MEDIA[i] + ".jpg'></img></a></li>";
 		}
 		write += "</ul></div></div>";
 		

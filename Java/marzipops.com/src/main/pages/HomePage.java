@@ -49,14 +49,13 @@ public class HomePage extends Category {
 
 		if(!getRawName().contains("SignedUp")){				
 			write += "<div class='row'>"
-					+ "<div class='small-12 medium-6 large-4 small-centered columns'><form action='//formspree.io/" + Constants.EMAIL + "' method='POST' name='emailList1' onSubmit='return emailList(true)'>"
-						+ "<p>Stay up to date: Sign up for our email!</p>"
-						+ "<span class='shopButtonInputWrapper'><input type='text' name='email' placeholder='Email'>"
+					+ "<div class='small-12 medium-6 large-4 small-centered columns'><div class='row'><form action='//formspree.io/" + Constants.EMAIL + "' method='POST' name='emailList1' onSubmit='return emailList(true)'>"
+						+ "<div class='small-12 columns'><p>Stay up to date: Sign up for our email!</p></div>"
 						+ "<input type='hidden' name='_subject' value='For Email List'>"
-						+ "<input type='hidden' name='_next' value='" + getRawName() + "signedup.html#signedUp'>"
-						+ "</span>&nbsp;&nbsp;&nbsp"
-						+ "<button type='submit' class='shopButton'><p>Send</p></button></form>"
-					+ "</div>"
+						+ "<input type='hidden' name='_next' value='" + getRawName() + "signedup.html#signedUp'>"						
+						+ "<div class='small-10 columns'><input type='text' name='email' placeholder='Email'></div>"
+						+ "<div class='small-2 columns'><button type='submit' class='shopButton'><p>Send</p></button></div></form>"
+					+ "</div></div>"
 					+ "</div>";
 		}else{
 			write += "<div class='row'>"

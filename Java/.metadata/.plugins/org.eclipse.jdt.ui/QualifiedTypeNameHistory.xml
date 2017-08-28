@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="main.pages.specials.FAQ"/>
+<fullyQualifiedTypeName name="main.readers.FAQReader"/>
+<fullyQualifiedTypeName name="main.Details"/>
+<fullyQualifiedTypeName name="main.pages.specials.main.Details"/>
+</qualifiedTypeNameHistroy>
