@@ -92,7 +92,7 @@ public class Utility {
 		int currentDate = LocalDateTime.now().getMonthValue() * 100 + LocalDateTime.now().getDayOfMonth();
 		
 		for(int i=0; i<Constants.LIST_OF_HOLIDAYS.length; i++){
-			int daysAway = currentDate - Constants.LIST_OF_HOLIDAY_DATES[i];
+			int daysAway = Constants.LIST_OF_HOLIDAY_DATES[i] - currentDate;
 			if(daysAway < 0) daysAway += 10000;
 			
 			String name = Constants.LIST_OF_HOLIDAYS[i];
