@@ -30,7 +30,7 @@ public class Constants {
 	/**
 	 * List of special pages that appear in the header.
 	 */
-	public final static String[] LIST_OF_SPECIALS = {"Shop", "Custom", "About", "Details", "Contact"};
+	public final static String[] LIST_OF_SPECIALS = {"Shop", "Custom", "About", "FAQ", "Contact"};
 		
 	/**
 	 * List of holidays.

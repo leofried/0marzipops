@@ -112,7 +112,7 @@ public class Category extends Page implements Item {
 				write += "<div class='small-12 show-for-medium-only columns'>&nbsp;</div>";
 			}
 			if((i + 1) % 4 == 0){
-				write += "<div class='small-12 show-for-large-only columns'>&nbsp;</div>";
+				write += "<div class='small-12 show-for-large columns'>&nbsp;</div>";
 			}
 		}
 		write += "</div>";

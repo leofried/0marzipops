@@ -18,9 +18,10 @@ import main.pages.Special;
 import main.pages.specials.About;
 import main.pages.specials.Contact;
 import main.pages.specials.Custom;
-import main.pages.specials.Details;
+import main.pages.specials.FAQ;
 import main.pages.specials.Search;
-import main.readers.DetailsReader;
+import main.pages.specials.main.Details;
+import main.readers.FAQReader;
 import main.readers.ProductInfoReader;
 
 public class Main {
@@ -138,8 +139,9 @@ public class Main {
 		returnList.add(new About());
 		returnList.add(new Contact());
 		returnList.add(new Custom());
-		returnList.add(new Details(new DetailsReader(Constants.EXCEL_FILE)));
+		returnList.add(new FAQ(new FAQReader(Constants.EXCEL_FILE)));
 		returnList.add(new Search());
+		returnList.add(new Details());
 		return returnList;
 	}
 	
