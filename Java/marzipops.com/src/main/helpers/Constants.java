@@ -40,7 +40,7 @@ public class Constants {
 	/**
 	 * List of dates that the holidays occur on.
 	 */
-	public final static int[] LIST_OF_HOLIDAY_DATES = {210, 			211, 		410, 		515, 	516, 			619, 			704, 		930, 			1031, 			1128, 			1224, 		1225};
+	public final static int[] LIST_OF_HOLIDAY_DATES = {210, 			211, 		410, 		515, 	516, 			619, 			704, 		930, 			1031, 			1120, 			1224, 		1225};
 
 	/**
 	 * List of Categories.
