@@ -4,4 +4,8 @@
 <fullyQualifiedTypeName name="main.readers.FAQReader"/>
 <fullyQualifiedTypeName name="main.Details"/>
 <fullyQualifiedTypeName name="main.pages.specials.main.Details"/>
+<fullyQualifiedTypeName name="main.interfaces.Page"/>
+<fullyQualifiedTypeName name="main.helpers.Utility"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="main.interfaces.Item"/>
 </qualifiedTypeNameHistroy>
