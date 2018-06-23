@@ -36,7 +36,7 @@ public class Main {
 		
 		pages.addAll(categories);
 		pages.addAll(products);
-		pages.addAll(makeListOfSpecials());
+		pages.addAll(makeListOfSpecials(categories));
 		
 		writePages(pages);
 		writeJSLists(products);
@@ -134,13 +134,13 @@ public class Main {
 	 * Creates all of the Specials and then returns a list of them.
 	 * @return A list of all of the Special Pages for the website.
 	 */
-	private static List<Special> makeListOfSpecials() throws BiffException, IOException{
+	private static List<Special> makeListOfSpecials(List<Category> categories) throws BiffException, IOException{
 		List<Special> returnList = new ArrayList<Special>();
 		returnList.add(new About());
 		returnList.add(new Contact());
 		returnList.add(new Custom());
 		returnList.add(new FAQ(new FAQReader(Constants.EXCEL_FILE)));
-		returnList.add(new Search());
+		returnList.add(new Search(categories.get(0).getListOfItems()));
 		returnList.add(new Details());
 		return returnList;
 	}

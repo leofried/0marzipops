@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import main.interfaces.Item;
+import main.interfaces.Page;
 import main.pages.Category;
 
 public class Utility {
@@ -128,6 +130,41 @@ public class Utility {
 		
 		inputStream.close();
 		outputStream.close();
-	}	
+	}
+	
+	/**
+	 * Builds a grid of items onto the page. This is used by categories and by the search (for when JS is disabled).
+	 * @param page The page that the grid will be added to. Necessary for getReverseLocation().
+	 * @param listOfItems The list of items that should be in the grid.
+	 * @return A String with the code for the grid.
+	 */
+	public static String buildGrid(Page page, List<Item> listOfItems){
+		String write = "";
+		write += "<div class='row grid'>";
+		for(int i=0; i<listOfItems.size(); i++){
+			Item item = listOfItems.get(i);
+
+			write += "<div class='small-6 medium-4 large-3 columns end'><div class='row'><div class='small-12 columns'>"
+					+ "<a href=\"" + page.getReverseLocation() + item.getLocation() + item.getRawName() + ".html#\"><img src=\"" + page.getReverseLocation() + "Images/" + item.getLocation() + "SQB " + item.getImageName() + " Marzipan Lollipops Marzipops.jpg\"></img></a>"
+					+ "<p class='grid-itemName'>" + item.getTextName() + "</p>"
+					+ "</div></div></div>";
+
+			//Space between rows
+
+			if((i + 1) % 2 == 0){
+				write += "<div class='small-12 show-for-small-only columns'>&nbsp;</div>";
+			}
+			if((i + 1) % 3 == 0){
+				write += "<div class='small-12 show-for-medium-only columns'>&nbsp;</div>";
+			}
+			if((i + 1) % 4 == 0){
+				write += "<div class='small-12 show-for-large columns'>&nbsp;</div>";
+			}
+		}
+		write += "</div>";
+		
+		return write;
+	}
+	
 	
 }
