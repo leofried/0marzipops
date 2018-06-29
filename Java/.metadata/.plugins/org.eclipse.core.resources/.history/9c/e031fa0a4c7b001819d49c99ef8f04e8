@@ -20,7 +20,7 @@ import main.pages.specials.Contact;
 import main.pages.specials.Custom;
 import main.pages.specials.FAQ;
 import main.pages.specials.Search;
-import main.pages.specials.old.Details;
+import main.pages.specials.main.Details;
 import main.readers.FAQReader;
 import main.readers.ProductInfoReader;
 

@@ -1,6 +1,5 @@
 package main.pages.specials;
 
-import main.helpers.Constants;
 import main.pages.Special;
 
 public class Custom extends Special{
@@ -46,8 +45,6 @@ public class Custom extends Special{
 							+ "<div class='row'><div class='small-12 columns'><img src='Images/Special/Custom/SQB Custom6 Marzipan Lollipops Marzipops.jpg'></img></div></div>"
 						+ "</div>"
 					+ "</div>";
-		
-		write += Constants.BLANK;
 		
 		return write;
 	}

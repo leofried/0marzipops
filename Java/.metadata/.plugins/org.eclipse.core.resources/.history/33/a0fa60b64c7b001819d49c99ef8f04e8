@@ -1,6 +1,5 @@
 package main.pages.specials;
 
-import main.helpers.Constants;
 import main.pages.Special;
 
 public class Custom extends Special{

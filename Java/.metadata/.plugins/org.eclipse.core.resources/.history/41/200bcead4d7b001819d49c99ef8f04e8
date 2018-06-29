@@ -1,6 +1,5 @@
 package main.pages.specials;
 
-import main.helpers.Constants;
 import main.pages.Special;
 
 public class About extends Special{
@@ -55,8 +54,6 @@ public class About extends Special{
 		
 		//Adding collage to the page.
 		write += "<div class='row'><div class='small-12 columns'><img src='Images/Special/About/Collage.jpg'></div></div>";
-		
-		write += Constants.BLANK;
 		
 		return write;
 	}
