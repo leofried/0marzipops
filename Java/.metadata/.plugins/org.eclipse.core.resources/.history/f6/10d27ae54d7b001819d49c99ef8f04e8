@@ -46,8 +46,6 @@ public class Contact extends Special{
 					+ "</div>"
 				+ "</div>";
 		
-		write += Constants.BLANK;
-		
 		return write;
 
 	}
