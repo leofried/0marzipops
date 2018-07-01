@@ -27,6 +27,8 @@ import main.readers.ProductInfoReader;
 public class Main {
 	
 	public static void main(String[] args) throws BiffException, IOException{
+		System.out.println("i can prin to the screen :)");
+		
 		Utility.clearDirectory(new File(Constants.WEB_LOCATION + "Categories"), false);	
 		Utility.clearDirectory(new File(Constants.WEB_LOCATION + "Products"), false);
 		
@@ -63,7 +65,7 @@ public class Main {
 		Category shop = new HomePage("shop");
 		//Fill with Categories. As this is a recursive function, all of the non-home-page categories will be created here.
 		fillCategory(shop, Constants.LIST_OF_CATEGORIES);
-		//Add the index category to the listOfCategories
+		//Add the shop category to the listOfCategories
 		listOfCategories.add(shop);
 
 		//Part 2

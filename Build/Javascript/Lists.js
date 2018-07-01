@@ -1,7 +1,7 @@
 fullSearchList = [
-['emoji',['emoji','heart','smile','emoticon','yellow','poo','poop','Gift',]],
 ['unicorn poop',['poop','emoji','unicorn','rainbow','gift','star','poo',]],
 ['mermaid poop',['poop','mermaid','sea','gift','frozen','gift','heart','poo',]],
+['emoji',['emoji','heart','smile','emoticon','yellow','poo','poop','Gift',]],
 ['foodies',['hamburger','hot','dog','taco','frank','food','gift','foodie','trio',]],
 ['sprinkle donuts',['donut','doughnut','cake','pastry','dessert','chocolate','sprinkle','Gift',]],
 ['ice popsicles',['Summer','Sun','Sunshine','Popsicle','Ice','Neopolitan','Rainbow','Picnic','Food','Gift',]],
@@ -166,9 +166,9 @@ fullSearchList = [
 
 
 extraPicList = [
-['emoji', 3,],
 ['unicorn poop', 2,],
 ['mermaid poop', 0,],
+['emoji', 3,],
 ['foodies', 0,],
 ['sprinkle donuts', 1,],
 ['ice popsicles', 2,],

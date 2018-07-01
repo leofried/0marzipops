@@ -175,7 +175,10 @@ li, ul{
 	padding: 10px 0px;
 	cursor: pointer;
 }
-
+.productInfo-suggestedPicsHeader{
+	text-align: center;
+	font-weight: bold;
+}
 
 /*/////////*/
 /* Special */
