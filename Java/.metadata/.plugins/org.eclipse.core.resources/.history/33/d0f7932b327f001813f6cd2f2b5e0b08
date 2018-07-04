@@ -114,18 +114,21 @@ public class Product extends Page implements Item{
 				+ "<div class='rows'><div class='small-12 column'><p class='productInfo-suggestedPicsHeader'>You Might Like</p></div></div>"
 				+ "<div class='row'><div class='small-6 columns small-centered'><div class='row'>";
 		
+		int i=0;
 		for(Product suggestedProduct : suggestedProducts){
 			suggested += "<div class='small-4 columns'><a href='" + suggestedProduct.getRawName() + ".html'>"
 						+ "<img src='../Images/Products/SQB " + suggestedProduct.getImageName() + " Marzipan Lollipops Marzipops.jpg'>"
 						+ "</img></a>"
 						+ "<p class='grid-itemName'>" + suggestedProduct.getTextName() + "</p></div>";
+			
+			i++;
 		}
 
 		//Build Picture and Description
 		write += "<div class='row productInfo' id='productInfoWrapper'>"
 				+ picture
 				+ "<div class='small-6 columns' id='productDescription'>"
-					+ "<div class='row'><div class='small-12 columns'><p class='productInfo-name'>" + getTextName() + "</p></div></div>"
+					+ "<div class='row'><div class='small-12 columns'><p class='productInfo-name'>green" + getTextName() + "</p></div></div>"
 					+ "<div class='row'><div class='small-12 columns'><p>" + getDescription() + "</p></div></div>"
 					+ "<div class='row'><div class='small-12 columns'><p>" + getAvailable() + ".</p></div></div>"
 					+ "<div class='row'>" + buyNow + "</div>"

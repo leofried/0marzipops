@@ -125,7 +125,7 @@ public class Product extends Page implements Item{
 		write += "<div class='row productInfo' id='productInfoWrapper'>"
 				+ picture
 				+ "<div class='small-6 columns' id='productDescription'>"
-					+ "<div class='row'><div class='small-12 columns'><p class='productInfo-name'>" + getTextName() + "</p></div></div>"
+					+ "<div class='row'><div class='small-12 columns'><p class='productInfo-name'>green" + getTextName() + "</p></div></div>"
 					+ "<div class='row'><div class='small-12 columns'><p>" + getDescription() + "</p></div></div>"
 					+ "<div class='row'><div class='small-12 columns'><p>" + getAvailable() + ".</p></div></div>"
 					+ "<div class='row'>" + buyNow + "</div>"
