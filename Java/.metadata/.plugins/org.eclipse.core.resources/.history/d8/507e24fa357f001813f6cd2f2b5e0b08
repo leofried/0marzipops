@@ -122,7 +122,7 @@ public abstract class Page {
 	 * @return the method that should be called when the page loads.
 	 */
 	public String getOnLoadCall(){
-		return "javascript(\"" + getTextName() + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ", " + getPageIndex() + ")";
+		return "javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ", " + getPageIndex() + ")";
 	}
 	
 	/**
