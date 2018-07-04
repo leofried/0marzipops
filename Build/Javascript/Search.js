@@ -10,7 +10,7 @@ function buildSearchPage(){
 				+ "</form></div></div>";
 
 	
-	var listOfSearchTerms = searchedTerm.split(" ");
+	var listOfSearchTerms = searchedTerm.toLowerCase().split(" ");
 
 	var listOfProducts = [];
 	
