@@ -1,4 +1,5 @@
 fullSearchList = [
+['frogs holding matzahs',['Holiday','Jewish','Passover','Pesach','Matzoh','Matzah','Matza','Matzo','Square','Seder','Food','Hostess','Gift','Frog',]],
 ['unicorn poop',['poop','emoji','unicorn','rainbow','gift','star','poo',]],
 ['mermaid poop',['poop','mermaid','sea','gift','frozen','gift','heart','poo',]],
 ['emoji',['emoji','heart','smile','emoticon','yellow','poo','poop','Gift',]],
@@ -161,11 +162,11 @@ fullSearchList = [
 ['pink and blue rattles',['baby','rattle','babies','shower','dozen','blue','pink','girl','boy','twin','Gift',]],
 ['pink baby rattles',['baby','rattle','babies','shower','dozen','pink','girl','Gift',]],
 ['number one dad',['Father','Dad','Ribbon','Large','Gift',]],
-['chinese takeout',['Chinese','Food','China','Pagoda','Chopstick','Takeout','Gift',]],
 ];
 
 
 extraPicList = [
+['frogs holding matzahs', 0,],
 ['unicorn poop', 2,],
 ['mermaid poop', 0,],
 ['emoji', 3,],
@@ -328,7 +329,6 @@ extraPicList = [
 ['pink and blue rattles', 2,],
 ['pink baby rattles', 1,],
 ['number one dad', 0,],
-['chinese takeout', 0,],
 ];
 
 
