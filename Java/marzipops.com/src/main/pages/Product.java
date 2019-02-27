@@ -82,17 +82,56 @@ public class Product extends Page implements Item{
 					+ "You can also check back later.</p>"
 					+ "</div>";
 		}
+		
+		//Suggested Products		
+		List<Product> suggestedProducts = new ArrayList<Product>();
+		
+		for(int i=0; i<3; i++){
+			for(Category category : getCategories()){
+				if(suggestedProducts.size() == 3) break;
+				if(category.getImageName().equals("EVERYTHING")) break;
+				
+				for(Item item : category.getListOfItems()){
+					Product product = (Product) item;
+					if(!suggestedProducts.contains(product) && this != product){
+						suggestedProducts.add(product);
+						break;
+					}
+					
+				}
+				
+			}
+		}
+		
+		int index = productInfoReader.getListOfCategories().size()-1;
+		Category everything = productInfoReader.getListOfCategories().get(index);
 
+		for(int i=0; i<3; i++){
+			if(suggestedProducts.size() < 3) suggestedProducts.add((Product) everything.getListOfItems().get(i));
+		}
+
+		String suggested = "<div class='row'><div class='small-12 columns'>"
+				+ "<div class='rows'><div class='small-12 column'><p class='productInfo-suggestedPicsHeader'>You Might Like</p></div></div>"
+				+ "<div class='row'><div class='small-6 columns small-centered'><div class='row'>";
+		
+		for(Product suggestedProduct : suggestedProducts){
+			suggested += "<div class='small-4 columns'><a href='" + suggestedProduct.getRawName() + ".html'>"
+						+ "<img src='../Images/Products/SQB " + suggestedProduct.getImageName() + " Marzipan Lollipops Marzipops.jpg'>"
+						+ "</img></a>"
+						+ "<p class='grid-itemName'>" + suggestedProduct.getTextName() + "</p></div>";
+		}
 
 		//Build Picture and Description
 		write += "<div class='row productInfo' id='productInfoWrapper'>"
 				+ picture
 				+ "<div class='small-6 columns' id='productDescription'>"
-				+ "<div class='row'><div class='small-12 columns'><p class='productInfo-name'>" + getTextName() + "</p></div></div>"
-				+ "<div class='row'><div class='small-12 columns'><p>" + getDescription() + "</p></div></div>"
-				+ "<div class='row'><div class='small-12 columns'><p>" + getAvailable() + ".</p></div></div>"
-				+ "<div class='row'>" + buyNow + "</div>"
+					+ "<div class='row'><div class='small-12 columns'><p class='productInfo-name'>" + getTextName() + "</p></div></div>"
+					+ "<div class='row'><div class='small-12 columns'><p>" + getDescription() + "</p></div></div>"
+					+ "<div class='row'><div class='small-12 columns'><p>" + getAvailable() + ".</p></div></div>"
+					+ "<div class='row'>" + buyNow + "</div>"
 				+ "</div>"
+				+ Constants.BLANK
+				+ suggested
 				+ "</div>" + Constants.BLANK;
 
 		return write;

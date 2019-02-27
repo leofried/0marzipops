@@ -10,7 +10,7 @@ function buildSearchPage(){
 				+ "</form></div></div>";
 
 	
-	var listOfSearchTerms = searchedTerm.split(" ");
+	var listOfSearchTerms = searchedTerm.toLowerCase().split(" ");
 
 	var listOfProducts = [];
 	
@@ -64,6 +64,16 @@ function buildGrid(location, listOfItems){
 				+ "<a href='" + location + listOfItems[i].toLowerCase() + ".html#'><img src='Images/" + location + "SQB " + listOfItems[i] + " Marzipan Lollipops Marzipops.jpg'></img></a>"
 				+ "<p class='grid-itemName'>" + listOfItems[i].toLowerCase() + "</p>"
 			+ "</div></div></div>";
+
+			if((i + 1) % 2 == 0){
+				write += "<div class='small-12 show-for-small-only columns'>&nbsp;</div>";
+			}
+			if((i + 1) % 3 == 0){
+				write += "<div class='small-12 show-for-medium-only columns'>&nbsp;</div>";
+			}
+			if((i + 1) % 4 == 0){
+				write += "<div class='small-12 show-for-large columns'>&nbsp;</div>";
+			}
 		}
 	write += "</div>";
 

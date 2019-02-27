@@ -104,6 +104,7 @@ public abstract class Page {
 				+ "<meta name='p:domain_verify' content='b556a9473bc0ff0cfd08b0608c15ffa3'/>"
 				+ "<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "Foundation/css/foundation.css'></link>"
 				+ "<link rel='stylesheet' type='text/css' href='" + getReverseLocation() + "CSS/style.css'></link>"
+				+ "<link rel='icon' type='image/png' href=" + getReverseLocation() + "'favicon.png'>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Javascript.js'></script>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Lists.js'></script>"
 				+ "<script src='" + getReverseLocation() + "Javascript/Search.js'></script>"
@@ -121,7 +122,7 @@ public abstract class Page {
 	 * @return the method that should be called when the page loads.
 	 */
 	public String getOnLoadCall(){
-		return "javascript(\"" + rawName + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ", " + getPageIndex() + ")";
+		return "javascript(\"" + getTextName() + "\", \"" + getReverseLocation() + "\", " + (pageType == PageType.PRODUCT) + ", " + getPageIndex() + ")";
 	}
 	
 	/**
